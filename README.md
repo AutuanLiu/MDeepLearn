@@ -4,6 +4,10 @@
 
 * 使用尽可能详细的注释来写代码
 * 可以通过构建 Docker 容器的方式来进行学习(免去了环境配置的麻烦， 同时支持跨平台)
+* 通过提供的 Dockerfile 进行构建，命令为
+    ```shell
+    docker build -t ml-example:latest -f Dockerfile .
+    ```
 
 ## 主要目录
 [持续更新中...]
