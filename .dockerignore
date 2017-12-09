@@ -1,0 +1,8 @@
+# Dockerfile ignore
+README.md
+.gitignore
+LICENSE
+sklearn/
+TensorFlow/
+Pytorch/
+.github/
