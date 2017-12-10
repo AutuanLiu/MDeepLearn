@@ -26,7 +26,7 @@ X, y = load_iris(return_X_y=True)
 # 这里要做一个2值分类，所以保留前100行数据
 X = X[:100]
 y = y[:100]
-
+print(X)
 # 分割数据集(0.8:0.2)
 # 为了结果的复现，设置种子(np, tf)
 seed = 5
@@ -122,7 +122,7 @@ for epoch in range(iter_num):
 plt.plot(loss_trace)
 plt.title('Cross Entropy Loss')
 plt.xlabel('epoch')
-plt.ylabel(loss)
+plt.ylabel('loss')
 plt.show()
 
 # 精确度
