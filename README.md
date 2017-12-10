@@ -38,3 +38,18 @@
 
 TensorFlow和Pytorch主要是构建深度学习框架，神经网络的，这里使用它们建立线性回归等只是说明它们可以实现这样的模型，对于机器学习
 模型应该尽可能采用 sklearn进行构造，毕竟**术业有专攻**
+
+### 参考文献
+1. [Tensorflow Machine Learning Cookbook](https://github.com/nfmcclure/tensorflow_cookbook)
+2. [scikit-learn](http://sklearn.apachecn.org/cn/0.19.0/documentation.html)
+3. [TensorFlow-Tutorials](https://github.com/golbin/TensorFlow-Tutorials)
+4. [Simple PyTorch Tutorials Zero to ALL](https://github.com/hunkim/PyTorchZeroToAll)
+5. [TensorFlow Basic Tutorial Labs](https://github.com/hunkim/DeepLearningZeroToAll)
+6. [A set of examples around pytorch](https://github.com/pytorch/examples)
+7. [pytorch中文网](https://ptorch.com/news/17.html)
+8. [PyTorch](http://pytorch.org/)
+9. [Getting Started With TensorFlow](https://www.tensorflow.org/get_started/get_started)
+10. [tensorflow-zh](https://github.com/jikexueyuanwiki/tensorflow-zh)
+11. [machine learning in Python](https://github.com/scikit-learn/scikit-learn)
+
+P.S. 这也是逼迫自己写代码，实战的一种手段吧
