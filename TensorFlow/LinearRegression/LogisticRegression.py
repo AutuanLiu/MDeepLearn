@@ -101,6 +101,7 @@ for epoch in range(iter_num):
     batch_index = np.random.choice(len(train_X), size=batch_size)
     # 用于训练的批量数据
     batch_train_X = train_X[batch_index]
+    # np.matrix()使得数据变为(len(batch_index), 1)维的数据
     batch_train_y = np.matrix(train_y[batch_index]).T
     # 开始训练
     sess.run(goal, feed_dict={data: batch_train_X, target: batch_train_y})
