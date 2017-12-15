@@ -4,21 +4,23 @@
 """
 -------------------------------------------------
    File Name：LinearRegression
-   Description :  使用diabetes数据集实现一个线性回归
+   Description :  使用 sklearn 的 iris 数据，x: 花瓣宽度 y: 花瓣长度， 大致满足 线性关系
    Email : autuanliu@163.com
    Date：2017/12/15
 """
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 import numpy as np
 from torch.autograd import Variable
-from sklearn.datasets import load_diabetes
+from sklearn.datasets import load_iris
 
-X, y = load_diabetes(return_X_y=True)
+iris = load_iris()
 
 # 将 y 统一为矩阵的形式
-y = y[:, np.newaxis]
+X = np.array([[d[3]] for d in iris.data])
+y = np.array([[d[0]] for d in iris.data])
 
 # 分割数据集
 # 为了结果的复现，设置种子
@@ -38,7 +40,7 @@ test_X, test_y = X[test_index], y[test_index]
 class MyModel(nn.Module):
     def __init__(self):
         super().__init__()
-        self.linear1 = nn.Linear(10, 1)
+        self.linear1 = nn.Linear(1, 1)
 
     def forward(self, x):
         return self.linear1(x)
@@ -69,14 +71,15 @@ def main():
         loss.backward()
         optimizer.step()
         # result
-        print('train epoch {}\n loss {}'.format(epoch + 1, loss.data))
-    print('parameters {}'.format(next(model.parameters()).data))
+        print('train epoch {} loss {}'.format(epoch + 1, loss.data[0]))
+    for name, para in model.named_parameters():
+        print(name, para.data)
 
     # test
     test_X1 = Variable(torch.from_numpy(test_X).type(dtype))
     test_y1 = Variable(torch.from_numpy(test_y).type(dtype))
-    test_predition = model(test_X1)
-    loss2 = nn.functional.mse_loss(test_predition, test_y1)
+    test_prediction = model(test_X1)
+    loss2 = F.mse_loss(test_prediction, test_y1)
     print('test loss {}'.format(loss2.data))
 
 

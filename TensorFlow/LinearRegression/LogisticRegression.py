@@ -5,8 +5,8 @@
 -------------------------------------------------
    File Name：LogisticRegression
    Description :  实现逻辑回归(分类算法)
-   逻辑回归可以将线性回归转换为一个二值(多值)分类器， 通过 sigmoid函数将线性回归的输出缩放到0~1之间，如果目标值在阈值之上则预测为1类
-   否则预测为0类
+   逻辑回归可以将线性回归转换为一个二值(多值)分类器， 通过 sigmoid函数将线性回归的输出缩放到0~1之间，
+   如果目标值在阈值之上则预测为1类, 否则预测为0类
    数据 https://archive.ics.uci.edu/ml/datasets/Iris
    Email : autuanliu@163.com
    Date：2017/12/9
@@ -24,6 +24,7 @@ import tensorflow as tf
 X, y = load_iris(return_X_y=True)
 
 # 这里要做一个2值分类，所以保留前100行数据
+# 其是线性可分的
 X = X[:100]
 y = y[:100]
 
