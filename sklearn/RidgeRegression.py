@@ -19,6 +19,7 @@ import numpy as np
 from sklearn.metrics import mean_squared_error, r2_score
 
 X, y = load_diabetes(return_X_y=True)
+
 # 将 y 统一为矩阵的形式
 y = y[:, np.newaxis]
 
