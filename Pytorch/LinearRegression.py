@@ -72,6 +72,7 @@ def main():
         optimizer.step()
         # result
         print('train epoch {} loss {}'.format(epoch + 1, loss.data[0]))
+
     for name, para in model.named_parameters():
         print(name, para.data)
 
