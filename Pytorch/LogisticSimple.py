@@ -62,7 +62,7 @@ for epoch in range(500):
     optimizer.step()
     print('train epoch {} loss {}'.format(epoch + 1, loss.data[0]))
 
-# test
+# test, 或许这里有不合理的地方
 test_prediction = model(test_X1)
 loss2 = torch.nn.functional.mse_loss(test_prediction, test_y1)
 print('test loss {}'.format(loss2.data[0]))

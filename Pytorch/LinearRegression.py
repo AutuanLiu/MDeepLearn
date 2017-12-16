@@ -55,6 +55,7 @@ dtype = torch.FloatTensor
 def main():
     # 模型实例
     model = MyModel()
+    model.train()
 
     # 损失函数，优化器
     criterion = nn.MSELoss()
@@ -76,7 +77,8 @@ def main():
     for name, para in model.named_parameters():
         print(name, para.data)
 
-    # test
+    # test, 设置mode，只在 Dropout or BatchNorm 有影响，不设也可以
+    model.eval()
     test_X1 = Variable(torch.from_numpy(test_X).type(dtype))
     test_y1 = Variable(torch.from_numpy(test_y).type(dtype))
     test_prediction = model(test_X1)
