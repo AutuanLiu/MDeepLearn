@@ -17,7 +17,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
 
-# 加载数据, 这里只使用一个特征 bp
+# 加载数据
 iris = load_iris()
 data = np.array([[d[3]] for d in iris.data])
 target = np.array([[d[0]] for d in iris.data])
