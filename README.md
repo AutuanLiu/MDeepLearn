@@ -19,7 +19,9 @@
     * 逻辑回归
 * 分类
     * SVM
-    * .
+    * RandomForest
+    * XGBoost
+    * AdaBoost
 * 聚类
     * K-means
     * .
@@ -30,6 +32,7 @@
     * CNN
     * RNN
     * LSTM
+    * DNN
     * autoEncoder
     * .
 
