@@ -9,3 +9,7 @@
    Date：2017/12/10
 """
 
+__all_ = [
+    'normalizedFunc',
+    'min_max_normalized'
+]
