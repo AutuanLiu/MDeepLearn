@@ -109,8 +109,9 @@ for epoch in range(iter_num):
     # np.matrix()使得数据变为(len(batch_index), 1)维的数据
     batch_train_y = np.matrix(train_y[batch_index]).T
     # 开始训练
-    sess.run(goal, feed_dict={data: batch_train_X, target: batch_train_y})
-    temp_loss = sess.run(loss, feed_dict={data: batch_train_X, target: batch_train_y})
+    feed = {data: batch_train_X, target: batch_train_y}
+    sess.run(goal, feed)
+    temp_loss = sess.run(loss, feed)
     # 这里要转化为矩阵形式，要和占位符的shape对应
     temp_train_acc = sess.run(accuracy, feed_dict={data: train_X, target: np.matrix(train_y).T})
     temp_test_acc = sess.run(accuracy, feed_dict={data: test_X, target: np.matrix(test_y).T})
