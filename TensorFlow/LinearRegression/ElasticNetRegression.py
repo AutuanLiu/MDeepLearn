@@ -12,9 +12,9 @@
 """
 
 import numpy as np
-from sklearn.datasets import load_iris
-from matplotlib import pyplot as plt
 import tensorflow as tf
+from matplotlib import pyplot as plt
+from sklearn.datasets import load_iris
 
 iris = load_iris()
 

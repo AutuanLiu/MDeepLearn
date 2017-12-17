@@ -11,10 +11,10 @@
    Date：2017/12/17
 """
 
-from sklearn.preprocessing import PolynomialFeatures
+import numpy as np
 from sklearn.linear_model import LinearRegression
 from sklearn.pipeline import Pipeline
-import numpy as np
+from sklearn.preprocessing import PolynomialFeatures
 
 # 使用1个特征, 500 个样本
 x = np.arange(500).reshape(500, 1)

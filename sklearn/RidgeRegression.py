@@ -9,13 +9,13 @@
    Date：2017/12/14
 """
 
-from sklearn.datasets import load_diabetes
-from sklearn.linear_model import RidgeCV
 # 用于 lasso回归
 # from sklearn.linear_model import Lasso
 # 用于贝叶斯岭回归
 # from sklearn.linear_model import BayesianRidge
 import numpy as np
+from sklearn.datasets import load_diabetes
+from sklearn.linear_model import RidgeCV
 from sklearn.metrics import mean_squared_error, r2_score
 
 X, y = load_diabetes(return_X_y=True)

@@ -11,13 +11,13 @@
    Date：2017/12/15
 """
 
+import matplotlib.pyplot as plt
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import numpy as np
-import matplotlib.pyplot as plt
-from torch.autograd import Variable
 from sklearn.datasets import load_iris
+from torch.autograd import Variable
 
 X, y = load_iris(return_X_y=True)
 

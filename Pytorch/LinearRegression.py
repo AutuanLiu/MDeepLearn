@@ -9,12 +9,12 @@
    Date：2017/12/15
 """
 
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import numpy as np
-from torch.autograd import Variable
 from sklearn.datasets import load_iris
+from torch.autograd import Variable
 
 iris = load_iris()
 

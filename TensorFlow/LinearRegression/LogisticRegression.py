@@ -12,11 +12,12 @@
    Date：2017/12/9
 """
 
-import numpy as np
-from sklearn.datasets import load_iris
-from utils.normalizedFunc import min_max_normalized
 import matplotlib.pyplot as plt
+import numpy as np
 import tensorflow as tf
+from sklearn.datasets import load_iris
+
+from utils.normalizedFunc import min_max_normalized
 
 # 获取数据
 # 返回结果是numpy的ndarray类型的数据

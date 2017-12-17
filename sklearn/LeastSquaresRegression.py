@@ -9,9 +9,9 @@
    Date：2017/12/14
 """
 
+import numpy as np
 from sklearn.datasets import load_diabetes
 from sklearn.linear_model import LinearRegression
-import numpy as np
 from sklearn.metrics import mean_squared_error, r2_score
 
 X, y = load_diabetes(return_X_y=True)

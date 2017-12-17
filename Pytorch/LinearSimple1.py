@@ -9,12 +9,12 @@
    Date：2017/12/17
 """
 
+import matplotlib.pyplot as plt
+import numpy as np
 import torch
 import torch.nn as nn
-from torch.autograd import Variable
-import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.datasets import load_iris
+from torch.autograd import Variable
 
 # 加载数据
 iris = load_iris()

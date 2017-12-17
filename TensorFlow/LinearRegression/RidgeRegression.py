@@ -10,10 +10,10 @@
    Date：2017/12/9
 """
 
-import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.datasets import load_iris
+import numpy as np
 import tensorflow as tf
+from sklearn.datasets import load_iris
 
 # 获取数据
 iris = load_iris()

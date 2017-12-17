@@ -2,10 +2,10 @@
 # 实现一个基本的最小二乘回归线性模型
 # 使用 sklearn 的 iris 数据，x: 花瓣宽度 y: 花瓣长度， 大致满足 线性关系
 
-import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.datasets import load_iris
+import numpy as np
 import tensorflow as tf
+from sklearn.datasets import load_iris
 
 # 获取原始数据
 iris = load_iris()

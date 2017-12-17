@@ -11,11 +11,11 @@
    Date：2017/12/16
 """
 
+import numpy as np
 import torch
+from sklearn.datasets import load_iris
 from torch import nn, optim
 from torch.autograd import Variable
-from sklearn.datasets import load_iris
-import numpy as np
 
 X, y = load_iris(return_X_y=True)
 
