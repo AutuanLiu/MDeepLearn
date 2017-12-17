@@ -77,13 +77,15 @@ def main():
     for name, para in model.named_parameters():
         print(name, para.data)
 
+    # weight, bias 的另一种访问方式
+    # print(model.linear1.weight.data[0, 0], model.linear1.bias.data[0])
     # test, 设置mode，只在 Dropout or BatchNorm 有影响，不设也可以
     model.eval()
     test_X1 = Variable(torch.from_numpy(test_X).type(dtype))
     test_y1 = Variable(torch.from_numpy(test_y).type(dtype))
     test_prediction = model(test_X1)
     loss2 = F.mse_loss(test_prediction, test_y1)
-    print('test loss {}'.format(loss2.data))
+    print('test loss {}'.format(loss2.data[0]))
 
 
 if __name__ == '__main__':

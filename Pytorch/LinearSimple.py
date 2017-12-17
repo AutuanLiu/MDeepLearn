@@ -78,6 +78,10 @@ for _, para in model.named_parameters():
 
 # 可视化
 plt.plot(data, param[0] * data + param[1], label='prediction')
+# or
+# weight = model.linear1.weight.data[0, 0]
+# bias = model.linear1.bias.data[0]
+# plt.plot(data, weight * data + bias, label='prediction')
 plt.plot(data, target, 'o', label='origin')
 plt.legend(loc='best')
 plt.show()

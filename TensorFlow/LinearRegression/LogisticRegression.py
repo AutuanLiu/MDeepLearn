@@ -98,8 +98,11 @@ test_acc = []
 
 # 训练模型
 for epoch in range(iter_num):
-    # 生成随机batch索引，可以重复
-    batch_index = np.random.choice(len(train_X), size=batch_size)
+    # 生成随机batch索引，不可以重复
+    # 每次生成的batch索引是不一样的
+    # 原则上应当是每个epoch都对所有样本训练一次
+    batch_index = np.random.choice(len(train_X), size=batch_size, replace=False)
+
     # 用于训练的批量数据
     batch_train_X = train_X[batch_index]
     # np.matrix()使得数据变为(len(batch_index), 1)维的数据

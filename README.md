@@ -39,7 +39,7 @@
 TensorFlow和Pytorch主要是构建深度学习框架，神经网络的，这里使用它们建立线性回归等只是说明它们可以实现这样的模型，对于机器学习
 模型应该尽可能采用 sklearn进行构造，毕竟**术业有专攻**
 
-如果你觉得这个 repository 有用，并且希望丰富这个repository的内容，欢迎PR
+如果你觉得这个 repository 有用，并且希望丰富这个repository的内容，欢迎 PR
 
 ### 参考文献
 1. [Tensorflow Machine Learning Cookbook](https://github.com/nfmcclure/tensorflow_cookbook)
@@ -57,7 +57,7 @@ TensorFlow和Pytorch主要是构建深度学习框架，神经网络的，这里
 13. [Deep-Learning-Boot-Camp](https://github.com/QuantScientist/Deep-Learning-Boot-Camp)
 14. [pytorch welcome_tutorials](https://github.com/mila-udem/welcome_tutorials)
 15. [PyTorch-Mini-Tutorials](https://github.com/vinhkhuc/PyTorch-Mini-Tutorials)
-16.[practical-pytorch](https://github.com/spro/practical-pytorch)
+16. [practical-pytorch](https://github.com/spro/practical-pytorch)
 17. [the-incredible-pytorch](https://github.com/ritchieng/the-incredible-pytorch)
 18. [pytorch-tutorial](https://github.com/yunjey/pytorch-tutorial)
 
