@@ -4,7 +4,7 @@
 """
 -------------------------------------------------
    File Name：SupportVectorRegression
-   Description :  
+   Description :  支持向量回归，速度比较快，学得 稀疏模型
    Email : autuanliu@163.com
    Date：2017/12/18
 """

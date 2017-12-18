@@ -33,23 +33,37 @@ X_trans1 = pca.fit_transform(X)
 lda = LinearDiscriminantAnalysis(n_components=2)
 X_trans2 = lda.fit_transform(X, y)
 
+# 预测测试, 对应的标签是 0, 1, 2, 1
+test = [[4.0, 3.1, 1.1, 0.1],
+        [6.7, 3.1, 4.1, 1.4],
+        [7.1, 3.2, 6.1, 1.9],
+        [6.3, 2.9, 4.2, 1.4],
+        ]
+prediction = lda.predict(test)
+print('predict result: {}'.format(prediction))
+
 # 主成分能够解释整体所占的比例，也即特征值最大的两个特征向量对应的特征
 print('first two components ratio: {}'.format(pca.explained_variance_ratio_))
 
-# 可视化, x = sepal length (cm)', y = 'sepal width (cm)'
+# 可视化
 colors = ['red', 'turquoise', 'orange']
 lw = 2
 
+plt.figure(1)
 for color, species, name in zip(colors, [0, 1, 2], target_name):
-    plt.figure(1)
     plt.scatter(X[y == species, 0], X[y == species, 1], color=color, alpha=0.8, lw=lw, label=name)
-    plt.title('origin data')
-    plt.figure(2)
+plt.title('origin data')
+plt.legend(loc='best')
+
+plt.figure(2)
+for color, species, name in zip(colors, [0, 1, 2], target_name):
     plt.scatter(X_trans1[y == species, 0], X_trans1[y == species, 1], color=color, alpha=0.8, lw=lw, label=name)
-    plt.title('PCA transformed data')
-    plt.legend(loc='best')
-    plt.figure(3)
+plt.title('PCA transformed data')
+plt.legend(loc='best')
+
+plt.figure(3)
+for color, species, name in zip(colors, [0, 1, 2], target_name):
     plt.scatter(X_trans2[y == species, 0], X_trans2[y == species, 1], color=color, alpha=0.8, lw=lw, label=name)
-    plt.title('LDA transformed data')
-    plt.legend(loc='best')
+plt.title('LDA transformed data')
+plt.legend(loc='best')
 plt.show()
