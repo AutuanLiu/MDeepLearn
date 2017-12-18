@@ -72,9 +72,9 @@ mod = tf.matmul(data, A) + b
 loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=mod, labels=target))
 
 # 定义学习率等
-learning_rate = 0.001
+learning_rate = 1e-2
 batch_size = 30
-iter_num = 1500
+iter_num = 1000
 
 # 定义优化器
 opt = tf.train.GradientDescentOptimizer(learning_rate)
