@@ -1,5 +1,9 @@
 # ML-Examples on Docker
 
+tag | status
+--- | ---
+CPU | [![Build Status][1]][2]
+
 这个库使用具体的例子来学习 [机器学习 + 深度学习]
 
 * 使用尽可能详细的注释来写代码
@@ -65,3 +69,6 @@ TensorFlow和Pytorch主要是构建深度学习框架，神经网络的，这里
 18. [pytorch-tutorial](https://github.com/yunjey/pytorch-tutorial)
 
 P.S. 这也是逼迫自己写代码，实战的一种手段吧！
+
+[1]:https://travis-ci.org/AutuanLiu/Machine-Learning-on-docker.svg?branch=master
+[2]:https://travis-ci.org/AutuanLiu/Machine-Learning-on-docker
