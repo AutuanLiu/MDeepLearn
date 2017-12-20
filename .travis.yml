@@ -4,6 +4,8 @@ python:
     - 3.6
 
 script:
+    - git clone --recursive https://github.com/pytorch/pytorch
+    - python setup.py install
     - pip install -r requirements.txt --only-binary=scipy
     - Pytorch/LinearSimple.py
     - sklearn/LeastSquaresRegression
