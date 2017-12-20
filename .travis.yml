@@ -7,19 +7,11 @@ git:
 python:
     - 3.6
 
-cache:
-    - ccache
-    - directories:
-        - $HOME/.ccache
-
-addons:
-    apt:
-        packages:
-            - curl
-
 script:
     - travis_retry pip install --upgrade pip setuptools wheel
     - travis_retry pip install -r requirements.txt --only-binary=scipy
-    - run_docker_build.sh
+    - Pytorch/LinearRegression.py
+    - sklearn/LeastSquaresRegression.py
+    - TensorFlow/LinearRegression/LeastSquaresRegression.py
 
 sudo: false
