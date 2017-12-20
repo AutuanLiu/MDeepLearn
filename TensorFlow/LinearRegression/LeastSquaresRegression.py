@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # autuanliu@163.com
 # 实现一个基本的最小二乘回归线性模型
 # 使用 sklearn 的 iris 数据，x: 花瓣宽度 y: 花瓣长度， 大致满足 线性关系
