@@ -6,7 +6,7 @@ python:
 script:
     - pip install -r requirements.txt --only-binary=scipy
     - python sklearn/LeastSquaresRegression.py
-    - python TensorFlow/LinearRegression/LeastSquaresRegression.py
+    - python TensorFlow/test.py
     - docker build -t ml-example:latest -f Dockerfile .
 
 sudo: false
