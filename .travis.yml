@@ -7,11 +7,16 @@ git:
 python:
     - 3.6
 
+addons:
+    apt:
+        packages:
+            - curl
+
 script:
-    - travis_retry pip install --upgrade pip setuptools wheel
-    - travis_retry pip install -r requirements.txt --only-binary=scipy
-    - Pytorch/LinearRegression.py
-    - sklearn/LeastSquaresRegression.py
-    - TensorFlow/LinearRegression/LeastSquaresRegression.py
+#    - travis_retry pip install --upgrade pip setuptools wheel
+#    - travis_retry pip install -r requirements.txt --only-binary=scipy
+#    - Pytorch/LinearSimple.py
+#    - sklearn/LeastSquaresRegression
+    - run_docker_build.sh
 
 sudo: false
