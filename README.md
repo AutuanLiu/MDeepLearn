@@ -1,6 +1,6 @@
 # ML-Examples on Docker
 
-tag | status
+Docker tag | status
 --- | ---
 CPU | [![Build Status][1]][2]
 GPU | [![Build Status][1]][2]

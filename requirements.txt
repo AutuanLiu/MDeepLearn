@@ -1,6 +1,6 @@
-numpy
-tensorflow
-pandas
-scikit-learn
-matplotlib
-seaborn
+# numpy
+# tensorflow
+# pandas
+# scikit-learn
+# matplotlib
+# seaborn
