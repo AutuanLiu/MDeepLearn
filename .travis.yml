@@ -9,7 +9,8 @@ script:
     - pip install -r requirements.txt --only-binary=scipy
     - pip install torchvision
     - Pytorch/LinearSimple.py
-    - sklearn/LeastSquaresRegression
+    - sklearn/LeastSquaresRegression.py
+    - TensorFlow/LinearRegression/LeastSquaresRegression.py
 
 sudo: false
 
