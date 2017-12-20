@@ -1,23 +1,12 @@
 language: python
-dist: trusty
-
-git:
-  submodules: false
 
 python:
     - 3.6
 
-addons:
-    apt:
-        packages:
-            - curl
-
 script:
-    - run_docker_build.sh
+    - pip install -r requirements.txt --only-binary=scipy
+    - Pytorch/LinearSimple.py
+    - sklearn/LeastSquaresRegression
 
 sudo: false
 
-# - travis_retry pip install --upgrade pip setuptools wheel
-# - travis_retry pip install -r requirements.txt --only-binary=scipy
-# - Pytorch/LinearSimple.py
-# - sklearn/LeastSquaresRegression
