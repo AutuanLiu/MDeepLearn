@@ -4,10 +4,11 @@ python:
     - 3.6
 
 script:
-    - pip install -r requirements.txt --only-binary=scipy
-    - python sklearn/LeastSquaresRegression.py
-    - python TensorFlow/test.py
-    - docker build -t ml-example:latest -f Dockerfile .
+#    - pip install -r requirements.txt --only-binary=scipy
+#    - python sklearn/LeastSquaresRegression.py
+#    - python TensorFlow/test.py
+    - docker image build -t ml-example:cpu -f Dockerfile .
+    - docker image build -t ml-example:gpu -f Dockerfile.gpu .
 
 sudo: false
 
