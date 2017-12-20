@@ -1,13 +1,20 @@
 language: python
 dist: trusty
+
 git:
   submodules: false
 
 python:
     - 3.6
 
+addons:
+    apt:
+        packages:
+            - curl
+
 script:
     - travis_retry pip install --upgrade pip setuptools wheel
     - travis_retry pip install -r requirements.txt --only-binary=scipy
+    - run_docker_build.sh
 
 sudo: false
