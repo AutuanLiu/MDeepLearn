@@ -4,11 +4,7 @@ python:
     - 3.6
 
 script:
-    - git clone --recursive https://github.com/pytorch/pytorch
-    - python setup.py install
     - pip install -r requirements.txt --only-binary=scipy
-    - pip install torchvision
-    - Pytorch/LinearSimple.py
     - sklearn/LeastSquaresRegression.py
     - TensorFlow/LinearRegression/LeastSquaresRegression.py
 
