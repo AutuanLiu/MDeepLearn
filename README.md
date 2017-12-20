@@ -3,24 +3,48 @@
 tag | status
 --- | ---
 CPU | [![Build Status][1]][2]
+GPU | [![Build Status][1]][2]
 
 这个库使用具体的例子来学习 [机器学习 + 深度学习]
 
-* 使用尽可能详细的注释来写代码
-* 可以通过构建 Docker 容器的方式来进行学习(免去了环境配置的麻烦， 同时支持跨平台)
-* 通过提供的 Dockerfile 进行构建，命令为
-    ```shell
-    docker build -t ml-example:latest -f Dockerfile .
-    ```
+使用尽可能详细的注释来写代码, 另外，相关的书面说明以及个人见解与总结会发布在 [website][3]
 
+## Usage
+1. 可以通过构建 Docker 容器的方式来进行学习(免去了环境配置的麻烦， 同时支持跨平台)
+    * 通过提供的 Dockerfile 进行构建，命令为
+        ```bash
+        docker build -t ml-example:latest -f Dockerfile .
+        ```
+2. 直接 pull image
+    * CPU
+        ```bash
+           docker pull machine-learning-on-docker:cpu
+         ```
+    * GPU
+        ```bash
+           docker pull machine-learning-on-docker:gpu
+        ```
+    * 运行方式
+        * 参见 [docker run][4]
+3. git clone(需要自己配置环境)
+    ```bash
+    git clone https://github.com/AutuanLiu/Machine-Learning-on-docker.git
+    cd Machine-Learning-on-docker
+    ```
+4. [download zip file][5]  
+ 
 ## 主要目录
 [持续更新中...]
 * 线性模型
     * 最小二乘回归
     * Lasso 回归
     * Ridge 回归
+    * 多项式回归
+    * 核岭回归
     * 弹性网
     * 逻辑回归
+    * LDA
+    * QDA
 * 分类
     * SVM
     * RandomForest
@@ -72,3 +96,6 @@ P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 
 [1]:https://travis-ci.org/AutuanLiu/Machine-Learning-on-docker.svg?branch=master
 [2]:https://travis-ci.org/AutuanLiu/Machine-Learning-on-docker
+[3]:https://autuanliu.github.io/
+[4]:https://github.com/AutuanLiu/ML-Docker-Env
+[5]:https://github.com/AutuanLiu/Machine-Learning-on-docker/archive/master.zip
