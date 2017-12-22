@@ -52,7 +52,7 @@ lw = 2
 
 plt.figure(1)
 for color, species, name in zip(colors, [0, 1, 2], target_name):
-    plt.scatter(X[y == species, 0], X[y == species, 1], color=color, alpha=0.8, lw=lw, label=name)
+    plt.scatter(X[y == species, 0], X[y == species, 1], color=color, alpha=0.8, linewidths=lw, label=name)
 plt.title('origin data')
 plt.legend(loc='best')
 
