@@ -13,6 +13,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
+from sklearn.ensemble import AdaBoostRegressor, RandomForestRegressor
 from sklearn.neighbors import KNeighborsRegressor, RadiusNeighborsRegressor
 from sklearn.svm import SVR
 from sklearn.tree import DecisionTreeRegressor
@@ -32,8 +33,12 @@ svr_poly = SVR(kernel='poly', C=1e3, degree=2)
 knng = KNeighborsRegressor(n_neighbors=6, weights='uniform')
 rng = RadiusNeighborsRegressor(radius=1.0, weights='uniform')
 dtr = DecisionTreeRegressor(criterion='mse')
+abr = AdaBoostRegressor(n_estimators=50)
+rfr = RandomForestRegressor(n_estimators=50)
+
 svr_rbf.fit(X, y), svr_lin.fit(X, y), svr_poly.fit(X, y)
 knng.fit(X, y), rng.fit(X, y), dtr.fit(X, y)
+abr.fit(X, y), rfr.fit(X, y)
 
 # 支持向量回归
 y_rbf = svr_rbf.predict(X)
@@ -47,13 +52,17 @@ y_rng = rng.predict(X)
 # 决策树回归
 y_dtr = dtr.predict(X)
 
+# ensemble
+y_abr = abr.predict(X)
+y_rfr = rfr.predict(X)
+
 # 结果
 sns.set(style='whitegrid')
-colors = sns.color_palette("Set2", 6)
-names = ['RBF model', 'Linear model', 'Polynomial model', 'KNR', 'RNR', 'DTR']
-data_pred = [y_rbf, y_lin, y_poly, y_knng, y_rng, y_dtr]
+colors = sns.color_palette('Set2', 8)
+names = ['RBF model', 'Linear model', 'Polynomial model', 'KNR', 'RNR', 'DTR', 'ABR', 'RFR']
+data_pred = [y_rbf, y_lin, y_poly, y_knng, y_rng, y_dtr, y_abr, y_rfr]
 plt.figure(1)
-plt.scatter(X, y, color='orange', label='data')
+plt.scatter(X, y, color='red', label='data')
 for data_y, color_i, name in zip(data_pred, colors, names):
     plt.plot(X, data_y, color=color_i, label=name)
 plt.xlabel('data')
