@@ -1,7 +1,9 @@
-'''
+"""
 Created on 1 Apr 2015
 @author: Jamie Hall
-'''
+"""
+# https://github.com/dmlc/xgboost/blob/master/demo/guide-python/sklearn_examples.py
+
 import pickle
 
 import numpy as np
