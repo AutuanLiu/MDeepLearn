@@ -52,7 +52,10 @@ GPU | [![Build Status][1]][2]
     * XGBoost
     * AdaBoost
 * imbalance learn
-    * 
+    * over-sampling
+    * under-sampling
+    * Combining over- and under-sampling
+    * Create ensemble balanced sets
 * 聚类
     * K-means
     * .
