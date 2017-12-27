@@ -39,15 +39,24 @@ test_X1 = Variable(torch.from_numpy(test_X).type(torch.FloatTensor))
 test_y1 = Variable(torch.from_numpy(test_y).type(torch.FloatTensor))
 
 # 构建模型
-model = nn.Sequential(
-    nn.Linear(4, 1),
-    nn.Sigmoid()
-)
+# model = nn.Sequential(
+#     nn.Linear(4, 1),
+#     nn.Sigmoid()
+# )
 
 # or using Sequential with add_module
 # model = nn.Sequential()
 # model.add_module('linear1', nn.Linear(4, 1))
 # model.add_module('activation', nn.Sigmoid())
+
+# 使用 OrderedDict
+from collections import OrderedDict
+
+model = nn.Sequential(OrderedDict([
+    ('linear1', nn.Linear(4, 1)),
+    ('activation', nn.Sigmoid())
+])
+)
 
 # 损失函数，优化器
 criterion = nn.BCELoss()

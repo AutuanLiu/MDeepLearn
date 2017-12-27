@@ -18,6 +18,8 @@ from sklearn.neighbors import KNeighborsRegressor, RadiusNeighborsRegressor
 from sklearn.svm import SVR
 from sklearn.tree import DecisionTreeRegressor
 
+print(__doc__)
+
 # 生成数据
 np.random.seed(0)
 X = np.sort(5 * np.random.rand(40, 1), axis=0)

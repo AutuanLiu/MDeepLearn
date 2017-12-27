@@ -48,14 +48,18 @@ GPU | [![Build Status][1]][2]
 * 分类
     * SVM
     * RandomForest
+    * Gradient Boost tree
     * XGBoost
     * AdaBoost
+* imbalance learn
+    * 
 * 聚类
     * K-means
     * .
 * 降维
     * PCA
-    * .
+    * LDA
+    * SVD
 * 神经网络
     * CNN
     * RNN
@@ -91,6 +95,7 @@ GPU | [![Build Status][1]][2]
 16. [practical-pytorch](https://github.com/spro/practical-pytorch)
 17. [the-incredible-pytorch](https://github.com/ritchieng/the-incredible-pytorch)
 18. [pytorch-tutorial](https://github.com/yunjey/pytorch-tutorial)
+19. [imbalanced-learn documentation](http://contrib.scikit-learn.org/imbalanced-learn/stable/install.html)
 
 P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 
