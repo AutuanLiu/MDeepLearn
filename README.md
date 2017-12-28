@@ -54,7 +54,7 @@ GPU | [![Build Status][1]][2]
 * imbalance learn
     * over-sampling
     * under-sampling
-    * Combining over- and under-sampling
+    * Combining over-sampling and under-sampling
     * Create ensemble balanced sets
 * 聚类
     * K-means
@@ -99,6 +99,7 @@ GPU | [![Build Status][1]][2]
 17. [the-incredible-pytorch](https://github.com/ritchieng/the-incredible-pytorch)
 18. [pytorch-tutorial](https://github.com/yunjey/pytorch-tutorial)
 19. [imbalanced-learn documentation](http://contrib.scikit-learn.org/imbalanced-learn/stable/install.html)
+20. [How to handle Imbalanced Classification Problems in machine learning?](https://www.analyticsvidhya.com/blog/2017/03/imbalanced-classification-problem/)
 
 P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 

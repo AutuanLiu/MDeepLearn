@@ -12,7 +12,7 @@
 from collections import Counter
 
 import xgboost as xgb
-from imblearn.over_sampling import SMOTE, ADASYN
+from imblearn.over_sampling import ADASYN
 from sklearn.datasets import make_classification
 from sklearn.decomposition import PCA
 from sklearn.metrics import accuracy_score
@@ -32,9 +32,9 @@ X = pca.fit_transform(X)
 print(sorted(Counter(y).items()), X.shape)
 
 # 重采样操作
-sampler = SMOTE(random_state=5, k_neighbors=5, kind='svm', m_neighbors=10)
+# sampler = SMOTE(random_state=5, k_neighbors=5, kind='svm', m_neighbors=10)
 # or
-sampler1 = ADASYN(random_state=1, n_neighbors=8)
+sampler = ADASYN(random_state=1, n_neighbors=8)
 X_resample, y_resample = sampler.fit_sample(X, y)
 # or
 # X_resample, y_resample = sampler1.fit_sample(X, y)

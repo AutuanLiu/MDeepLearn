@@ -5,9 +5,10 @@
 -------------------------------------------------
    File Name：underSampling
    Description : Cleaning under-sampling techniques
-   TTomekLinks, EditedNearestNeighbours
+   TomekLinks, EditedNearestNeighbours
    CondensedNearestNeighbour
    RepeatedEditedNearestNeighbours, AllKNN
+   NeighbourhoodCleaningRule, InstanceHardnessThreshold
    以上的方法 均不指定类别的样本个数，不保证每个类别的样本数是相同的
    Email : autuanliu@163.com
    Date：2017/12/28
@@ -44,3 +45,7 @@ for x in [sampler, sampler1, sampler2, sampler3, sampler4, sampler5, sampler6, s
     # 拟合
     y_pred = SVC().fit(X_new, y_new).predict(X)
     print(accuracy_score(y, y_pred))
+
+# 不重新采样的效果
+y_pred1 = y_pred = SVC().fit(X, y).predict(X)
+print('不重新采样的 acc: {}'.format(accuracy_score(y, y_pred)))
