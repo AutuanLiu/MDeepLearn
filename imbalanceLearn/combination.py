@@ -17,7 +17,7 @@ from collections import Counter
 import xgboost as xgb
 from imblearn.combine import SMOTEENN, SMOTETomek
 from sklearn.datasets import make_classification
-from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
 # 构造分类数据
 X, y = make_classification(n_samples=5000, n_features=2, n_informative=2,
@@ -42,6 +42,7 @@ y_pred0 = model.predict(X)
 # 混淆矩阵更清楚明了
 print('采样前 acc: {}'.format(accuracy_score(y, y_pred0)))
 print(confusion_matrix(y, y_pred0))
+print(classification_report(y, y_pred0))
 
 # 模型训练
 for sampler_instance in [sampler, sampler1]:
@@ -51,3 +52,4 @@ for sampler_instance in [sampler, sampler1]:
     y_pred = model.predict(X)
     print('acc: {}'.format(accuracy_score(y, y_pred)))
     print(confusion_matrix(y, y_pred))
+    print(classification_report(y, y_pred0))
