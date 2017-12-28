@@ -64,6 +64,8 @@ model_instance = [GradientBoostingClassifier(), AdaBoostClassifier(),
                   ]
 models = namedtuple('models', ['name', 'model'])
 
+# 其他方式：使用字典传入参数 **dict
+
 # fit
 for index in range(4):
     mod = models(model_name[index], model_instance[index])
