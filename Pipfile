@@ -1,0 +1,30 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+numpy = "*"
+tensorflow = "*"
+"344cdaf" = {file = "http://download.pytorch.org/whl/cu80/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl"}
+torchvision = "*"
+pandas = "*"
+scikit-learn = "*"
+matplotlib = "*"
+seaborn = "*"
+xgboost = "*"
+imbalanced-learn = "*"
+tensorlayer = "*"
+skorch = "*"
+
+
+[dev-packages]
+
+
+
+[requires]
+
+python_version = "3.6"
