@@ -20,6 +20,7 @@ sess = tf.InteractiveSession()
 
 # prepare data
 X_train, y_train, X_val, y_val, X_test, y_test = tl.files.load_mnist_dataset(shape=(-1, 784))
+
 # define placeholder
 x = tf.placeholder(tf.float32, shape=[None, 784], name='x')
 y_ = tf.placeholder(tf.int64, shape=[None, ], name='y_')
@@ -31,6 +32,7 @@ network = tl.layers.DenseLayer(network, 800, tf.nn.relu, name='relu1')
 network = tl.layers.DropoutLayer(network, keep=0.5, name='drop2')
 network = tl.layers.DenseLayer(network, 800, tf.nn.relu, name='relu2')
 network = tl.layers.DropoutLayer(network, keep=0.5, name='drop3')
+
 # the softmax is implemented internally in tl.cost.cross_entropy(y, y_) to
 # speed up computation, so we use identity here.
 # see tf.nn.sparse_softmax_cross_entropy_with_logits()
@@ -61,7 +63,4 @@ tl.utils.fit(sess, network, train_op, cost, X_train, y_train, x, y_,
 
 # evaluation
 tl.utils.test(sess, network, acc, X_test, y_test, x, y_, batch_size=None, cost=cost)
-
-# save the network to .npz file
-tl.files.save_npz(network.all_params, name='model.npz')
 sess.close()
