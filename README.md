@@ -86,6 +86,13 @@ GPU | [![Build Status][1]][2]
 
 如果你觉得这个 repository 有用，并且希望丰富这个repository的内容，欢迎 PR
 
+keras 相关代码完全使用 Tensorflow 作为后端, 因为 tensorflow 已经封装了 keras 所以，可以完全不用 安装 keras 而使用
+
+* Pytorch 和 keras 都是 面向对象 的神经网络编程
+* keras 相对于 tensorlayer 封装的更为抽象, tensorlayer 在封装时仍然可以和底层的 tensorflow 代码进行交互，相对比较透明
+* 纯 tensorflow 相对还是有难度的, 但是可以结合 Tensorlayer 等进行学习, 可能会比较容易(网络结构比较清晰)
+* 不过要实现自己的网络结构的话, pytorch 可能是最合适的
+
 ### 参考文献
 1. [Tensorflow Machine Learning Cookbook](https://github.com/nfmcclure/tensorflow_cookbook)
 2. [scikit-learn](http://sklearn.apachecn.org/cn/0.19.0/documentation.html)
@@ -107,6 +114,9 @@ GPU | [![Build Status][1]][2]
 18. [pytorch-tutorial](https://github.com/yunjey/pytorch-tutorial)
 19. [imbalanced-learn documentation](http://contrib.scikit-learn.org/imbalanced-learn/stable/install.html)
 20. [How to handle Imbalanced Classification Problems in machine learning?](https://www.analyticsvidhya.com/blog/2017/03/imbalanced-classification-problem/)
+21. [Understanding Neural Networks Through Deep Visualization](http://yosinski.com/deepvis)
+22. [deep-visualization-toolbox: DeepVis Toolbox](https://github.com/yosinski/deep-visualization-toolbox)
+23. [fast.ai · Making neural nets uncool again](http://www.fast.ai/)
 
 P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 

@@ -9,33 +9,55 @@
    Date：2018/1/1
 """
 
-from sklearn.cluster import (
-    KMeans, DBSCAN, SpectralClustering, Birch,
-    AffinityPropagation, MeanShift, MiniBatchKMeans
-)
-from sklearn.datasets import make_classification
-from sklearn.model_selection import train_test_split
+from collections import namedtuple
 
-# 数据获取与分割
-X, y = make_classification(n_samples=50000, n_features=10, n_informative=10, n_redundant=0,
-                           n_repeated=0, n_classes=5, n_clusters_per_class=1, flip_y=0.01,
-                           class_sep=3.0, random_state=0)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=10)
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.cluster import (
+    DBSCAN, SpectralClustering, Birch,
+    AffinityPropagation, MeanShift, estimate_bandwidth
+)
+from sklearn.datasets import make_blobs
+from sklearn.metrics import homogeneity_score
+from sklearn.preprocessing import StandardScaler
+
+# 聚类数据构造与标准化
+X, y = make_blobs(n_samples=2000, n_features=2, cluster_std=0.5,
+                  centers=3, random_state=0)
+X = StandardScaler().fit_transform(X)
+
+# 可视化
+sns.set(style='whitegrid')
+colors = sns.color_palette('Set2', 3)
+plt.figure(1)
+for color, labels in zip(colors, [0, 1, 2]):
+    plt.scatter(X[y == labels, 0], X[y == labels, 1], color=color, label='class' + str(labels))
+plt.title('origin data')
+plt.legend(loc='best')
 
 # 模型
+bandw = estimate_bandwidth(X, quantile=0.2, n_samples=500, random_state=0)
+
+# 谱聚类算法 用在这里是不合适的, 这里只是举例子
+# assign_labels='kmeans' 可以匹配更精细的数据细节, 但是可能不稳定
+# assign_labels='discretize' 策略是 100% 可以复现的, 但是它往往会产生相当规则的几何形状
 models = [
-    KMeans(n_clusters=5, random_state=0, max_iter=1000),
-    DBSCAN(),
-    SpectralClustering(),
-    Birch(),
-    AffinityPropagation(),
-    MeanShift(),
-    MiniBatchKMeans()
+    ('DDBSCAN', DBSCAN(eps=0.3, min_samples=5, metric='euclidean')),
+    ('SpectralClustering', SpectralClustering(n_clusters=3, assign_labels='discretize')),
+    ('Birch', Birch(n_clusters=3, threshold=0.5, compute_labels=True)),
+    ('AffinityPropagation', AffinityPropagation(damping=0.6, preference=50, verbose=True,
+                                                convergence_iter=50)),
+    ('MeanShift', MeanShift(bandwidth=bandw, bin_seeding=True))
 ]
 
-# 拟合
-for model in models:
-    model.fit(X_train)
+mod_tuple = namedtuple('model', ['name', 'model'])
+
+# 拟合与评估
+for i in range(len(models)):
+    mod = mod_tuple(*models[i])
     # 预测
-    # y_pred = model.predict(X_test)
-    # print('error: {}/{}'.format(np.sum(y_test != y_pred), y_test.shape[0]))
+    mod.model.fit(X)
+    y_pred = mod.model.labels_
+    print('model/score: {}/{}\n'.format(mod.name, homogeneity_score(y, y_pred)))
+
+plt.show()
