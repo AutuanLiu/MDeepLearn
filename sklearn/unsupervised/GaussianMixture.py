@@ -5,87 +5,31 @@
 -------------------------------------------------
    File Name：GaussianMixture
    Description :  高斯混合模型
+   通常用于聚类分析
    Email : autuanliu@163.com
    Date：2017/12/30
 """
 
-import itertools
-
-import matplotlib as mpl
-import matplotlib.pyplot as plt
 import numpy as np
-from scipy import linalg
-from sklearn import mixture
+from sklearn.datasets import load_iris
+from sklearn.mixture import GaussianMixture, BayesianGaussianMixture
+from sklearn.model_selection import train_test_split
 
-print(__doc__)
+# 数据集获取与分割
+X, y = load_iris(return_X_y=True)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=10)
 
-# Number of samples per component
-n_samples = 500
+# 模型
+model = GaussianMixture(n_components=3, random_state=5, max_iter=1000)
+model1 = BayesianGaussianMixture(n_components=3, random_state=0, max_iter=1000,
+                                 weight_concentration_prior=0.2)
 
-# Generate random sample, two components
-np.random.seed(0)
-C = np.array([[0., -0.1], [1.7, .4]])
-X = np.r_[np.dot(np.random.randn(n_samples, 2), C),
-          .7 * np.random.randn(n_samples, 2) + np.array([-6, 3])]
+# 训练
+model.fit(X_train)
+model1.fit(X_train)
 
-lowest_bic = np.infty
-bic = []
-n_components_range = range(1, 7)
-cv_types = ['spherical', 'tied', 'diag', 'full']
-for cv_type in cv_types:
-    for n_components in n_components_range:
-        # Fit a Gaussian mixture with EM
-        gmm = mixture.GaussianMixture(n_components=n_components,
-                                      covariance_type=cv_type)
-        gmm.fit(X)
-        bic.append(gmm.bic(X))
-        if bic[-1] < lowest_bic:
-            lowest_bic = bic[-1]
-            best_gmm = gmm
-
-bic = np.array(bic)
-color_iter = itertools.cycle(['navy', 'turquoise', 'cornflowerblue',
-                              'darkorange'])
-clf = best_gmm
-bars = []
-
-# Plot the BIC scores
-spl = plt.subplot(2, 1, 1)
-for i, (cv_type, color) in enumerate(zip(cv_types, color_iter)):
-    xpos = np.array(n_components_range) + .2 * (i - 2)
-    bars.append(plt.bar(xpos, bic[i * len(n_components_range):
-                                  (i + 1) * len(n_components_range)],
-                        width=.2, color=color))
-plt.xticks(n_components_range)
-plt.ylim([bic.min() * 1.01 - .01 * bic.max(), bic.max()])
-plt.title('BIC score per model')
-xpos = np.mod(bic.argmin(), len(n_components_range)) + .65 + \
-       .2 * np.floor(bic.argmin() / len(n_components_range))
-plt.text(xpos, bic.min() * 0.97 + .03 * bic.max(), '*', fontsize=14)
-spl.set_xlabel('Number of components')
-spl.legend([b[0] for b in bars], cv_types)
-
-# Plot the winner
-splot = plt.subplot(2, 1, 2)
-Y_ = clf.predict(X)
-for i, (mean, cov, color) in enumerate(zip(clf.means_, clf.covariances_,
-                                           color_iter)):
-    v, w = linalg.eigh(cov)
-    if not np.any(Y_ == i):
-        continue
-    plt.scatter(X[Y_ == i, 0], X[Y_ == i, 1], .8, color=color)
-
-    # Plot an ellipse to show the Gaussian component
-    angle = np.arctan2(w[0][1], w[0][0])
-    angle = 180. * angle / np.pi  # convert to degrees
-    v = 2. * np.sqrt(2.) * np.sqrt(v)
-    ell = mpl.patches.Ellipse(mean, v[0], v[1], 180. + angle, color=color)
-    ell.set_clip_box(splot.bbox)
-    ell.set_alpha(.5)
-    splot.add_artist(ell)
-
-plt.xticks(())
-plt.yticks(())
-plt.title('Selected GMM: full model, 2 components')
-plt.subplots_adjust(hspace=.35, bottom=.02)
-plt.show()
+# 预测
+y_pred = model.predict(X_test)
+y_pred1 = model1.predict(X_test)
+print('error count: {}/{}'.format(np.sum(y_test != y_pred), y_test.shape[0]))
+print('error count1: {}/{}'.format(np.sum(y_test != y_pred1), y_test.shape[0]))
