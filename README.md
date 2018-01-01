@@ -10,6 +10,7 @@ GPU | [![Build Status][1]][2]
 使用尽可能详细的注释来写代码, 另外，相关的书面说明以及个人见解与总结会发布在 [website][3]
 
 ## Usage
+
 1. 可以通过构建 Docker 容器的方式来进行学习(免去了环境配置的麻烦， 同时支持跨平台)
     * 通过提供的 Dockerfile 进行构建，命令为
         ```bash
@@ -34,7 +35,9 @@ GPU | [![Build Status][1]][2]
 4. [download zip file][5]  
  
 ## 主要目录
+
 [持续更新中...]
+
 * 线性模型
     * 最小二乘回归
     * Lasso 回归
@@ -58,7 +61,11 @@ GPU | [![Build Status][1]][2]
     * Create ensemble balanced sets
 * 聚类
     * K-means
-    * .
+    * GMM
+    * Affinity Propagation
+    * SpectralClustering
+    * DBSCAN
+    * MeanShift
 * 降维
     * PCA
     * LDA

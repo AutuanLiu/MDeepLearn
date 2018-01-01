@@ -10,8 +10,8 @@
    Date：2017/12/30
 """
 
-import numpy as np
 from sklearn.datasets import load_iris
+from sklearn.metrics import homogeneity_score
 from sklearn.mixture import GaussianMixture, BayesianGaussianMixture
 from sklearn.model_selection import train_test_split
 
@@ -31,5 +31,5 @@ model1.fit(X_train)
 # 预测
 y_pred = model.predict(X_test)
 y_pred1 = model1.predict(X_test)
-print('error count: {}/{}'.format(np.sum(y_test != y_pred), y_test.shape[0]))
-print('error count1: {}/{}'.format(np.sum(y_test != y_pred1), y_test.shape[0]))
+print(homogeneity_score(y_test, y_pred))
+print(homogeneity_score(y_test, y_pred1))

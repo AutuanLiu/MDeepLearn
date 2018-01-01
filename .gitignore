@@ -27,6 +27,9 @@ wheels/
 .vscode/
 .idea/
 
+# download datasets
+TensorLayer/data/
+
 # PKL
 sklearn/*.pkl
 XGBoost/*.pkl
