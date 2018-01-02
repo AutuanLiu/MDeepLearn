@@ -5,9 +5,9 @@ Docker tag | status
 CPU | [![Build Status][1]][2]
 GPU | [![Build Status][1]][2]
 
-这个库使用具体的例子来学习 [机器学习 + 深度学习]
+* 这个库使用具体的例子来学习 [机器学习 + 深度学习]
 
-使用尽可能详细的注释来写代码, 另外，相关的书面说明以及个人见解与总结会发布在 [website][3]
+* 使用尽可能详细的注释来写代码, 另外，相关的书面说明以及个人见解与总结会发布在 [website][3]
 
 ## Usage
 
@@ -79,19 +79,21 @@ GPU | [![Build Status][1]][2]
     * .
 
 ------
+#### 说明信息
 以上内容(不完整)都会采用 TensorFlow, Pytorch, sklearn 进行实现(进度可能有点慢, 因为我也是在学习的阶段)
 
-`TensorFlow` 和 `Pytorch` 主要是构建深度学习框架，神经网络的，这里使用它们建立线性回归等只是说明它们可以实现这样的模型，对于机器学习
-模型应该尽可能采用 `sklearn` 进行构造，毕竟**术业有专攻**
+* `TensorFlow` 和 `Pytorch` 主要是构建深度学习框架，神经网络的，这里使用它们建立线性回归等只是说明它们可以实现这样的模型
+* 对于机器学习模型应该尽可能采用 `sklearn` 进行构造，毕竟**术业有专攻**
 
-如果你觉得这个 repository 有用，并且希望丰富这个repository的内容，欢迎 PR
-
-keras 相关代码完全使用 Tensorflow 作为后端, 因为 tensorflow 已经封装了 keras 所以，可以完全不用 安装 keras 而使用
-
+------
+#### 敬告自己
+* 同一个神经网络有多种实现方式, 选一种喜欢的就好
+* keras 相关代码完全使用 Tensorflow 作为后端, 因为 tensorflow 已经封装了 keras 所以，可以完全不用 安装 keras 而使用
 * Pytorch 和 keras 都是 面向对象 的神经网络编程
 * keras 相对于 tensorlayer 封装的更为抽象, tensorlayer 在封装时仍然可以和底层的 tensorflow 代码进行交互，相对比较透明
 * 纯 tensorflow 相对还是有难度的, 但是可以结合 Tensorlayer 等进行学习, 可能会比较容易(网络结构比较清晰)
 * 不过要实现自己的网络结构的话, pytorch 可能是最合适的
+-----
 
 ### 参考文献
 1. [Tensorflow Machine Learning Cookbook](https://github.com/nfmcclure/tensorflow_cookbook)
@@ -119,6 +121,8 @@ keras 相关代码完全使用 Tensorflow 作为后端, 因为 tensorflow 已经
 23. [fast.ai · Making neural nets uncool again](http://www.fast.ai/)
 
 P.S. 这也是逼迫自己写代码，实战的一种手段吧！
+
+* 如果你觉得这个 repository 有用，并且希望丰富这个repository的内容，欢迎 PR
 
 [1]:https://travis-ci.org/AutuanLiu/Machine-Learning-on-docker.svg?branch=master
 [2]:https://travis-ci.org/AutuanLiu/Machine-Learning-on-docker
