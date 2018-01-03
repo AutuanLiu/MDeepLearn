@@ -1,0 +1,15 @@
+numpy=1.13.3
+tensorflow=1.4.0
+pandas=0.22.0
+scikit-learn=0.19.1
+matplotlib
+seaborn=0.8
+xgboost
+imbalanced-learn
+tensorlayer
+skorch
+keras
+http://download.pytorch.org/whl/cu80/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl
+torchvision
+pipenv=9.0.1
+sh

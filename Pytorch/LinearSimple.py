@@ -41,12 +41,13 @@ class MyModel(nn.Module):
 # 创建模型
 model = MyModel()
 
-# GPU, CPU, 并行等处理
-if torch.cuda.device_count() > 1:
-    model = nn.DataParallel(model)
-
 if torch.cuda.is_available():
-    model = model.cuda()
+    # GPU, CPU, 并行等处理
+    if torch.cuda.device_count() > 1:
+        model = nn.DataParallel(model)
+    else:
+        model = model.cuda()
+
     data_train = Variable(torch.from_numpy(data).type(dtype).cuda())
     target_train = Variable(torch.from_numpy(target).type(dtype).cuda())
 else:

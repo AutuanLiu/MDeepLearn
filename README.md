@@ -77,6 +77,8 @@ GPU | [![Build Status][1]][2]
     * DNN
     * autoEncoder
     * .
+* env
+    * ubuntu 一键环境配置(暂未测试)
 
 ------
 #### 说明信息

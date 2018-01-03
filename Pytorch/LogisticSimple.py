@@ -23,7 +23,7 @@ X, y = load_iris(return_X_y=True)
 X, y = X[:100], y[:100, np.newaxis]
 
 # 为了结果的复现，设置种子
-seed = 1
+seed = 5
 np.random.seed(seed)
 
 # 分割数据集
