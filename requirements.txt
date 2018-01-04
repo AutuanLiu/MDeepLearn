@@ -10,3 +10,4 @@ xgboost
 imbalanced-learn
 tensorlayer
 skorch
+pipenv==9.0.1
