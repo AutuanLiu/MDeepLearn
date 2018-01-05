@@ -13,3 +13,4 @@ keras
 pipenv>=9.0.1
 sh
 torchvision
+https://github.com/aaren/notedown/tarball/master

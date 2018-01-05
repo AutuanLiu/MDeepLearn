@@ -1,9 +1,9 @@
-numpy
-tensorflow
+numpy==1.13.3
+tensorflow>=1.4.0
 # http://download.pytorch.org/whl/cu80/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl
 # torchvision
-pandas
-scikit-learn
+pandas>=0.22.0
+scikit-learn>=0.19.1
 matplotlib
 seaborn
 xgboost
@@ -11,3 +11,4 @@ imbalanced-learn
 tensorlayer
 skorch
 pipenv==9.0.1
+https://github.com/aaren/notedown/tarball/master

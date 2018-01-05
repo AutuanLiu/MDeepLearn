@@ -7,18 +7,22 @@ name = "pypi"
 
 [packages]
 
-numpy = "*"
-tensorflow = "*"
+numpy = "==1.13.3"
+tensorflow = ">=1.4.0"
 "344cdaf" = {file = "http://download.pytorch.org/whl/cu80/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl"}
 torchvision = "*"
-pandas = "*"
-scikit-learn = "*"
+pandas = ">=0.22.0"
+scikit-learn = ">=0.19.1"
 matplotlib = "*"
-seaborn = "*"
+seaborn = "==0.8"
 xgboost = "*"
 imbalanced-learn = "*"
 tensorlayer = "*"
 skorch = "*"
+keras = "*"
+pipenv = ">=9.0.1"
+sh = "*"
+"b2b31b5" = {file = "https://github.com/aaren/notedown/tarball/master"}
 
 
 [dev-packages]
