@@ -10,11 +10,11 @@
 """
 
 from .gpu_computing import gpu
-from .normalizedFunc import min_max_normalized
+from .normalized_func import min_max_normalized
 
 __all_ = [
-    'normalizedFunc',
+    'normalized_func',
     'min_max_normalized',
     'gpu_computing',
-    'gpu',
+    'gpu'
 ]

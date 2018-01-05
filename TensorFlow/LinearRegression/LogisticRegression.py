@@ -17,7 +17,7 @@ import numpy as np
 import tensorflow as tf
 from sklearn.datasets import load_iris
 
-from utils.normalizedFunc import min_max_normalized
+from utils import min_max_normalized
 
 # 获取数据
 # 返回结果是numpy的ndarray类型的数据

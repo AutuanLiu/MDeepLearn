@@ -78,7 +78,8 @@ GPU | [![Build Status][1]][2]
     * autoEncoder
     * .
 * env
-    * ubuntu 一键环境配置(暂未测试)
+    * ubuntu 一键环境配置
+    * 云服务器同样可用
 
 ------
 #### 说明信息
@@ -98,15 +99,15 @@ GPU | [![Build Status][1]][2]
 -----
 
 ### 参考文献
-1. [Tensorflow Machine Learning Cookbook](https://github.com/nfmcclure/tensorflow_cookbook)
-2. [scikit-learn](http://sklearn.apachecn.org/cn/0.19.0/documentation.html)
-3. [TensorFlow-Tutorials](https://github.com/golbin/TensorFlow-Tutorials)
-4. [Simple PyTorch Tutorials Zero to ALL](https://github.com/hunkim/PyTorchZeroToAll)
-5. [TensorFlow Basic Tutorial Labs](https://github.com/hunkim/DeepLearningZeroToAll)
-6. [A set of examples around pytorch](https://github.com/pytorch/examples)
-7. [pytorch中文网](https://ptorch.com/news/17.html)
-8. [PyTorch](http://pytorch.org/)
-9. [Getting Started With TensorFlow](https://www.tensorflow.org/get_started/get_started)
+1.  [Tensorflow Machine Learning Cookbook](https://github.com/nfmcclure/tensorflow_cookbook)
+2.  [scikit-learn](http://sklearn.apachecn.org/cn/0.19.0/documentation.html)
+3.  [TensorFlow-Tutorials](https://github.com/golbin/TensorFlow-Tutorials)
+4.  [Simple PyTorch Tutorials Zero to ALL](https://github.com/hunkim/PyTorchZeroToAll)
+5.  [TensorFlow Basic Tutorial Labs](https://github.com/hunkim/DeepLearningZeroToAll)
+6.  [A set of examples around pytorch](https://github.com/pytorch/examples)
+7.  [pytorch中文网](https://ptorch.com/news/17.html)
+8.  [PyTorch](http://pytorch.org/)
+9.  [Getting Started With TensorFlow](https://www.tensorflow.org/get_started/get_started)
 10. [tensorflow-zh](https://github.com/jikexueyuanwiki/tensorflow-zh)
 11. [machine learning in Python](https://github.com/scikit-learn/scikit-learn)
 12. [skorch](https://github.com/dnouri/skorch)
@@ -121,6 +122,31 @@ GPU | [![Build Status][1]][2]
 21. [Understanding Neural Networks Through Deep Visualization](http://yosinski.com/deepvis)
 22. [deep-visualization-toolbox: DeepVis Toolbox](https://github.com/yosinski/deep-visualization-toolbox)
 23. [fast.ai · Making neural nets uncool again](http://www.fast.ai/)
+24. [Simplified implementations of deep learning related works](https://github.com/exacity/simplified-deeplearning)
+25. [Deep Learning Book Chinese Translation](https://github.com/exacity/deeplearningbook-chinese)
+26. [Essential Cheat Sheets for deep learning and machine learning researchers](https://github.com/kailashahirwar/cheatsheets-ai)
+
+
+### 参考书籍
+1.  《TensorFlow 机器学习实战指南》
+2.  《深度学习》(花书)
+3.  《机器学习 周志华》(西瓜书)
+4.  《The Element of Statistical Learning》
+5.  《Hands On Machine Learning with Scikit Learn and TensorFlow》
+6.  《机器学习实战》
+7.  《Tensorflow 实战Google深度学习框架》
+8.  《A guide to convolution arithmetic for deep》论文
+9.  《An Introduction to Statistical Learning》
+10. 《Convex Optimization》
+11. 《Statistical Analysis with Missing Data-Wiley-Interscience (2002)》
+12. 《TensorFlow 官方文档中文版 - v1.2》极客学院
+13. 《TensorFlow技术解析与实战.李嘉璇.2017》
+14. 《Reinforcement Learning: An Introduction》
+15. 《Pattern Recognition And Machine Learning》经典
+16. 《统计学习方法 李航》
+17. 《Machine Learning  Kevin P·Murph》
+18. 《Bayesian Reasoning and Machine Learning David Barber 》
+
 
 P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 
