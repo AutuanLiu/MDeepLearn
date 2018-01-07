@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # 用于 Ubuntu 环境配置, 当然可以用于配置 云服务器环境
 # 参考我的另一个库 https://github.com/AutuanLiu/ML-Docker-Env

@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # an example for running python scripts on terminal
 # for env test and make sure all the dependencies are available
