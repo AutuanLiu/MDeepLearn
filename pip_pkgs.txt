@@ -1,6 +1,6 @@
 setuptools
 wheel
-numpy==1.13.3
+numpy>1.13.0
 tensorflow>=1.4.0
 pandas>=0.22.0
 scikit-learn>=0.19.1
@@ -12,5 +12,5 @@ skorch
 keras
 pipenv>=9.0.1
 sh
-torchvision
-https://github.com/aaren/notedown/tarball/master
+notedown
+autoenv

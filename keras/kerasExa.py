@@ -3,18 +3,18 @@
 
 """
 -------------------------------------------------
-   File Name：tfKerasExa
-   Description :  tensorflow 封装 Keras 案例
+   File Name：kerasexa
+   Description :  Keras 案例
    https://keras.io/getting-started/sequential-model-guide/
    Email : autuanliu@163.com
    Date：2018/1/1
 """
 
 import numpy as np
-from tensorflow import keras
-from tensorflow.python.keras.layers import Dense, Dropout
-from tensorflow.python.keras.models import Sequential
-from tensorflow.python.keras.optimizers import SGD
+import keras
+from keras.layers import Dense, Dropout
+from keras.models import Sequential
+from keras.optimizers import SGD
 
 # Generate dummy data
 x_train = np.random.random((1000, 20))

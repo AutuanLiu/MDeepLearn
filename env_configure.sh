@@ -4,50 +4,55 @@
 # 参考我的另一个库 https://github.com/AutuanLiu/ML-Docker-Env
 # autuanliu@163.com
 # status: ubuntu 16.04 测试 pass
-# 请给予 sudo 权限, 复制 pip_pkg.txt 文件到同一目录
+# 复制 pip_pkg.txt 文件到同一目录
 # chmod +x env_configure.sh
-# sudo ./env_configure.sh
+# ./env_configure.sh
+
+condaDir=~/softwares/conda
 
 # MiniConda install
-wget -nv https://repo.continuum.io/miniconda/Miniconda3-4.3.27-Linux-x86_64.sh -O ~/anaconda.sh &&
-/bin/bash ~/anaconda.sh -b -p /opt/conda && rm ~/anaconda.sh &&
-export PATH=/opt/conda/bin:$PATH > /etc/profile.d/conda.sh &&
+#curl -L https://repo.continuum.io/miniconda/Miniconda3-4.3.27-Linux-x86_64.sh -o ~/anaconda.sh
+bash ~/anaconda.sh -b -p $condaDir
+#rm ~/anaconda.sh
+
+# add to path
+export PATH=$condaDir/bin:$PATH
 
 # channel set
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ &&
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/ &&
-conda config --set show_channel_urls yes &&
-
-# pip3 install
-python -m pip install --upgrade pip &&
+conda config --set show_channel_urls yes
 
 # opencv
-apt-get -qq install -y libsm6 libxext6 && pip install -q -U opencv-python &&
+sudo apt -qq install -y libsm6 libxext6 && pip install -q -U opencv-python &&
 
 # graphviz
-apt-get -qq install -y graphviz && pip install -q pydot &&
+sudo apt -qq install -y graphviz && pip install -q pydot
 
 # conda pkgs install
-conda install -y pillow scipy &&
+conda install -y pillow scipy
 
 # xgboost
-conda install -y -c conda-forge xgboost &&
+conda install -y -c conda-forge xgboost
 
 # pytorch
-conda install -y -c pytorch pytorch &&
+conda install pytorch torchvision -c pytorch
 
 # R
 conda config --system --append channels r &&
 conda install -y rpy2=2.8* r-base=3.3.2 r-irkernel=0.7* r-plyr=1.8* r-devtools=1.12* r-tidyverse=1.0* &&
 conda install -y r-shiny=0.14* r-rmarkdown=1.2* r-forecast=7.3* r-rsqlite=1.1* r-reshape2=1.4* &&
 conda install -y r-nycflights13=0.2* r-caret=6.0* r-rcurl=1.95* r-crayon=1.3* r-randomforest=4.6* &&
-conda clean -tipsy &&
+conda clean -tipsy
 
 # pip pkgs install
-pip install -r pip_pkgs.txt &&
+pip install -r ./requirements/pip_pkgs.txt
+
+# autoenv activation
+echo "source `which activate.sh`" >> ~/.bashrc
 
 # jupyter notebook
-python -m pip install jupyter &&
+python -m pip install jupyter
 
-# add to path
-export PATH=/opt/conda/bin:$PATH && bash
+# else
+echo "PATH=$condaDir/bin:$PATH" >> ~/.bashrc && bash
