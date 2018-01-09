@@ -11,9 +11,9 @@
 condaDir=~/softwares/conda
 
 # MiniConda install
-#curl -L https://repo.continuum.io/miniconda/Miniconda3-4.3.27-Linux-x86_64.sh -o ~/anaconda.sh
+curl -L https://repo.continuum.io/miniconda/Miniconda3-4.3.27-Linux-x86_64.sh -o ~/anaconda.sh
 bash ~/anaconda.sh -b -p $condaDir
-#rm ~/anaconda.sh
+rm ~/anaconda.sh
 
 # add to path
 export PATH=$condaDir/bin:$PATH
@@ -46,7 +46,7 @@ conda install -y r-nycflights13=0.2* r-caret=6.0* r-rcurl=1.95* r-crayon=1.3* r-
 conda clean -tipsy
 
 # pip pkgs install
-pip install -r ./requirements/pip_pkgs.txt
+pip install -r pip_pkgs.txt
 
 # autoenv activation
 echo "source `which activate.sh`" >> ~/.bashrc
@@ -55,4 +55,4 @@ echo "source `which activate.sh`" >> ~/.bashrc
 python -m pip install jupyter
 
 # else
-echo "PATH=$condaDir/bin:$PATH" >> ~/.bashrc && bash
+echo "PATH=$condaDir/bin:$PATH" >> ~/.bashrc

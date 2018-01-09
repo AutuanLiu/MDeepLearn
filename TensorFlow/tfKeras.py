@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
@@ -9,7 +8,6 @@
    Email : autuanliu@163.com
    Date：2018/1/1
 """
-
 # Generate dummy data
 import numpy as np
 from tensorflow import keras
