@@ -80,6 +80,7 @@ GPU | [![Build Status][1]][2]
 * env
     * ubuntu 一键环境配置
     * 云服务器同样可用
+    * [Linux environment configurations](https://github.com/AutuanLiu/Alne)
 
 ------
 #### 说明信息
