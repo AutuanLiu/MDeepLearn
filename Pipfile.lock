@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "b79a8c2b3aa3cc2422d894d346524d63843ae0e94a64409221ad511c8658b660"
+            "sha256": "168b029e0af5c4ea0e633b619ae45eecd0aa6c48fbf6dc0b6b535bfdd404501b"
         },
         "host-environment-markers": {
             "implementation_name": "cpython",
@@ -58,6 +58,9 @@
                 "sha256:2d81cbbe0e73112bdfe6ef8576f2238f2ba27dd0d55752a776c41d38b7da2850"
             ],
             "version": "==1.1.6"
+        },
+        "f0b22ea": {
+            "file": "http://download.pytorch.org/whl/cpu/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl"
         },
         "html5lib": {
             "hashes": [
