@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 """
@@ -14,3 +13,5 @@ from sklearn.datasets import load_iris
 # data, 2 class
 X, y = load_iris(return_X_y=True)
 X, y = X[y != 2], y[y != 2]
+
+print(X, y)

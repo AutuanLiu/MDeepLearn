@@ -16,8 +16,8 @@ GPU | [![Build Status][1]][2]
         ```bash
         docker build -t ml-example:latest -f Dockerfile .
         ```
-2. 直接 pull image
-    * CPU
+2. 直接 pull image.
+    *CPU
         ```bash
            docker pull machine-learning-on-docker:cpu
          ```
@@ -32,8 +32,8 @@ GPU | [![Build Status][1]][2]
     git clone https://github.com/AutuanLiu/Machine-Learning-on-docker.git
     cd Machine-Learning-on-docker
     ```
-4. [download zip file][5]  
- 
+4. [download zip file][5]
+
 ## 主要目录
 
 [持续更新中...]

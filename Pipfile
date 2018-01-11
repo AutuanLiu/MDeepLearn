@@ -7,22 +7,7 @@ name = "pypi"
 
 [packages]
 
-numpy = "*"
-tensorflow = ">=1.4.0"
-pandas = ">=0.22.0"
-scikit-learn = ">=0.19.1"
-matplotlib = "*"
-seaborn = "==0.8"
-imbalanced-learn = "*"
-tensorlayer = "*"
-keras = "*"
-xgboost = "*"
 
 
 [dev-packages]
 
-
-
-[requires]
-
-python_version = "3.6"
