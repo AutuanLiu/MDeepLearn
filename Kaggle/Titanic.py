@@ -9,16 +9,17 @@
    Date：2017/12/29
 """
 
+
 class Titanic:
     def __init__(self, *args):
         pass
-    
+
     def load_data(self, *args):
         pass
 
     def model(self, *args):
         pass
-    
+
     def fit_f(self, *args):
         pass
 
@@ -28,8 +29,10 @@ class Titanic:
     def run(self, *args):
         pass
 
+
 def main():
     pass
+
 
 if __name__ == '__main__':
     main()

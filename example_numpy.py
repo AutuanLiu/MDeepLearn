@@ -300,6 +300,7 @@ class ExampleClass(object):
     def readwrite_property(self, value):
         value
 
+    @staticmethod
     def example_method(self, param1, param2):
         """Class methods are similar to regular functions.
 

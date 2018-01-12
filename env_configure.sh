@@ -12,11 +12,11 @@ condaDir=~/softwares/conda
 
 # MiniConda install
 curl -L https://repo.continuum.io/miniconda/Miniconda3-4.3.27-Linux-x86_64.sh -o ~/anaconda.sh
-bash ~/anaconda.sh -b -p $condaDir
+bash ~/anaconda.sh -b -p ${condaDir}
 rm ~/anaconda.sh
 
 # add to path
-export PATH=$condaDir/bin:$PATH
+export PATH=${condaDir}/bin:$PATH
 
 # channel set
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/ &&
