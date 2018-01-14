@@ -26,8 +26,8 @@ def one_hot(x, dim):
 
 def model_train_test(x_data, y_target, lr=0.5, epoch_num=1000):
     # model
-    X = tf.placeholder(D_type, shape=[None, n_features])
-    y = tf.placeholder(D_type, shape=[None, n_class])
+    X = tf.placeholder(data_type, shape=[None, n_features])
+    y = tf.placeholder(data_type, shape=[None, n_class])
     W = tf.Variable(initial_value=tf.zeros([n_features, n_class]))
     b = tf.Variable(initial_value=tf.zeros([n_class]))
     y1 = tf.matmul(X, W) + b
@@ -44,7 +44,7 @@ def model_train_test(x_data, y_target, lr=0.5, epoch_num=1000):
     # 返回的是索引
     y_pred_label = tf.argmax(y_pred, axis=1)
     y_label = tf.argmax(y, axis=1)
-    accuracy = tf.reduce_mean(tf.cast(tf.equal(y_pred_label, y_label), D_type))
+    accuracy = tf.reduce_mean(tf.cast(tf.equal(y_pred_label, y_label), data_type))
 
     # train
     init = tf.global_variables_initializer()
@@ -57,7 +57,7 @@ def model_train_test(x_data, y_target, lr=0.5, epoch_num=1000):
             acc_t = sess.run(accuracy, feed_dict1)
             loss_trace.append(loss_t)
             acc_trace.append(acc_t)
-            print(epoch, 'loss =', loss_t, ' acc =', acc_t)
+            print('{0:4d}, loss = {1:6f}, acc = {2:6f}'.format(epoch, loss_t, acc_t))
         print('mean acc =', np.mean(acc_trace))
     return loss_trace, acc_trace
 
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     n_samples, n_features = data.shape
     n_class = 10
     target = one_hot(target, dim=[n_samples, n_class])
-    D_type = tf.float32
+    data_type = tf.float32
     scaler = StandardScaler().fit(data)
     data = scaler.transform(data)
     data_train, data_test, target_train, target_test = train_test_split(data, target, test_size=0.3,
@@ -80,14 +80,3 @@ if __name__ == '__main__':
     plt.title('train loss and test accuracy')
     plt.legend(loc='best')
     plt.show()
-
-# numpy = "*"
-# tensorflow = ">=1.4.0"
-# pandas = ">=0.22.0"
-# scikit-learn = "==0.19.1"
-# seaborn = "==0.8"
-# imbalanced-learn = "*"
-# tensorlayer = "*"
-# keras = "*"
-# xgboost = "*"
-# matplotlib = "==2.1.1"
