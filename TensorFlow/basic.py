@@ -56,9 +56,10 @@ class model:
             for epoch in range(epoch_num):
                 sess.run(self.goal, self.feed_dict)
                 loss_t = sess.run(self.loss, self.feed_dict)
-                W_t = sess.run(self.W)
-                b_t = sess.run(self.b)
-                print(epoch, ' W_t = ', W_t, ' b_t = ', b_t, ' loss = ', loss_t)
+                W_t, b_t = sess.run((self.W, self.b))
+                # or
+                # W_t, b_t = sess.run((self.W, self.b))
+                print(epoch, ' W_t =', W_t, ' b_t =', b_t, ' loss =', loss_t)
 
 
 def main(epoch, lr=0.5):
