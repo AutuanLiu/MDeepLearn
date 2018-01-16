@@ -174,103 +174,90 @@ P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 
 ## 详细目录树
 
-* 参见 dir_tree.log
+* 参见 dir_tree.txt
+`$ tree -h -P '*.py' -I '__pycache__'`
 
 ```
 .
-├── dataset
-│   ├── iris.csv
-│   └── money.csv
-├── dir_tree.log
-├── Dockerfile
-├── Dockerfile.gpu
-├── env_configure.sh
-├── env_gpu_support.md
-├── example_numpy.py
-├── imbalanceLearn
-│   ├── combination.py
-│   ├── ensembleSamplers.py
-│   ├── NearMissUnder.py
-│   ├── pipelineUsage.py
-│   ├── prototypeGenerationUnder.py
-│   ├── randomOverSampling.py
-│   ├── syntheticOver
-│   └── underSampling.py
-├── Kaggle
-│   └── Titanic.py
-├── keras
-│   ├── kerasExa.py
-│   └── tfKerasExa.py
-├── LICENSE
-├── Pipfile
-├── Pipfile.lock
-├── pip_pkgs.txt
-├── Pytorch
-│   ├── LinearRegression.py
-│   ├── LinearSimple1.py
-│   ├── LinearSimple.py
-│   ├── Logistic.py
-│   ├── LogisticRegression.py
-│   └── LogisticSimple.py
-├── README.md
-├── sklearn
-│   ├── DecisionTreeClassifier.py
-│   ├── featureSelection.py
-│   ├── KernelRidgeRegression.py
-│   ├── LeastSquaresRegression.py
-│   ├── LinearDiscriminant.py
-│   ├── MLP.py
-│   ├── models
-│   │   ├── curves.py
-│   │   ├── features_Scale.py
-│   │   └── scoresL.py
-│   ├── NaiveBayes.py
-│   ├── NN.py
-│   ├── NonLinearSVM.py
-│   ├── PolynomialRegression.py
-│   ├── PolySimple.py
-│   ├── QuadraticDA.py
-│   ├── RandomForest.py
-│   ├── RidgeRegression.py
-│   ├── SGD.py
-│   ├── SupportVectorRegression.py
-│   ├── SVMachine.py
-│   ├── SVR1.py
-│   ├── SVR.py
-│   └── unsupervised
-│       ├── biClusteringL.py
-│       ├── clustering.py
-│       ├── decomposition.py
-│       ├── GaussianMixture.py
-│       └── kmeansL.py
-├── TensorFlow
-│   ├── basic.py
-│   ├── Classification
-│   │   └── SVM.py
-│   ├── LinearRegression
-│   │   ├── DemingRegression.py
-│   │   ├── ElasticNetRegression.py
-│   │   ├── LassoRegression.py
-│   │   ├── LeastSquaresRegression.py
-│   │   ├── LogisticRegression.py
-│   │   └── RidgeRegression.py
-│   ├── mnist_softmax.py
-│   ├── test.py
-│   └── tfKeras.py
-├── TensorLayer
-│   └── mnist_simple.py
-├── utils
-│   ├── b_exceptions.py
-│   ├── gpu_computing.py
-│   ├── __init__.py
-│   └── normalized_func.py
-└── XGBoost
-    ├── xgBoostBase2.py
-    ├── xgboostBase3.py
-    ├── xgBoostBase.py
-    └── xgboostree.py
+├── [4.0K]  dataset
+├── [9.8K]  example_numpy.py
+├── [4.0K]  imbalanceLearn
+│   ├── [1.9K]  combination.py
+│   ├── [2.0K]  ensembleSamplers.py
+│   ├── [2.8K]  NearMissUnder.py
+│   ├── [1.3K]  pipelineUsage.py
+│   ├── [2.5K]  prototypeGenerationUnder.py
+│   ├── [1.9K]  randomOverSampling.py
+│   └── [2.1K]  underSampling.py
+├── [4.0K]  Kaggle
+│   └── [ 550]  Titanic.py
+├── [4.0K]  keras
+│   ├── [1.3K]  kerasExa.py
+│   └── [1.4K]  tfKerasExa.py
+├── [4.0K]  Pytorch
+│   ├── [2.4K]  LinearRegression.py
+│   ├── [1.5K]  LinearSimple1.py
+│   ├── [2.4K]  LinearSimple.py
+│   ├── [1.4K]  Logistic.py
+│   ├── [2.8K]  LogisticRegression.py
+│   └── [2.2K]  LogisticSimple.py
+├── [4.0K]  sklearn
+│   ├── [ 465]  DecisionTreeClassifier.py
+│   ├── [ 820]  featureSelection.py
+│   ├── [1.5K]  KernelRidgeRegression.py
+│   ├── [1.3K]  LeastSquaresRegression.py
+│   ├── [2.4K]  LinearDiscriminant.py
+│   ├── [2.6K]  MLP.py
+│   ├── [4.0K]  models
+│   │   ├── [ 964]  curves.py
+│   │   ├── [1.7K]  features_Scale.py
+│   │   └── [1.9K]  scoresL.py
+│   ├── [ 524]  NaiveBayes.py
+│   ├── [ 927]  NN.py
+│   ├── [1.0K]  NonLinearSVM.py
+│   ├── [ 890]  PolynomialRegression.py
+│   ├── [ 867]  PolySimple.py
+│   ├── [1.0K]  QuadraticDA.py
+│   ├── [2.0K]  RandomForest.py
+│   ├── [1.7K]  RidgeRegression.py
+│   ├── [ 741]  SGD.py
+│   ├── [1.3K]  SupportVectorRegression.py
+│   ├── [1.1K]  SVMachine.py
+│   ├── [2.0K]  SVR1.py
+│   ├── [ 583]  SVR.py
+│   └── [4.0K]  unsupervised
+│       ├── [ 695]  biClusteringL.py
+│       ├── [2.1K]  clustering.py
+│       ├── [3.4K]  decomposition.py
+│       ├── [1.0K]  GaussianMixture.py
+│       └── [1.6K]  kmeansL.py
+├── [4.0K]  TensorFlow
+│   ├── [2.1K]  basic.py
+│   ├── [4.0K]  Classification
+│   │   └── [ 333]  SVM.py
+│   ├── [4.0K]  LinearRegression
+│   │   ├── [3.2K]  DemingRegression.py
+│   │   ├── [2.5K]  ElasticNetRegression.py
+│   │   ├── [2.7K]  LassoRegression.py
+│   │   ├── [2.9K]  LeastSquaresRegression.py
+│   │   ├── [4.5K]  LogisticRegression.py
+│   │   └── [2.6K]  RidgeRegression.py
+│   ├── [2.9K]  mnist_softmax.py
+│   ├── [2.5K]  test.py
+│   └── [1.4K]  tfKeras.py
+├── [4.0K]  TensorLayer
+│   └── [2.2K]  mnist_simple.py
+├── [4.0K]  utils
+│   ├── [1.6K]  gpu_computing.py
+│   ├── [ 385]  __init__.py
+│   └── [ 808]  normalized_func.py
+└── [4.0K]  XGBoost
+    ├── [ 793]  xgBoostBase2.py
+    ├── [ 886]  xgboostBase3.py
+    ├── [1.0K]  xgBoostBase.py
+    └── [2.4K]  xgboostree.py
 
-14 directories, 77 files
+14 directories, 63 files
 
 ```
 
