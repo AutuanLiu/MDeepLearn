@@ -12,26 +12,37 @@ GPU | [![Build Status][1]][2]
 ## Usage
 
 1. 可以通过构建 Docker 容器的方式来进行学习(免去了环境配置的麻烦， 同时支持跨平台)
+    
     * 通过提供的 Dockerfile 进行构建，命令为
+        
         ```bash
         docker build -t ml-example:latest -f Dockerfile .
         ```
-2. 直接 pull image.
-    *CPU
+        
+2. 直接 pull image
+
+    * CPU
+    
         ```bash
            docker pull machine-learning-on-docker:cpu
          ```
+         
     * GPU
+    
         ```bash
            docker pull machine-learning-on-docker:gpu
         ```
+        
     * 运行方式
         * 参见 [docker run][4]
+        
 3. git clone(需要自己配置环境)
+
     ```bash
-    git clone https://github.com/AutuanLiu/Machine-Learning-on-docker.git
-    cd Machine-Learning-on-docker
+    git clone https://github.com/AutuanLiu/MDeepLearn.git
+    cd MDeepLearn
     ```
+    
 4. [download zip file][5]
 
 ## 主要目录
@@ -84,6 +95,7 @@ GPU | [![Build Status][1]][2]
 
 ------
 #### 说明信息
+
 以上内容(不完整)都会采用 TensorFlow, Pytorch, sklearn 进行实现(进度可能有点慢, 因为我也是在学习的阶段)
 
 * `TensorFlow` 和 `Pytorch` 主要是构建深度学习框架，神经网络的，这里使用它们建立线性回归等只是说明它们可以实现这样的模型
@@ -91,15 +103,18 @@ GPU | [![Build Status][1]][2]
 
 ------
 #### 敬告自己
+
 * 同一个神经网络有多种实现方式, 选一种喜欢的就好
 * keras 相关代码完全使用 Tensorflow 作为后端, 因为 tensorflow 已经封装了 keras 所以，可以完全不用 安装 keras 而使用
 * Pytorch 和 keras 都是 面向对象 的神经网络编程
 * keras 相对于 tensorlayer 封装的更为抽象, tensorlayer 在封装时仍然可以和底层的 tensorflow 代码进行交互，相对比较透明
 * 纯 tensorflow 相对还是有难度的, 但是可以结合 Tensorlayer 等进行学习, 可能会比较容易(网络结构比较清晰)
 * 不过要实现自己的网络结构的话, pytorch 可能是最合适的
+* 尽可能全面转向 **面向对象和面向函数** 编程思维
 -----
 
 ### 参考文献
+
 1.  [Tensorflow Machine Learning Cookbook](https://github.com/nfmcclure/tensorflow_cookbook)
 2.  [scikit-learn](http://sklearn.apachecn.org/cn/0.19.0/documentation.html)
 3.  [TensorFlow-Tutorials](https://github.com/golbin/TensorFlow-Tutorials)
@@ -129,6 +144,7 @@ GPU | [![Build Status][1]][2]
 
 
 ### 参考书籍
+
 1.  《TensorFlow 机器学习实战指南》
 2.  《深度学习》(花书)
 3.  《机器学习 周志华》(西瓜书)
@@ -147,11 +163,117 @@ GPU | [![Build Status][1]][2]
 16. 《统计学习方法 李航》
 17. 《Machine Learning  Kevin P·Murph》
 18. 《Bayesian Reasoning and Machine Learning David Barber 》
+19. 《深度学习：一起玩转TensorLayer》
 
 
 P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 
 * 如果你觉得这个 repository 有用，并且希望丰富这个repository的内容，欢迎 PR
+
+
+## 详细目录树
+
+* 参见 dir_tree.log
+
+```
+.
+├── dataset
+│   ├── iris.csv
+│   └── money.csv
+├── dir_tree.log
+├── Dockerfile
+├── Dockerfile.gpu
+├── env_configure.sh
+├── env_gpu_support.md
+├── example_numpy.py
+├── imbalanceLearn
+│   ├── combination.py
+│   ├── ensembleSamplers.py
+│   ├── NearMissUnder.py
+│   ├── pipelineUsage.py
+│   ├── prototypeGenerationUnder.py
+│   ├── randomOverSampling.py
+│   ├── syntheticOver
+│   └── underSampling.py
+├── Kaggle
+│   └── Titanic.py
+├── keras
+│   ├── kerasExa.py
+│   └── tfKerasExa.py
+├── LICENSE
+├── Pipfile
+├── Pipfile.lock
+├── pip_pkgs.txt
+├── Pytorch
+│   ├── LinearRegression.py
+│   ├── LinearSimple1.py
+│   ├── LinearSimple.py
+│   ├── Logistic.py
+│   ├── LogisticRegression.py
+│   └── LogisticSimple.py
+├── README.md
+├── sklearn
+│   ├── DecisionTreeClassifier.py
+│   ├── featureSelection.py
+│   ├── KernelRidgeRegression.py
+│   ├── LeastSquaresRegression.py
+│   ├── LinearDiscriminant.py
+│   ├── MLP.py
+│   ├── models
+│   │   ├── curves.py
+│   │   ├── features_Scale.py
+│   │   └── scoresL.py
+│   ├── NaiveBayes.py
+│   ├── NN.py
+│   ├── NonLinearSVM.py
+│   ├── PolynomialRegression.py
+│   ├── PolySimple.py
+│   ├── QuadraticDA.py
+│   ├── RandomForest.py
+│   ├── RidgeRegression.py
+│   ├── SGD.py
+│   ├── SupportVectorRegression.py
+│   ├── SVMachine.py
+│   ├── SVR1.py
+│   ├── SVR.py
+│   └── unsupervised
+│       ├── biClusteringL.py
+│       ├── clustering.py
+│       ├── decomposition.py
+│       ├── GaussianMixture.py
+│       └── kmeansL.py
+├── TensorFlow
+│   ├── basic.py
+│   ├── Classification
+│   │   └── SVM.py
+│   ├── LinearRegression
+│   │   ├── DemingRegression.py
+│   │   ├── ElasticNetRegression.py
+│   │   ├── LassoRegression.py
+│   │   ├── LeastSquaresRegression.py
+│   │   ├── LogisticRegression.py
+│   │   └── RidgeRegression.py
+│   ├── mnist_softmax.py
+│   ├── test.py
+│   └── tfKeras.py
+├── TensorLayer
+│   └── mnist_simple.py
+├── utils
+│   ├── b_exceptions.py
+│   ├── gpu_computing.py
+│   ├── __init__.py
+│   └── normalized_func.py
+└── XGBoost
+    ├── xgBoostBase2.py
+    ├── xgboostBase3.py
+    ├── xgBoostBase.py
+    └── xgboostree.py
+
+14 directories, 77 files
+
+```
+
+
 
 [1]:https://travis-ci.org/AutuanLiu/Machine-Learning-on-docker.svg?branch=master
 [2]:https://travis-ci.org/AutuanLiu/Machine-Learning-on-docker

@@ -34,7 +34,7 @@ def min_max_normalized(data):
     >>> X = np.array([-2, -3, 0, -1, 2])
     >>> res = min_max_normalized(X)
     >>> print(res)
-    [ 0.2  0.   0.6  0.4  1. ]
+    [0.2 0.  0.6 0.4 1. ]
     """
     col_max = np.max(data, axis=0)
     col_min = np.min(data, axis=0)
