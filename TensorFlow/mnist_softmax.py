@@ -73,10 +73,13 @@ if __name__ == '__main__':
     data = scaler.transform(data)
     data_train, data_test, target_train, target_test = train_test_split(data, target, test_size=0.3,
                                                                         random_state=5)
-
     loss_tc, acc_tc = model_train_test([data_train, data_test], [target_train, target_test], epoch_num=1500)
-    plt.plot(loss_tc, label='train loss')
-    plt.plot(acc_tc, label='test accuracy')
-    plt.title('train loss and test accuracy')
-    plt.legend(loc='best')
+
+    # 可视化
+    plt.style.use('seaborn-whitegrid')
+    fig, ax = plt.subplots()
+    ax.plot(loss_tc, label='train loss')
+    ax.plot(acc_tc, label='test accuracy')
+    ax.set(title='train loss and test accuracy', xlabel='epoch', ylabel='scale')
+    ax.legend(loc=0).set_visible(True)
     plt.show()

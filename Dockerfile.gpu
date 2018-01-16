@@ -2,4 +2,4 @@ FROM autuanliu/ml-docker-env-gpu:latest
 
 LABEL maintainer="autuanliu <autuanliu@163.com>"
 
-COPY .
+COPY . .
