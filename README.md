@@ -276,8 +276,8 @@ P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 
 
 
-[1]:https://travis-ci.org/AutuanLiu/Machine-Learning-on-docker.svg?branch=master
-[2]:https://travis-ci.org/AutuanLiu/Machine-Learning-on-docker
+[1]:https://travis-ci.org/AutuanLiu/MDeepLearn.svg?branch=master
+[2]:https://travis-ci.org/AutuanLiu/MDeepLearn
 [3]:https://autuanliu.github.io/
 [4]:https://github.com/AutuanLiu/ML-Docker-Env
 [5]:https://github.com/AutuanLiu/Machine-Learning-on-docker/archive/master.zip
