@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：combination
@@ -12,21 +11,25 @@
    Date：2017/12/28
 """
 
-from collections import Counter
-
 import xgboost as xgb
+from collections import Counter
 from imblearn.combine import SMOTEENN, SMOTETomek
 from sklearn.datasets import make_classification
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 
 # 构造分类数据
 X, y = make_classification(
-    n_samples=5000, n_features=2, n_informative=2,
-    n_redundant=0, n_repeated=0, n_classes=3,
-    n_clusters_per_class=1, flip_y=0.01,
+    n_samples=5000,
+    n_features=2,
+    n_informative=2,
+    n_redundant=0,
+    n_repeated=0,
+    n_classes=3,
+    n_clusters_per_class=1,
+    flip_y=0.01,
     weights=[0.01, 0.05, 0.94],
-    class_sep=0.8, random_state=5
-)
+    class_sep=0.8,
+    random_state=5)
 
 # 重新采样器与模型构造
 sampler = SMOTETomek(random_state=0)

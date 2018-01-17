@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：LeastSquaresRegression
@@ -49,4 +48,3 @@ r2 = r2_score(test_y, test_pred)
 
 # 输出结果
 print('coef: {}\ninter {}\nmse {}\nr2 {}'.format(coef, inter, mse, r2))
-

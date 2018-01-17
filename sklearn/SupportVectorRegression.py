@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：SupportVectorRegression
@@ -29,9 +28,7 @@ y = np.sin(X).ravel()
 y[::step] += 3 * (0.5 - rng.rand(dim1 // step))
 
 # fit
-svr_config = {'C': [1e0, 1e1, 1e2, 1e3],
-              'gamma': np.logspace(-2, 2, num=5)
-              }
+svr_config = {'C': [1e0, 1e1, 1e2, 1e3], 'gamma': np.logspace(-2, 2, num=5)}
 
 # 实例化
 svr = SVR(kernel='rbf', gamma=0.1)

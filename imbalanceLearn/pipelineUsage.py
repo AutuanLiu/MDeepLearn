@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：pipelineUsage
@@ -18,10 +17,17 @@ from sklearn.metrics import classification_report, confusion_matrix
 from sklearn.model_selection import train_test_split
 
 # 生成数据集
-X, y = make_classification(n_features=5, n_informative=2, n_redundant=0,
-                           flip_y=0.01, n_classes=3, class_sep=1.25,
-                           n_clusters_per_class=1, weights=[0.3, 0.05],
-                           n_samples=5000, random_state=10)
+X, y = make_classification(
+    n_features=5,
+    n_informative=2,
+    n_redundant=0,
+    flip_y=0.01,
+    n_classes=3,
+    class_sep=1.25,
+    n_clusters_per_class=1,
+    weights=[0.3, 0.05],
+    n_samples=5000,
+    random_state=10)
 
 # 线性判别降维
 lda = LinearDiscriminantAnalysis(n_components=2)

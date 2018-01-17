@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：underSampling
@@ -24,9 +23,17 @@ from sklearn.metrics import accuracy_score
 from sklearn.svm import SVC
 
 # 数据集生成
-X, y = make_classification(n_samples=3000, n_features=3, flip_y=0.01, class_sep=1,
-                           n_classes=3, n_clusters_per_class=1, random_state=0,
-                           weights=[0.65, 0.3, 0.05], n_repeated=0, n_redundant=0)
+X, y = make_classification(
+    n_samples=3000,
+    n_features=3,
+    flip_y=0.01,
+    class_sep=1,
+    n_classes=3,
+    n_clusters_per_class=1,
+    random_state=0,
+    weights=[0.65, 0.3, 0.05],
+    n_repeated=0,
+    n_redundant=0)
 print('采样前: {}'.format(Counter(y).items()))
 
 # 下采样
@@ -39,7 +46,10 @@ sampler5 = OneSidedSelection(random_state=0, n_seeds_S=5)
 sampler6 = NeighbourhoodCleaningRule(random_state=0)
 sampler7 = InstanceHardnessThreshold(random_state=0, cv=10)
 
-for x in [sampler, sampler1, sampler2, sampler3, sampler4, sampler5, sampler6, sampler7]:
+for x in [
+        sampler, sampler1, sampler2, sampler3, sampler4, sampler5, sampler6,
+        sampler7
+]:
     X_new, y_new = x.fit_sample(X, y)
     print('采样后: {}'.format(Counter(y_new).items()))
     # 拟合

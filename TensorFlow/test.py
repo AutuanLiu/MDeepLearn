@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：test.py
@@ -69,7 +68,8 @@ for step in range(iter_num):
     temp_loss = sess.run(loss, feed_dict={data: train_x, target: train_y})
 
     # 输出结果
-    print('epoch: {}, A = {}, b = {}, loss = {}\n'.format(step + 1, sess.run(A), sess.run(b), temp_loss))
+    print('epoch: {}, A = {}, b = {}, loss = {}\n'.format(
+        step + 1, sess.run(A), sess.run(b), temp_loss))
 
     # 记录结果
     loss_trace.append(temp_loss)

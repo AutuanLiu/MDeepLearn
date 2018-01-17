@@ -2,7 +2,6 @@
 
 # numpy 类型的 docstrings 模板
 # from http://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html#example-google
-
 """Example NumPy style docstrings.
 
 This module demonstrates documentation as specified by the `NumPy
@@ -273,7 +272,7 @@ class ExampleClass(object):
         """
         self.attr1 = param1
         self.attr2 = param2
-        self.attr3 = param3  #: Doc comment *inline* with attribute
+        self.attr3 = param3    #: Doc comment *inline* with attribute
 
         #: list of str: Doc comment *before* attribute, with type specified
         self.attr4 = ["attr4"]

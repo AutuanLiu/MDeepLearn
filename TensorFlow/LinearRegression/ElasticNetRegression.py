@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：ElasticNetRegression
@@ -52,7 +51,8 @@ alpha2 = tf.constant(0.8)
 least_square_term = tf.reduce_mean(tf.square(target - mod))
 L1_term = tf.reduce_mean(tf.abs(A))
 L2_term = tf.reduce_mean(tf.square(A))
-temp = least_square_term + tf.multiply(alpha1, L1_term) + tf.multiply(alpha2, L2_term)
+temp = least_square_term + tf.multiply(alpha1, L1_term) + tf.multiply(
+    alpha2, L2_term)
 print(type(temp))
 loss = tf.expand_dims(temp, axis=0)
 print(type(loss))

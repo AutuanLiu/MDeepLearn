@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：Logistic
@@ -9,9 +8,8 @@
    Date：2018/1/3
 """
 
-from collections import OrderedDict
-
 import numpy as np
+from collections import OrderedDict
 from sklearn.datasets import load_iris
 from sklearn.model_selection import train_test_split
 from torch import nn, optim
@@ -25,14 +23,12 @@ X, y = load_iris(return_X_y=True)
 X, y = X[:100], y[:100, np.newaxis]
 
 # 分割数据集
-train_X, test_X, train_y, test_y = train_test_split(X, y, test_size=0.3, random_state=5)
+train_X, test_X, train_y, test_y = train_test_split(
+    X, y, test_size=0.3, random_state=5)
 
 # 使用 OrderedDict 构建模型
-model = nn.Sequential(OrderedDict([
-    ('linear1', nn.Linear(4, 1)),
-    ('activation', nn.Sigmoid())
-])
-)
+model = nn.Sequential(
+    OrderedDict([('linear1', nn.Linear(4, 1)), ('activation', nn.Sigmoid())]))
 
 # GPU 支持
 model1, train_X1, train_y1 = gpu(model, train_X, train_y)

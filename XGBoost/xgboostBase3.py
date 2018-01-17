@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：xgboostBase3
@@ -17,7 +16,8 @@ from sklearn.model_selection import train_test_split
 X, y = load_diabetes(return_X_y=True)
 
 # 分割数据集
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=1)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=1)
 
 # 训练数据
 clf = xgb.XGBRegressor()

@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：LassoRegression
@@ -72,7 +71,8 @@ for step in range(iter_num):
     sess.run(goal, feed_dict={data: train_x, target: train_y})
 
     # 输出结果
-    print('epoch: {0}, A = {1}, b = {2}'.format(step + 1, sess.run(A), sess.run(b)))
+    print('epoch: {0}, A = {1}, b = {2}'.format(step + 1, sess.run(A),
+                                                sess.run(b)))
 
 # 提取结果, A 定义的维度是(1, 1)
 [[slope]], [[intercept]] = sess.run(A), sess.run(b)

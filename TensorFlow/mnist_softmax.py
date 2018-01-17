@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：mnist_softmax
@@ -44,7 +43,8 @@ def model_train_test(x_data, y_target, lr=0.5, epoch_num=1000):
     # 返回的是索引
     y_pred_label = tf.argmax(y_pred, axis=1)
     y_label = tf.argmax(y, axis=1)
-    accuracy = tf.reduce_mean(tf.cast(tf.equal(y_pred_label, y_label), data_type))
+    accuracy = tf.reduce_mean(
+        tf.cast(tf.equal(y_pred_label, y_label), data_type))
 
     # train
     init = tf.global_variables_initializer()
@@ -57,7 +57,8 @@ def model_train_test(x_data, y_target, lr=0.5, epoch_num=1000):
             acc_t = sess.run(accuracy, feed_dict1)
             loss_trace.append(loss_t)
             acc_trace.append(acc_t)
-            print('{0:4d}, loss = {1:6f}, acc = {2:6f}'.format(epoch, loss_t, acc_t))
+            print('{0:4d}, loss = {1:6f}, acc = {2:6f}'.format(
+                epoch, loss_t, acc_t))
         print('mean acc =', np.mean(acc_trace))
     return loss_trace, acc_trace
 
@@ -71,15 +72,17 @@ if __name__ == '__main__':
     data_type = tf.float32
     scaler = StandardScaler().fit(data)
     data = scaler.transform(data)
-    data_train, data_test, target_train, target_test = train_test_split(data, target, test_size=0.3,
-                                                                        random_state=5)
-    loss_tc, acc_tc = model_train_test([data_train, data_test], [target_train, target_test], epoch_num=1500)
+    data_train, data_test, target_train, target_test = train_test_split(
+        data, target, test_size=0.3, random_state=5)
+    loss_tc, acc_tc = model_train_test(
+        [data_train, data_test], [target_train, target_test], epoch_num=1500)
 
     # 可视化
     plt.style.use('seaborn-whitegrid')
     fig, ax = plt.subplots()
     ax.plot(loss_tc, label='train loss')
     ax.plot(acc_tc, label='test accuracy')
-    ax.set(title='train loss and test accuracy', xlabel='epoch', ylabel='scale')
+    ax.set(
+        title='train loss and test accuracy', xlabel='epoch', ylabel='scale')
     ax.legend(loc=0).set_visible(True)
     plt.show()

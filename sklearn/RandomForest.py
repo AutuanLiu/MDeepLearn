@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：RandomForest
@@ -30,7 +29,8 @@ rfc = RandomForestClassifier(n_estimators=10, criterion='gini')
 etc = ExtraTreesClassifier(n_estimators=10)
 abc = AdaBoostClassifier(n_estimators=50)
 gbc = GradientBoostingClassifier(n_estimators=100)
-vcf = VotingClassifier(estimators=[('rfc', rfc), ('etc', etc), ('gbc', gbc)], voting='hard')
+vcf = VotingClassifier(
+    estimators=[('rfc', rfc), ('etc', etc), ('gbc', gbc)], voting='hard')
 gpc = GaussianProcessClassifier()
 
 dtc.fit(X, y)
@@ -50,11 +50,12 @@ scores5 = cross_val_score(vcf, X, y).mean()
 scores6 = cross_val_score(gpc, X, y).mean()
 
 # 预测测试, 对应的标签是 0, 1, 2, 1
-test = [[4.0, 3.1, 1.1, 0.1],
-        [6.7, 3.1, 4.1, 1.4],
-        [7.1, 3.2, 6.1, 1.9],
-        [6.3, 2.9, 4.2, 1.4],
-        ]
+test = [
+    [4.0, 3.1, 1.1, 0.1],
+    [6.7, 3.1, 4.1, 1.4],
+    [7.1, 3.2, 6.1, 1.9],
+    [6.3, 2.9, 4.2, 1.4],
+]
 
 y_pred0 = dtc.predict(test)
 y_pred = rfc.predict(test)
@@ -65,5 +66,6 @@ y_cvf = vcf.predict(test)
 y_gpc = gpc.predict(test)
 
 print(y_pred0, y_pred, y_pred1, y_pred2, y_pred3)
-print(scores.mean(), scores1.mean(), scores2.mean(), scores3, scores4, abc.feature_importances_)
+print(scores.mean(), scores1.mean(), scores2.mean(), scores3, scores4,
+      abc.feature_importances_)
 print(y_cvf, scores5, y_gpc, scores6)

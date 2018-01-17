@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：LogisticSimple
@@ -52,11 +51,8 @@ test_y1 = Variable(torch.from_numpy(test_y).type(torch.FloatTensor))
 # 使用 OrderedDict
 from collections import OrderedDict
 
-model = nn.Sequential(OrderedDict([
-    ('linear1', nn.Linear(4, 1)),
-    ('activation', nn.Sigmoid())
-])
-)
+model = nn.Sequential(
+    OrderedDict([('linear1', nn.Linear(4, 1)), ('activation', nn.Sigmoid())]))
 
 # 损失函数，优化器
 criterion = nn.BCELoss()

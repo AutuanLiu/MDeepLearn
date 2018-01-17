@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：LinearRegression
@@ -59,7 +58,8 @@ def main():
 
     # 损失函数，优化器
     criterion = nn.MSELoss()
-    optimizer = torch.optim.SGD(model.parameters(), lr=learning_rate, momentum=0.9)
+    optimizer = torch.optim.SGD(
+        model.parameters(), lr=learning_rate, momentum=0.9)
 
     train_X1 = Variable(torch.from_numpy(train_X).type(dtype))
     train_y1 = Variable(torch.from_numpy(train_y).type(dtype))

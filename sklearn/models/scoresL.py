@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：scoresL
@@ -15,14 +14,14 @@
 
 from sklearn.datasets import load_iris
 from sklearn.metrics import accuracy_score
-from sklearn.model_selection import (cross_val_score, train_test_split,
-                                     KFold)
+from sklearn.model_selection import (cross_val_score, train_test_split, KFold)
 from sklearn.preprocessing import StandardScaler
 from xgboost import XGBClassifier
 
 # 导入数据
 X, y = load_iris(return_X_y=True)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=0)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=0)
 
 # 模型
 model = XGBClassifier()
@@ -39,7 +38,8 @@ score1 = cross_val_score(model, X_train, y_train, cv=5)
 print('cross val score: {}'.format(score1))
 
 # 平均值与95%置信区间
-print('Train Accuracy: {0:.2f} +/- {1:.2f}'.format(score1.mean(), score1.std() * 2))
+print('Train Accuracy: {0:.2f} +/- {1:.2f}'.format(score1.mean(),
+                                                   score1.std() * 2))
 print('Test Accuracy: {0:.2f}'.format(accuracy_score(y_test, y_prediction)))
 
 # K-fold

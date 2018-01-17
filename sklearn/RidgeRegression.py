@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：RidgeRegression
@@ -63,4 +62,5 @@ mse = mean_squared_error(test_y, test_pred)
 r2 = r2_score(test_y, test_pred)
 
 # 输出结果
-print('coef: {}\ninter {}\nalpha {}\nmse {}\nr2 {}'.format(coef, inter, alp, mse, r2))
+print('coef: {}\ninter {}\nalpha {}\nmse {}\nr2 {}'.format(
+    coef, inter, alp, mse, r2))

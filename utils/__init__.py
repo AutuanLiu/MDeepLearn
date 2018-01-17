@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：__init__.py
@@ -12,9 +11,4 @@
 from .gpu_computing import gpu
 from .normalized_func import min_max_normalized
 
-__all_ = [
-    'normalized_func',
-    'min_max_normalized',
-    'gpu_computing',
-    'gpu'
-]
+__all_ = ['normalized_func', 'min_max_normalized', 'gpu_computing', 'gpu']

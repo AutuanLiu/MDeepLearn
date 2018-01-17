@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
    File Name：PolynomialRegression
@@ -17,7 +16,7 @@ from sklearn.preprocessing import PolynomialFeatures
 
 # 使用1个特征, 500 个样本
 x = np.arange(500).reshape(500, 1)
-y = 5 + x + x ** 2 + 3 * x ** 3
+y = 5 + x + x**2 + 3 * x**3
 
 # 变换
 ploy = PolynomialFeatures(degree=3)
