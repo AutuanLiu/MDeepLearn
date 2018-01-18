@@ -26,4 +26,4 @@ class Network(Module):
 
     def forward(self, x):
         y = F.softmax(x)
-        pass
+        return y
