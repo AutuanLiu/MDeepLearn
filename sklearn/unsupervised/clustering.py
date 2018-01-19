@@ -8,12 +8,11 @@
    Date：2018/1/1
 """
 
+from collections import namedtuple
+
 import matplotlib.pyplot as plt
 import seaborn as sns
-from collections import namedtuple
-from sklearn.cluster import (DBSCAN, SpectralClustering, Birch,
-                             AffinityPropagation, MeanShift,
-                             estimate_bandwidth)
+from sklearn.cluster import (AffinityPropagation, Birch, DBSCAN, MeanShift, SpectralClustering, estimate_bandwidth)
 from sklearn.datasets import make_blobs
 from sklearn.metrics import homogeneity_score
 from sklearn.preprocessing import StandardScaler
@@ -28,11 +27,7 @@ sns.set(style='whitegrid')
 colors = sns.color_palette('Set2', 3)
 plt.figure(1)
 for color, labels in zip(colors, [0, 1, 2]):
-    plt.scatter(
-        X[y == labels, 0],
-        X[y == labels, 1],
-        color=color,
-        label='class' + str(labels))
+    plt.scatter( X[y == labels, 0], X[y == labels, 1], color=color, label='class' + str(labels))
 plt.title('origin data')
 plt.legend(loc='best')
 
@@ -43,15 +38,9 @@ bandw = estimate_bandwidth(X, quantile=0.2, n_samples=500, random_state=0)
 # assign_labels='kmeans' 可以匹配更精细的数据细节, 但是可能不稳定
 # assign_labels='discretize' 策略是 100% 可以复现的, 但是它往往会产生相当规则的几何形状
 models = [('DDBSCAN', DBSCAN(eps=0.3, min_samples=5, metric='euclidean')),
-          ('SpectralClustering',
-           SpectralClustering(n_clusters=3, assign_labels='discretize')),
-          ('Birch', Birch(n_clusters=3, threshold=0.5,
-                          compute_labels=True)), ('AffinityPropagation',
-                                                  AffinityPropagation(
-                                                      damping=0.6,
-                                                      preference=50,
-                                                      verbose=True,
-                                                      convergence_iter=50)),
+          ('SpectralClustering', SpectralClustering(n_clusters=3, assign_labels='discretize')),
+          ('Birch', Birch(n_clusters=3, threshold=0.5, compute_labels=True)),
+          ('AffinityPropagation', AffinityPropagation(damping=0.6, preference=50, verbose=True, convergence_iter=50)),
           ('MeanShift', MeanShift(bandwidth=bandw, bin_seeding=True))]
 
 mod_tuple = namedtuple('model', ['name', 'model'])

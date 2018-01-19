@@ -4,6 +4,8 @@
 -------------------------------------------------
    File Name：mnist_softmax
    Description :  softmax 实现 minst 预测
+   使用了 sklearn 的 one-hot 编码
+   参考: https://ask.hellobi.com/blog/DataMiner/4897
    Email : autuanliu@163.com
    Date：18-1-13
 """
@@ -13,7 +15,7 @@ import numpy as np
 import tensorflow as tf
 from sklearn.datasets import load_digits
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 
 def one_hot(x, dim):
@@ -33,6 +35,7 @@ def model_train_test(x_data, y_target, lr=0.5, epoch_num=1000):
     y_pred = tf.nn.softmax(y1)
     # 这里要注意 求和的方向, 维度 axis 的设置
     loss = tf.reduce_mean(-tf.reduce_sum(y * tf.log(y_pred), axis=1), axis=0)
+    # softmax_cross_entropy_with_logits 已经包含 softmax , logits = y1
     # loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(labels=y, logits=y1))
     goal = tf.train.GradientDescentOptimizer(lr).minimize(loss)
     feed_dict = {X: x_data[0], y: y_target[0]}
@@ -68,7 +71,11 @@ if __name__ == '__main__':
     data, target = load_digits(return_X_y=True)
     n_samples, n_features = data.shape
     n_class = 10
-    target = one_hot(target, dim=[n_samples, n_class])
+    enc = OneHotEncoder(n_values=n_class)
+    # 输入必须是一个矩阵
+    target = enc.fit_transform(target.reshape(-1, 1)).toarray()
+    # or
+    # target = one_hot(target, dim=[n_samples, n_class])
     data_type = tf.float32
     scaler = StandardScaler().fit(data)
     data = scaler.transform(data)

@@ -1,4 +1,4 @@
-# ML-Examples on Docker
+# Machine learning and deep learning code examples
 
 Docker tag | status
 --- | ---
@@ -111,6 +111,7 @@ GPU | [![Build Status][1]][2]
 * 纯 tensorflow 相对还是有难度的, 但是可以结合 Tensorlayer 等进行学习, 可能会比较容易(网络结构比较清晰)
 * 不过要实现自己的网络结构的话, pytorch 可能是最合适的
 * 尽可能全面转向 **面向对象和面向函数** 编程思维
+* 优先使用 pytorch 实现
 -----
 
 ### 参考文献
