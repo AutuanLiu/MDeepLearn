@@ -115,14 +115,14 @@ def test_m(mod, test_data):
 # some config
 config = {
     'batch_size': 64,
-    'epoch_num': 200,
+    'epoch_num': 180,
     'lr': 0.01,
     'in_feature': 28 * 28,
     'out_feature': 10
 }
 
 # log record
-logger = Logger('./logs')
+logger = Logger('./logs/fashionMnist/')
 train_loader, test_loader = get_data(), get_data(flag=False)
 
 # criterion, optimizer define

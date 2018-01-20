@@ -19,6 +19,7 @@ xgboost = "*"
 matplotlib = "==2.0.2"
 tensorboardx = "*"
 "f0b22ea" = {file = "http://download.pytorch.org/whl/cpu/torch-0.3.0.post4-cp36-cp36m-linux_x86_64.whl"}
+visdom = "*"
 
 
 [dev-packages]
