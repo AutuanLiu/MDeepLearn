@@ -37,7 +37,7 @@ class Network(Module):
         self.l2 = nn.Linear(500, 350)
         self.l3 = nn.Linear(350, 200)
         self.l4 = nn.Linear(200, 130)
-        self.l5 = nn.Linear(130, 10)
+        self.l5 = nn.Linear(130, config['out_feature'])
 
     def forward(self, x):
         data = x.view(-1, config['in_feature'])
@@ -72,7 +72,7 @@ def test_m(mod, data_loader):
         # sum up batch loss
         test_loss += criterion(output, target).data[0]
         # get the index of the max
-        pred = output.data.max(1, keepdim=True)[1]
+        _, pred = output.data.max(1, keepdim=True)
         correct += pred.eq(target.data.view_as(pred)).cpu().sum()
 
     test_loss /= len(data_loader.dataset)
