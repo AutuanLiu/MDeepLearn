@@ -13,6 +13,7 @@
    Date：18-1-19
 """
 
+import numpy as np
 from torch import nn, optim
 from torch.autograd import Variable
 from torch.nn import Module, Sequential, functional as F
@@ -59,6 +60,7 @@ class Network(Module):
 # train function and test function
 def train_m(mod, train_data):
     mod.train()
+    loss_epoch = []
     for batch_idx, (data, target) in enumerate(train_data):
         data, target = Variable(data), Variable(target)
         optimizer.zero_grad()
@@ -71,6 +73,10 @@ def train_m(mod, train_data):
             print('epoch: {} [{:5.0f}/{} {:2.0f}%] loss: {:.6f}'.format(
                 epoch + 1, batch_idx * len(data), len(train_data.dataset),
                 100 * batch_idx / len(train_data), loss.data[0]))
+            loss_epoch.append(loss.data[0])
+
+            # loss log
+            logger.scalar_summary('loss', np.mean(loss_epoch), epoch + 1)
 
             # Log values and gradients of the parameters (histogram)
             for tag, value in mod.named_parameters():
@@ -109,7 +115,7 @@ def test_m(mod, test_data):
 # some config
 config = {
     'batch_size': 64,
-    'epoch_num': 200,
+    'epoch_num': 150,
     'lr': 0.01,
     'in_feature': 28 * 28,
     'out_feature': 10
