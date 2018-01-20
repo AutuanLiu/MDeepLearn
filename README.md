@@ -143,6 +143,7 @@ GPU | [![Build Status][1]][2]
 25. [Deep Learning Book Chinese Translation](https://github.com/exacity/deeplearningbook-chinese)
 26. [Essential Cheat Sheets for deep learning and machine learning researchers](https://github.com/kailashahirwar/cheatsheets-ai)
 27. [Practical Business Python](http://pbpython.com/)
+28. [Distill — Latest articles about machine learning](https://distill.pub/)
 
 
 ### 参考书籍

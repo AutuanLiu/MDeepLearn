@@ -48,27 +48,27 @@ class Network(Module):
         return self.l5(y)
 
 
-def train_m(model, data_loader, epoch):
-    model.train()
+def train_m(mod, data_loader):
+    mod.train()
     for batch_idx, (data, target) in enumerate(data_loader):
         data, target = Variable(data), Variable(target)
         optimizer.zero_grad()
-        output = model.forward(data)
+        output = mod.forward(data)
         loss = criterion.forward(output, target)
         loss.backward()
         optimizer.step()
         if batch_idx % 10 == 0:
             print('Train Epoch: {} [{:5d}/{} ({:2.0f}%)]\tLoss: {:.6f}'.format(
-                epoch, batch_idx * len(data), len(data_loader.dataset),
+                epoch + 1, batch_idx * len(data), len(data_loader.dataset),
                 100. * batch_idx / len(data_loader), loss.data[0]))
 
 
-def test_m(model, data_loader):
-    model.eval()
+def test_m(mod, data_loader):
+    mod.eval()
     test_loss, correct = 0, 0
     for data, target in data_loader:
         data, target = Variable(data, volatile=True), Variable(target)
-        output = model(data)
+        output = mod(data)
         # sum up batch loss
         test_loss += criterion(output, target).data[0]
         # get the index of the max
@@ -97,6 +97,6 @@ if __name__ == '__main__':
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), lr=config['lr'], momentum=0.9)
     # 训练与测试
-    for epoch in range(1, config['epoch_num']):
-        train_m(model, train_loader, epoch)
+    for epoch in range(config['epoch_num']):
+        train_m(model, train_loader)
     test_m(model, test_loader)
