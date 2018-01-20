@@ -115,7 +115,7 @@ def test_m(mod, test_data):
 # some config
 config = {
     'batch_size': 64,
-    'epoch_num': 150,
+    'epoch_num': 200,
     'lr': 0.01,
     'in_feature': 28 * 28,
     'out_feature': 10
@@ -128,7 +128,7 @@ train_loader, test_loader = get_data(), get_data(flag=False)
 # criterion, optimizer define
 model = Network()
 criterion = nn.NLLLoss()
-optimizer = optim.SGD(model.parameters(), lr=config['lr'], momentum=0.9)
+optimizer = optim.SGD(model.parameters(), lr=config['lr'])
 
 # 训练与测试
 for epoch in range(config['epoch_num']):
