@@ -57,7 +57,7 @@ if __name__ == '__main__':
     for epoch in trange(config['epoch_num']):
         epoch_loss = train_m(model, train_loader, optimizer, criterion)
         loss_trace.append(epoch_loss)
-        print('epoch: {:3d} loss: {}'.format(epoch + 1, epoch_loss))
+    print('loss: {}'.format(loss_trace))
     
     avg_loss, acc = test_m(model, test_loader, criterion)
     print('Average loss: {} Accuracy: {}'.format(avg_loss, acc))
