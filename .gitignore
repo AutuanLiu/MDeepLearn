@@ -30,6 +30,8 @@ venv/
 
 # download datasets
 TensorLayer/data/
+.datasets/Mnist/
+.datasets/fashionMnist/
 
 # PKL
 sklearn/*.pkl
@@ -51,8 +53,6 @@ htmlcov/
 .coverage
 .coverage.*
 .cache/
-.dataset/mnist/
-.dataset/fashionMnist/
 nosetests.xml
 coverage.xml
 *.cover
