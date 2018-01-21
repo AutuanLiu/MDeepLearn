@@ -32,7 +32,7 @@ class Network(Module):
         y = F.relu(self.mp(self.conv2(y)))
         y = y.view(in_size, -1)  # flatten the tensor
         y = self.fc(y)
-        return F.log_softmax(y)
+        return F.log_softmax(y, dim=1)
 
 
 if __name__ == '__main__':
