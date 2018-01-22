@@ -54,6 +54,7 @@ def gpu(model, data, target):
         # 必须重命名, 否则无效
         data_new = Variable(torch.from_numpy(data).type(_data_type).cuda())
         target_new = Variable(torch.from_numpy(target).type(_data_type1).cuda())
+        print('GPU is using!')
     else:
         data_new = Variable(torch.from_numpy(data).type(_data_type))
         target_new = Variable(torch.from_numpy(target).type(_data_type1))
@@ -99,6 +100,7 @@ def gpu_t(model, data, target):
         data_new = Variable(data.type(_data_type).cuda())
         # 某些损失函数需要 tensor.type(torch.LongTensor) 类型, 如 NLLLoss
         target_new = Variable(target.type(_data_type1).cuda())
+        print('GPU is using!')
     else:
         data_new = Variable(data.type(_data_type))
         target_new = Variable(target.type(_data_type1))
