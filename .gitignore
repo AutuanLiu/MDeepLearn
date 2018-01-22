@@ -30,8 +30,8 @@ venv/
 
 # download datasets
 TensorLayer/data/
-.datasets/Mnist/
-.datasets/fashionMnist/
+datasets/Mnist/
+datasets/fashionMnist/
 
 # PKL
 sklearn/*.pkl
