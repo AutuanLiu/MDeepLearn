@@ -25,7 +25,7 @@ def get_fashionMnist(flag=True, batch=64):
         download=flag)
     
     loader = DataLoader(
-        fashionMnist, batch_size=batch, shuffle=flag, drop_last=False, num_workers=4)
+        fashionMnist, batch_size=batch, shuffle=flag, drop_last=False, num_workers=8)
     return loader
 
 
@@ -40,5 +40,5 @@ def get_Mnist(flag=True, batch=64):
         download=flag)
     
     loader = DataLoader(
-        mnist, batch_size=batch, shuffle=flag, drop_last=False, num_workers=4)
+        mnist, batch_size=batch, shuffle=flag, drop_last=False, num_workers=8)
     return loader

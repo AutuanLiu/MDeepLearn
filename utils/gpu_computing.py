@@ -106,6 +106,6 @@ def gpu_t(model, data, target):
         print('GPU is using!')
     else:
         data_new = Variable(data.type(_data_type))
-        target_new = Variable(target.type(_data_type))
+        target_new = Variable(target.type(_data_type1))
 
     return model_new, data_new, target_new
