@@ -1,6 +1,1 @@
-# Dockerfile ignore
-README.md
-.gitignore
-LICENSE
-.github/
-.travis.yml
+/home/autuanliu/文档/github/MDeepLearn/.gitignore
