@@ -10,6 +10,8 @@
 """
 
 import numpy as np
+import torch
+torch.manual_seed(5)
 
 from utils import gpu_t
 

@@ -16,6 +16,7 @@ from torchvision.datasets import FashionMNIST, MNIST
 def get_fashionMnist(flag=True, batch=64):
     """
         获取 fashionMNIST 数据集
+        num_workers 根据电脑情况设置
     """
     fashionMnist = FashionMNIST(
         '../datasets/fashionMnist/',
@@ -24,7 +25,7 @@ def get_fashionMnist(flag=True, batch=64):
         download=flag)
     
     loader = DataLoader(
-        fashionMnist, batch_size=batch, shuffle=flag, drop_last=False)
+        fashionMnist, batch_size=batch, shuffle=flag, drop_last=False, num_workers=4)
     return loader
 
 
@@ -39,5 +40,5 @@ def get_Mnist(flag=True, batch=64):
         download=flag)
     
     loader = DataLoader(
-        mnist, batch_size=batch, shuffle=flag, drop_last=False)
+        mnist, batch_size=batch, shuffle=flag, drop_last=False, num_workers=4)
     return loader
