@@ -4,12 +4,15 @@
    File Name：getdata
    Description : 用于训练与模型评估
    暂时只考虑CPU(比较穷没有GPU)
+   GPU 没有获得测试
    Email : autuanliu@163.com
    Date：18-1-21
 """
 
 import numpy as np
-from torch.autograd import Variable
+import torch
+
+from utils import gpu_t
 
 
 # train function and test function
@@ -20,12 +23,13 @@ def train_m(mod, train_data, opt, loss_f):
     mod.train()
     loss_epoch = []
     for batch_idx, (data, target) in enumerate(train_data):
-        data, target = Variable(data), Variable(target)
+        mod1, data1, target1 = gpu_t(mod, data, target)
         # 优化器清 0 操作
         opt.zero_grad()
-        y_pred = mod.forward(data)
+        y_pred = mod1.forward(data1)
         # loss 的前向与后向传播
-        loss = loss_f.forward(y_pred, target)
+        # 某些损失函数需要 tensor.type(torch.LongTensor) 类型, 如 NLLLoss
+        loss = loss_f.forward(y_pred, target1.type(torch.LongTensor))
         loss.backward()
         # 更新模型的参数
         opt.step()
@@ -41,13 +45,13 @@ def test_m(mod, test_data, loss_f):
     mod.eval()
     test_loss, correct = 0, 0
     for data, target in test_data:
-        data, target = Variable(data, volatile=True), Variable(target)
-        output = mod(data)
+        mod1, data1, target1 = gpu_t(mod, data, target)
+        output = mod1(data1)
         # sum up batch loss
-        test_loss += loss_f(output, target).data[0]
+        test_loss += loss_f(output, target1.type(torch.LongTensor)).data[0]
         # get the index of the max
         _, pred = output.data.max(1, keepdim=True)
-        correct += pred.eq(target.data.view_as(pred)).cpu().sum()
+        correct += pred.eq(target1.data.view_as(pred)).cpu().sum()
 
     test_loss /= len(test_data.dataset)
     len1 = len(test_data.dataset)

@@ -9,12 +9,11 @@
 """
 
 import matplotlib.pyplot as plt
-from tqdm import trange
-from torch import nn, optim
-from torch.nn import Module, Sequential, functional as F
-
 from getdata import get_fashionMnist
-from train_eval import train_m, test_m
+from torch import nn, optim
+from torch.nn import Module, functional as F
+from tqdm import tqdm
+from train_eval import test_m, train_m
 
 
 # 网络结构定义
@@ -39,7 +38,7 @@ if __name__ == '__main__':
     # 配置
     config = {
         'batch_size': 64,
-        'epoch_num': 180,
+        'epoch_num': 500,
         'lr': 0.01,
     }
     
@@ -54,9 +53,11 @@ if __name__ == '__main__':
 
     # 训练与测试
     loss_trace = []
-    for epoch in trange(config['epoch_num']):
+    ppar = tqdm(range(config['epoch_num']), desc='train progressbar: ')
+    for epoch in ppar:
         epoch_loss = train_m(model, train_loader, optimizer, criterion)
         loss_trace.append(epoch_loss)
+        ppar.set_postfix_str('current epoch loss: {:.5f}'.format(epoch_loss))
     print('loss: {}'.format(loss_trace))
     
     avg_loss, acc = test_m(model, test_loader, criterion)
