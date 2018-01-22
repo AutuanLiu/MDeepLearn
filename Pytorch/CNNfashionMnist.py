@@ -38,7 +38,7 @@ if __name__ == '__main__':
     # 配置
     config = {
         'batch_size': 64,
-        'epoch_num': 500,
+        'epoch_num': 300,
         'lr': 0.01,
     }
     

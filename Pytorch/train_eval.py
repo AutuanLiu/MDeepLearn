@@ -10,7 +10,6 @@
 """
 
 import numpy as np
-import torch
 
 from utils import gpu_t
 
@@ -28,8 +27,7 @@ def train_m(mod, train_data, opt, loss_f):
         opt.zero_grad()
         y_pred = mod1.forward(data1)
         # loss 的前向与后向传播
-        # 某些损失函数需要 tensor.type(torch.LongTensor) 类型, 如 NLLLoss
-        loss = loss_f.forward(y_pred, target1.type(torch.LongTensor))
+        loss = loss_f.forward(y_pred, target1)
         loss.backward()
         # 更新模型的参数
         opt.step()
@@ -48,7 +46,7 @@ def test_m(mod, test_data, loss_f):
         mod1, data1, target1 = gpu_t(mod, data, target)
         output = mod1(data1)
         # sum up batch loss
-        test_loss += loss_f(output, target1.type(torch.LongTensor)).data[0]
+        test_loss += loss_f(output, target1).data[0]
         # get the index of the max
         _, pred = output.data.max(1, keepdim=True)
         correct += pred.eq(target1.data.view_as(pred)).cpu().sum()

@@ -115,7 +115,7 @@ def test_m(mod, test_data):
 # some config
 config = {
     'batch_size': 64,
-    'epoch_num': 180,
+    'epoch_num': 200,
     'lr': 0.01,
     'in_feature': 28 * 28,
     'out_feature': 10
