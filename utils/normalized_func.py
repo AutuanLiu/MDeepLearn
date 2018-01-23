@@ -3,7 +3,7 @@
 """
 -------------------------------------------------
    File Name：normalizedFunc
-   Description :  实现几种常用的归一化函数
+   Description :  实现几种常用的标准化函数
    Email : autuanliu@163.com
    Date：2017/12/10
 """
@@ -11,22 +11,22 @@
 import numpy as np
 
 
-# min-max 归一化
+# min-max 标准化
 # 按列
 def min_max_normalized(data):
-    """归一化
+    """标准化
 
-    最大最小值归一化
+    最大最小值标准化
 
     Parameters
     ----------
     :param data: numpy array
-        待归一化的数据
+        待标准化的数据
 
     Returns
     -------
     :return res:
-        归一化结果
+       标准化结果
 
     Examples
     --------
