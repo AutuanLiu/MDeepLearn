@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
 """
    File Name：make_dataset
    Description : 实现自定义的数据集
@@ -38,8 +37,10 @@ class DataDef(Dataset):
     def __init__(self, load_dir, row_idx, x_idx, y_idx, sep=',', dtype=np.float32):
         data = pd.read_csv(load_dir, sep=sep, dtype=dtype).values
         self.len = data.shape[0]
-        self.x_data = torch.from_numpy(data[row_idx[0]:row_idx[1], x_idx[0]:x_idx[1]])
-        self.y_data = torch.from_numpy(data[row_idx[0]:row_idx[1], y_idx[0]:y_idx[1]])
+        self.x_data = torch.from_numpy(
+            data[row_idx[0]:row_idx[1], x_idx[0]:x_idx[1]])
+        self.y_data = torch.from_numpy(
+            data[row_idx[0]:row_idx[1], y_idx[0]:y_idx[1]])
 
     def __getitem__(self, idx):
         return self.x_data[idx], self.y_data[idx]
