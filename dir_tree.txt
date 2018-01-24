@@ -1,80 +1,113 @@
 .
-├── [4.0K]  dataset
+├── [4.0K]  datasets
+│   ├── [4.0K]  fashionMnist
+│   │   ├── [4.0K]  processed
+│   │   │   ├── [7.6M]  test.pt
+│   │   │   └── [ 45M]  training.pt
+│   │   └── [4.0K]  raw
+│   │       ├── [7.5M]  t10k-images-idx3-ubyte
+│   │       ├── [9.8K]  t10k-labels-idx1-ubyte
+│   │       ├── [ 45M]  train-images-idx3-ubyte
+│   │       └── [ 59K]  train-labels-idx1-ubyte
+│   ├── [2.6K]  iris.csv
+│   └── [4.4M]  money.csv
+├── [   0]  dir_tree.txt
+├── [ 100]  Dockerfile
+├── [  99]  Dockerfile.gpu
+├── [1.7K]  env_configure.sh
+├── [ 559]  env_gpu_support.md
 ├── [9.8K]  example_numpy.py
 ├── [4.0K]  imbalanceLearn
 │   ├── [1.9K]  combination.py
 │   ├── [2.0K]  ensembleSamplers.py
-│   ├── [2.8K]  NearMissUnder.py
+│   ├── [2.9K]  NearMissUnder.py
 │   ├── [1.3K]  pipelineUsage.py
-│   ├── [2.5K]  prototypeGenerationUnder.py
+│   ├── [2.6K]  prototypeGenerationUnder.py
 │   ├── [1.9K]  randomOverSampling.py
+│   ├── [1.4K]  syntheticOver
 │   └── [2.1K]  underSampling.py
 ├── [4.0K]  Kaggle
-│   └── [ 550]  Titanic.py
+│   ├── [ 30K]  Titanic.ipynb
+│   ├── [ 549]  Titanic.py
+│   └── [ 357]  TODO.md
 ├── [4.0K]  keras
 │   ├── [1.3K]  kerasExa.py
 │   └── [1.4K]  tfKerasExa.py
+├── [ 11K]  LICENSE
+├── [ 496]  Pipfile
+├── [ 32K]  Pipfile.lock
+├── [ 205]  pip_pkgs.txt
 ├── [4.0K]  Pytorch
-│   ├── [2.4K]  LinearRegression.py
+│   ├── [1.9K]  CNNfashionMnist.py
+│   ├── [1.3K]  easy_dataset_example.py
+│   ├── [1.1K]  getdata.py
+│   ├── [2.5K]  LinearRegression.py
 │   ├── [1.5K]  LinearSimple1.py
 │   ├── [2.4K]  LinearSimple.py
 │   ├── [1.4K]  Logistic.py
 │   ├── [2.8K]  LogisticRegression.py
-│   └── [2.2K]  LogisticSimple.py
+│   ├── [2.2K]  LogisticSimple.py
+│   ├── [4.2K]  logSoftmax.py
+│   ├── [1.4K]  make_dataset.py
+│   ├── [3.1K]  softmaxMnist.py
+│   └── [1.6K]  train_eval.py
+├── [ 11K]  README.md
 ├── [4.0K]  sklearn
-│   ├── [ 465]  DecisionTreeClassifier.py
-│   ├── [ 820]  featureSelection.py
+│   ├── [ 464]  DecisionTreeClassifier.py
+│   ├── [ 819]  featureSelection.py
 │   ├── [1.5K]  KernelRidgeRegression.py
 │   ├── [1.3K]  LeastSquaresRegression.py
-│   ├── [2.4K]  LinearDiscriminant.py
-│   ├── [2.6K]  MLP.py
+│   ├── [2.5K]  LinearDiscriminant.py
+│   ├── [2.5K]  MLP.py
 │   ├── [4.0K]  models
-│   │   ├── [ 964]  curves.py
+│   │   ├── [ 963]  curves.py
 │   │   ├── [1.7K]  features_Scale.py
 │   │   └── [1.9K]  scoresL.py
-│   ├── [ 524]  NaiveBayes.py
-│   ├── [ 927]  NN.py
+│   ├── [ 523]  NaiveBayes.py
+│   ├── [ 926]  NN.py
 │   ├── [1.0K]  NonLinearSVM.py
-│   ├── [ 890]  PolynomialRegression.py
-│   ├── [ 867]  PolySimple.py
-│   ├── [1.0K]  QuadraticDA.py
+│   ├── [ 885]  PolynomialRegression.py
+│   ├── [ 843]  PolySimple.py
+│   ├── [1018]  QuadraticDA.py
 │   ├── [2.0K]  RandomForest.py
 │   ├── [1.7K]  RidgeRegression.py
-│   ├── [ 741]  SGD.py
-│   ├── [1.3K]  SupportVectorRegression.py
+│   ├── [ 740]  SGD.py
+│   ├── [1.2K]  SupportVectorRegression.py
 │   ├── [1.1K]  SVMachine.py
 │   ├── [2.0K]  SVR1.py
-│   ├── [ 583]  SVR.py
+│   ├── [ 582]  SVR.py
 │   └── [4.0K]  unsupervised
-│       ├── [ 695]  biClusteringL.py
+│       ├── [ 661]  biClusteringL.py
 │       ├── [2.1K]  clustering.py
-│       ├── [3.4K]  decomposition.py
+│       ├── [4.4K]  decomposition.py
 │       ├── [1.0K]  GaussianMixture.py
-│       └── [1.6K]  kmeansL.py
+│       └── [1.7K]  kmeansL.py
 ├── [4.0K]  TensorFlow
 │   ├── [2.1K]  basic.py
 │   ├── [4.0K]  Classification
-│   │   └── [ 333]  SVM.py
+│   │   └── [ 332]  SVM.py
 │   ├── [4.0K]  LinearRegression
 │   │   ├── [3.2K]  DemingRegression.py
 │   │   ├── [2.5K]  ElasticNetRegression.py
 │   │   ├── [2.7K]  LassoRegression.py
 │   │   ├── [2.9K]  LeastSquaresRegression.py
 │   │   ├── [4.5K]  LogisticRegression.py
-│   │   └── [2.6K]  RidgeRegression.py
-│   ├── [2.9K]  mnist_softmax.py
-│   ├── [2.5K]  test.py
+│   │   └── [2.7K]  RidgeRegression.py
+│   ├── [3.4K]  mnist_softmax.py
+│   ├── [2.6K]  test.py
 │   └── [1.4K]  tfKeras.py
 ├── [4.0K]  TensorLayer
 │   └── [2.2K]  mnist_simple.py
 ├── [4.0K]  utils
-│   ├── [1.6K]  gpu_computing.py
-│   ├── [ 385]  __init__.py
-│   └── [ 808]  normalized_func.py
+│   ├── [3.1K]  gpu_computing.py
+│   ├── [ 388]  __init__.py
+│   ├── [2.4K]  logger.py
+│   └── [ 811]  normalized_func.py
 └── [4.0K]  XGBoost
-    ├── [ 793]  xgBoostBase2.py
-    ├── [ 886]  xgboostBase3.py
-    ├── [1.0K]  xgBoostBase.py
+    ├── [106K]  best_boston.pkl
+    ├── [ 765]  xgBoostBase2.py
+    ├── [ 890]  xgboostBase3.py
+    ├── [1011]  xgBoostBase.py
     └── [2.4K]  xgboostree.py
 
-14 directories, 63 files
+17 directories, 93 files
