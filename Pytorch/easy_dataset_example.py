@@ -20,7 +20,6 @@ from torch.utils.data import DataLoader
 torch.manual_seed(4)
 # 获取数据
 iris = DataDef('../datasets/iris.csv', [0, 150], [0, 4], [4, 5])
-
 train_loader = DataLoader(
     dataset=iris, batch_size=8, shuffle=True, num_workers=2)
 
