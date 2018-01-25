@@ -178,23 +178,14 @@ P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 
 * 参见 dir_tree.txt
 
-`$ tree -h -I '__pycache__'`
+`$ tree -h -I 'Mnist|fashionMnist|__pycache__' > dir_tree.txt`
 
 ```
 .
 ├── [4.0K]  datasets
-│   ├── [4.0K]  fashionMnist
-│   │   ├── [4.0K]  processed
-│   │   │   ├── [7.6M]  test.pt
-│   │   │   └── [ 45M]  training.pt
-│   │   └── [4.0K]  raw
-│   │       ├── [7.5M]  t10k-images-idx3-ubyte
-│   │       ├── [9.8K]  t10k-labels-idx1-ubyte
-│   │       ├── [ 45M]  train-images-idx3-ubyte
-│   │       └── [ 59K]  train-labels-idx1-ubyte
 │   ├── [2.6K]  iris.csv
 │   └── [4.4M]  money.csv
-├── [3.1K]  dir_tree.txt
+├── [   0]  dir_tree.txt
 ├── [ 100]  Dockerfile
 ├── [  99]  Dockerfile.gpu
 ├── [1.7K]  env_configure.sh
@@ -210,6 +201,7 @@ P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 │   ├── [1.4K]  syntheticOver
 │   └── [2.1K]  underSampling.py
 ├── [4.0K]  Kaggle
+│   ├── [245K]  Titanic.ipynb
 │   ├── [ 549]  Titanic.py
 │   └── [ 357]  TODO.md
 ├── [4.0K]  keras
@@ -221,7 +213,7 @@ P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 ├── [ 205]  pip_pkgs.txt
 ├── [4.0K]  Pytorch
 │   ├── [1.9K]  CNNfashionMnist.py
-│   ├── [1.1K]  easy_dataset_example.py
+│   ├── [1.3K]  easy_dataset_example.py
 │   ├── [1.1K]  getdata.py
 │   ├── [2.5K]  LinearRegression.py
 │   ├── [1.5K]  LinearSimple1.py
@@ -230,10 +222,10 @@ P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 │   ├── [2.8K]  LogisticRegression.py
 │   ├── [2.2K]  LogisticSimple.py
 │   ├── [4.2K]  logSoftmax.py
-│   ├── [1.3K]  make_dataset.py
+│   ├── [1.4K]  make_dataset.py
 │   ├── [3.1K]  softmaxMnist.py
-│   └── [1.5K]  train_eval.py
-├── [6.9K]  README.md
+│   └── [1.6K]  train_eval.py
+├── [ 11K]  README.md
 ├── [4.0K]  sklearn
 │   ├── [ 464]  DecisionTreeClassifier.py
 │   ├── [ 819]  featureSelection.py
@@ -275,16 +267,16 @@ P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 │   │   ├── [2.9K]  LeastSquaresRegression.py
 │   │   ├── [4.5K]  LogisticRegression.py
 │   │   └── [2.7K]  RidgeRegression.py
-│   ├── [3.4K]  mnist_softmax.py
+│   ├── [3.6K]  mnist_softmax.py
 │   ├── [2.6K]  test.py
 │   └── [1.4K]  tfKeras.py
 ├── [4.0K]  TensorLayer
 │   └── [2.2K]  mnist_simple.py
 ├── [4.0K]  utils
-│   ├── [3.0K]  gpu_computing.py
+│   ├── [3.1K]  gpu_computing.py
 │   ├── [ 388]  __init__.py
 │   ├── [2.4K]  logger.py
-│   └── [ 807]  normalized_func.py
+│   └── [ 811]  normalized_func.py
 └── [4.0K]  XGBoost
     ├── [106K]  best_boston.pkl
     ├── [ 765]  xgBoostBase2.py
@@ -292,7 +284,7 @@ P.S. 这也是逼迫自己写代码，实战的一种手段吧！
     ├── [1011]  xgBoostBase.py
     └── [2.4K]  xgboostree.py
 
-17 directories, 93 files
+14 directories, 87 files
 
 
 ```

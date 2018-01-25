@@ -71,9 +71,14 @@ if __name__ == '__main__':
     data, target = load_digits(return_X_y=True)
     n_samples, n_features = data.shape
     n_class = 10
-    enc = OneHotEncoder(n_values=n_class)
+    enc = OneHotEncoder(n_values=n_class, sparse=False)
     # 输入必须是一个矩阵
-    target = enc.fit_transform(target.reshape(-1, 1)).toarray()
+    target = enc.fit_transform(target.reshape(-1, 1))
+    # or
+    # enc = OneHotEncoder(n_values=n_class)
+    # # 输入必须是一个矩阵
+    # target = enc.fit_transform(target.reshape(-1, 1)).toarray()
+    print(target)
     # or
     # target = one_hot(target, dim=[n_samples, n_class])
     data_type = tf.float32
