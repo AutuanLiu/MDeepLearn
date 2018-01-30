@@ -49,7 +49,7 @@ GPU | [![Build Status][1]][2]
 
 [持续更新中...]
 * [机器学习常见函数及其图像](function_images.md)
-* 线性模型
+* [线性模型](./TensorFlow)
     * 最小二乘回归
     * Lasso 回归
     * Ridge 回归
@@ -59,36 +59,36 @@ GPU | [![Build Status][1]][2]
     * 逻辑回归
     * LDA
     * QDA
-* 分类
+* [分类](./sklearn)
     * SVM
     * RandomForest
     * Gradient Boost tree
     * XGBoost
     * AdaBoost
-* imbalance learn
+* [imbalance learn](./imbalanceLearn)
     * over-sampling
     * under-sampling
     * Combining over-sampling and under-sampling
     * Create ensemble balanced sets
-* 聚类
+* [聚类](./sklearn/unsupervised)
     * K-means
     * GMM
     * Affinity Propagation
     * SpectralClustering
     * DBSCAN
     * MeanShift
-* 降维
+* [降维](./sklearn)
     * PCA
     * LDA
     * SVD
-* 神经网络
+* [神经网络](./Pytorch)
     * CNN
     * RNN
     * LSTM
     * DNN
     * autoEncoder
     * .
-* env
+* [env config](env_configure.sh)
     * ubuntu 一键环境配置
     * 云服务器同样可用
     * [Linux environment configurations](https://github.com/AutuanLiu/Alne)
@@ -174,9 +174,9 @@ P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 * 如果你觉得这个 repository 有用，并且希望丰富这个repository的内容，欢迎 PR
 
 
-## 详细目录树
+## 目录结构
 
-* 参见 dir_tree.txt
+* 参见 [dir_tree.txt](dir_tree.txt)
 
 `$ tree -h -I 'Mnist|fashionMnist|__pycache__' > dir_tree.txt`
 
