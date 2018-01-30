@@ -48,7 +48,7 @@ GPU | [![Build Status][1]][2]
 ## 主要目录
 
 [持续更新中...]
-
+* [机器学习常见函数及其图像](function_images.md)
 * 线性模型
     * 最小二乘回归
     * Lasso 回归
