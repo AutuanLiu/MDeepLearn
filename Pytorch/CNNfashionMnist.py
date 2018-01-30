@@ -29,7 +29,7 @@ class Network(Module):
         in_size = x.size(0)
         y = F.tanh(self.mp(self.conv1(x)))
         y = F.tanh(self.mp(self.conv2(y)))
-        y = y.view(in_size, -1)  # flatten the tensor
+        y = y.view(in_size, -1)    # flatten the tensor
         y = self.fc(y)
         return F.log_softmax(y, dim=1)
 
@@ -38,18 +38,19 @@ if __name__ == '__main__':
     # 配置
     config = {
         'batch_size': 64,
-        'epoch_num': 200,
+        'epoch_num': 300,
         'lr': 0.01,
     }
-    
+
     # 获取数据
     train_loader = get_fashionMnist(flag=True, batch=config['batch_size'])
     test_loader = get_fashionMnist(flag=False, batch=config['batch_size'])
-    
+
     # criterion, optimizer define
     model = Network()
     criterion = nn.NLLLoss()
-    optimizer = optim.SGD(model.parameters(), lr=config['lr'], momentum=0.9)
+    optimizer = optim.SGD(
+        model.parameters(), lr=config['lr'], momentum=0.9, weight_decay=0.001)
 
     # 训练与测试
     loss_trace = []
@@ -59,10 +60,10 @@ if __name__ == '__main__':
         loss_trace.append(epoch_loss)
         ppar.set_postfix_str('current epoch loss: {:.5f}'.format(epoch_loss))
     print('loss: {}'.format(loss_trace))
-    
+
     avg_loss, acc = test_m(model, test_loader, criterion)
     print('Average loss: {} Accuracy: {}'.format(avg_loss, acc))
-    
+
     # 损失
     fig, ax = plt.subplots()
     ax.plot(loss_trace, label='loss curve')
