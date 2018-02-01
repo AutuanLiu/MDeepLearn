@@ -46,7 +46,7 @@ for epoch in range(epoch_num):
     optimizer.step()
     # result
     loss_trace.append(loss.data[0])
-    print('epoch {}, loss {}'.format(epoch + 1, loss.data[0]))
+    print('epoch {:<5}, loss {:^10}'.format(epoch + 1, loss.data[0]))
 
 # 获取各个参数 weight, bias
 weight = model[0].weight.data[0, 0]
