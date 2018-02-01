@@ -52,13 +52,13 @@ def gpu(model, data, target):
             model_new = model.cuda()
 
         # 必须重命名, 否则无效
-        data_new = Variable(torch.from_numpy(data).type(_data_type).cuda())
-        target_new = Variable(torch.from_numpy(target).type(_data_type1).cuda())
+        data_new = Variable(torch.from_numpy(data).cuda())
+        target_new = Variable(torch.from_numpy(target).cuda())
     else:
-        data_new = Variable(torch.from_numpy(data).type(_data_type))
+        data_new = Variable(torch.from_numpy(data))
         # 某些损失函数需要 tensor.type(torch.LongTensor) 类型, 如 NLLLoss
         # 根据情况更改
-        target_new = Variable(torch.from_numpy(target).type(_data_type1))
+        target_new = Variable(torch.from_numpy(target))
 
     return model_new, data_new, target_new
 
@@ -98,12 +98,12 @@ def gpu_t(model, data, target):
             model_new = model.cuda()
 
         # 必须重命名, 否则无效
-        data_new = Variable(data.type(_data_type).cuda())
+        data_new = Variable(data.cuda())
         # 某些损失函数需要 tensor.type(torch.LongTensor) 类型, 如 NLLLoss
         # 根据情况更改
-        target_new = Variable(target.type(_data_type1).cuda())
+        target_new = Variable(target.cuda())
     else:
-        data_new = Variable(data.type(_data_type))
-        target_new = Variable(target.type(_data_type1))
+        data_new = Variable(data)
+        target_new = Variable(target)
 
     return model_new, data_new, target_new

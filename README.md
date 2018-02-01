@@ -1,5 +1,7 @@
 # Machine learning and deep learning code examples
 
+* [jupyter notebook 在这里](https://nbviewer.jupyter.org/github/AutuanLiu/MDeepLearn/tree/master/Kaggle/)
+
 Docker tag | status
 --- | ---
 CPU | [![Build Status][1]][2]
