@@ -3,6 +3,7 @@
 """
    File Name：jit_mode
    Description :  numba jit mode 定义（常用模式）
+   pytorch 中也自带 jit 编译
    Email : autuanliu@163.com
    Date：18-2-1
 """
