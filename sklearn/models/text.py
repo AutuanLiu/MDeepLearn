@@ -3,15 +3,15 @@
 """
    File Name：text
    Description :  文本分类问题 SVD and NMF
+   都是可以用来降维或者特征提取的
    Email : autuanliu@163.com
    Date：18-2-3
 """
 
 import matplotlib.pyplot as plt
 import numpy as np
-import scipy.linalg as la
 from sklearn.datasets import fetch_20newsgroups
-from sklearn.decomposition import NMF
+from sklearn.decomposition import NMF, randomized_svd
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 # 获取数据: 4 个类别, 2034 个样本
@@ -34,7 +34,7 @@ vectors = vectorizer.fit_transform(news_train.data).todense()
 vocab = np.array(vectorizer.get_feature_names())
 
 # 奇异值分解 SVD
-U, s, Vh = la.svd(vectors, full_matrices=False)
+U, s, Vh = np.linalg.svd(vectors, full_matrices=False)
 print(U, s, Vh)
 
 # 判断是否相等
@@ -73,4 +73,9 @@ print(clf.reconstruction_err_)
 # 第一个组分的重要性
 plt.figure(3)
 plt.plot(H1[0])
+
+# 随机 SVD
+u, s, v = randomized_svd(vectors, 5)
+print(u, s, v)
+
 plt.show()
