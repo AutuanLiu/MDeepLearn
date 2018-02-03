@@ -26,7 +26,7 @@ from utils.logger import Logger
 
 def get_data(flag=True):
     mnist = FashionMNIST(
-        '../dataset/fashionMnist/',
+        '../datasets/fashionMnist/',
         train=flag,
         transform=transforms.ToTensor(),
         download=flag)

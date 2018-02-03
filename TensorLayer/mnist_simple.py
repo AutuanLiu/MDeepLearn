@@ -18,7 +18,7 @@ sess = tf.InteractiveSession()
 
 # prepare data
 X_train, y_train, X_val, y_val, X_test, y_test = tl.files.load_mnist_dataset(
-    shape=(-1, 784))
+    shape=(-1, 784), path='../datasets/tldata/')
 
 # define placeholder
 x = tf.placeholder(tf.float32, shape=[None, 784], name='x')

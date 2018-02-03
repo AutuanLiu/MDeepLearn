@@ -20,7 +20,7 @@ from torchvision.datasets import MNIST
 
 def get_data(flag=True):
     mnist = MNIST(
-        '../dataset/mnist/',
+        '../datasets/mnist/',
         train=flag,
         transform=transforms.ToTensor(),
         download=flag)

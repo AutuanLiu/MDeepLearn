@@ -29,9 +29,14 @@ wheels/
 venv/
 
 # download datasets
-TensorLayer/data/
 datasets/Mnist/
 datasets/fashionMnist/
+datasets/news/
+datasets/tldata/
+
+# log file
+Pytorch/logs/
+TensorFlow/logs/
 
 # PKL
 sklearn/*.pkl
