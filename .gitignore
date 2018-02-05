@@ -30,6 +30,7 @@ venv/
 
 # download datasets
 datasets/Mnist/
+datasets/mnist/
 datasets/fashionMnist/
 datasets/news/
 datasets/tldata/
