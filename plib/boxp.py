@@ -1,13 +1,13 @@
 import matplotlib.pyplot as plt
 
 
-def boxplot(x_data,
-            y_data,
-            base_color="#539caf",
-            median_color="#297083",
-            x_label="",
-            y_label="",
-            title=""):
+def boxp(x_data,
+         y_data,
+         base_color="#539caf",
+         median_color="#297083",
+         x_label="",
+         y_label="",
+         title=""):
     """
     实线箱的底部表示第一个四分位数，顶部表示第三个四分位数，箱内的线表示第二个四分位数（中位数）
     Parameters

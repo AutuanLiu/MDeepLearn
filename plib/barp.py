@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def barplot(x_data, y_data, error_data, x_label="", y_label="", title=""):
+def barp(x_data, y_data, error_data, x_label="", y_label="", title=""):
     _, ax = plt.subplots()
     # Draw bars, position them in the center of the tick mark on the x-axis
     ax.bar(x_data, y_data, color='#539caf', align='center')
@@ -26,13 +26,13 @@ def barplot(x_data, y_data, error_data, x_label="", y_label="", title=""):
     ax.set_title(title)
 
 
-def stackedbarplot(x_data,
-                   y_data_list,
-                   colors,
-                   y_data_names="",
-                   x_label="",
-                   y_label="",
-                   title=""):
+def stackedbarp(x_data,
+                y_data_list,
+                colors,
+                y_data_names="",
+                x_label="",
+                y_label="",
+                title=""):
     """
     堆叠条形图非常适合于可视化不同变量的分类构成。
     Parameters
@@ -66,13 +66,13 @@ def stackedbarplot(x_data,
     ax.legend(loc='upper right')
 
 
-def groupedbarplot(x_data,
-                   y_data_list,
-                   colors,
-                   y_data_names="",
-                   x_label="",
-                   y_label="",
-                   title=""):
+def groupedbarp(x_data,
+                y_data_list,
+                colors,
+                y_data_names="",
+                x_label="",
+                y_label="",
+                title=""):
     """
     分组条形图允许我们比较多个类别变量。
     Parameters

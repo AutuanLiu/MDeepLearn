@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 
 
-def lineplot(x_data, y_data, x_label="", y_label="", title=""):
+def linep(x_data, y_data, x_label="", y_label="", title=""):
     """
     当一个变量随另一个变量的变化而变化的幅度很大时，即它们有很高的协方差时，线图非常好用
     """
