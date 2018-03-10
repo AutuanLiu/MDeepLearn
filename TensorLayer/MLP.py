@@ -8,3 +8,21 @@
    Email : autuanliu@163.com
    Date：2018/3/5
 """
+
+import tensorlayer as tl
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def train():
+    pass
+
+
+def test():
+    pass
+
+config = {
+    'lr': float(1e-3),
+    'epoch': 1500,
+    'batchsize': 64
+}    
