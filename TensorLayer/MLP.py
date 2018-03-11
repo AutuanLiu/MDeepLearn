@@ -14,6 +14,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
+# 获取数据
+
+# 模型定义
+
+# 训练模型
 def train():
     pass
 
@@ -21,6 +26,8 @@ def train():
 def test():
     pass
 
+
+# 参数设置
 config = {
     'lr': float(1e-3),
     'epoch': 1500,
