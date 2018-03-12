@@ -29,6 +29,7 @@ wheels/
 venv/
 
 # download datasets
+datasets/tldata/
 datasets/Mnist/
 datasets/mnist/
 datasets/fashionMnist/

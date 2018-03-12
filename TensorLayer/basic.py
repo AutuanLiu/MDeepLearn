@@ -1,9 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-
 """
 -------------------------------------------------
-   File Name：MLP
+   File Name：basic
    Description :  tensorflow and tensorlayer basic
    Email : autuanliu@163.com
    Date：2018/3/11
@@ -34,4 +33,18 @@ sess1 = tf.InteractiveSession()
 print(x @ y)
 # 可以不通过 sess 运行, 也可以使用 sess
 print((x @ y).eval())
+print(x.eval())
+
+# another example
+x1 = tf.placeholder(tf.float32, shape=[None, 3], name='x')
+w = tf.Variable(initial_value=[[1., 3., 4.]], dtype=tf.float32)
+# 定义操作函数
+y = x1 @ (tf.transpose(w))
+# or
+# y = tf.matmul(x1, w, transpose_b=True)
+# 初始化参数
+w.initializer.run()
+print('\ny res:\n {}'.format(
+    y.eval(feed_dict={x1: [[1., 3., 5.], [2., 4., 7.]]}, session=sess1)))
+# 最后一定要关闭 session
 sess1.close()
