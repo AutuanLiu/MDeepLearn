@@ -8,9 +8,6 @@
    Date：2017/12/29
 """
 
-# ! /usr/bin/python
-# -*- coding: utf-8 -*-
-
 import tensorflow as tf
 import tensorlayer as tl
 
@@ -72,7 +69,7 @@ tl.utils.fit(
     y_,
     acc=acc,
     batch_size=500,
-    n_epoch=500,
+    n_epoch=1,
     print_freq=5,
     X_val=X_val,
     y_val=y_val,
