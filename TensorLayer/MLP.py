@@ -10,7 +10,7 @@
 
 import matplotlib.pyplot as plt
 import tensorlayer as tl
-from tensorlayer.layers import *
+import tensorflow as tf
 
 # 获取数据
 X_train, y_train, X_val, y_val, X_test, y_test = tl.files.load_mnist_dataset(
@@ -63,7 +63,6 @@ train_acc = []
 val_loss = []
 val_acc = []
 for epoch in range(n_epoch):
-    print('epoch: {}'.format(epoch + 1))
     for X1, y1 in tl.iterate.minibatches(X_train, y_train, batch_size, shuffle=True):
         feed = {x: X1, y: y1}
         sess.run(optimizer, feed_dict=feed)
@@ -77,6 +76,7 @@ for epoch in range(n_epoch):
         err, ac = sess.run([cost_test, acc], feed_dict={x: X_val_a, y: y_val_a})
     val_loss.append(err)
     val_acc.append(ac)
+    print('epoch: {}'.format(epoch + 1))
     print("val loss: {:5f}".format(err))
     print("val acc: {:5f}".format(ac))
 
