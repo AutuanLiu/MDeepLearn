@@ -8,16 +8,14 @@
    Date：2018/3/16
 """
 
-import os, numpy as np, pickle
+import numpy as np
+import os
+import pickle
 from bz2 import BZ2File
-from datetime import datetime
-from pprint import pprint
-from time import time
-from tqdm import tqdm
-from scipy import sparse
-from sklearn.decomposition import randomized_svd
-from sklearn.externals.joblib import Memory
 from urllib.request import urlopen
+
+from scipy import sparse
+from tqdm import tqdm
 
 # 下载数据
 PATH = 'datasets/dbpedia/'
