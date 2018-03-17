@@ -7,25 +7,23 @@ name = "pypi"
 
 [packages]
 
-numpy = "==1.13.0"
+numpy = "*"
 tensorflow = ">=1.4.0"
 pandas = ">=0.22.0"
 scikit-learn = ">=0.19.1"
 seaborn = "==0.8"
 imbalanced-learn = "*"
 tensorlayer = ">=1.7.2"
-keras = "*"
+Keras = "*"
 xgboost = "*"
 matplotlib = "*"
-tensorboardx = "*"
+tensorboardX = "*"
 visdom = "*"
 tqdm = "*"
 numba = "*"
 skorch = "*"
 pipenv = ">=9.0.1"
-sh = "*"
-notedown = "*"
-autoenv = "*"
+"5e66aad" = {file = "http://download.pytorch.org/whl/cu80/torch-0.3.1-cp36-cp36m-linux_x86_64.whl"}
 
 
 [dev-packages]
