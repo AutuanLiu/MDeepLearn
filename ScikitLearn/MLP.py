@@ -8,8 +8,9 @@
    Date：2017/12/30
 """
 
-import numpy as np
 from collections import Counter
+
+import numpy as np
 from imblearn.over_sampling import SMOTE
 from sklearn.datasets import make_classification, make_regression
 from sklearn.metrics import accuracy_score, r2_score

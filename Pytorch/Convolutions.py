@@ -8,9 +8,10 @@
    Date：2018/3/17
 """
 
-import numpy as np, matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
+import numpy as np
+from scipy.ndimage.filters import correlate
 from sklearn.datasets import fetch_mldata
-from scipy.ndimage.filters import correlate, convolve
 
 
 def plot(im, interp=False):

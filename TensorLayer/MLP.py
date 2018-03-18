@@ -9,8 +9,8 @@
 """
 
 import matplotlib.pyplot as plt
-import tensorlayer as tl
 import tensorflow as tf
+import tensorlayer as tl
 
 # 获取数据
 X_train, y_train, X_val, y_val, X_test, y_test = tl.files.load_mnist_dataset(

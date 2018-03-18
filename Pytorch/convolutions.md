@@ -41,3 +41,4 @@
 ## [Markov Chains explained visually](http://setosa.io/ev/markov-chains/)
 ## [Simpson's Paradox](http://vudlab.com/simpsons/)
 ## [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/chap4.html)
+## [从结构到性能，一文概述XGBoost、Light GBM和CatBoost的同与不同](https://mp.weixin.qq.com/s/TD3RbdDidCrcL45oWpxNmw)

@@ -8,12 +8,12 @@
    Date：2018/3/16
 """
 
-import numpy as np
 import os
 import pickle
 from bz2 import BZ2File
 from urllib.request import urlopen
 
+import numpy as np
 from scipy import sparse
 from tqdm import tqdm
 

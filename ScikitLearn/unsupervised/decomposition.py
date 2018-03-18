@@ -9,9 +9,10 @@
    Date：2018/1/2
 """
 
+from collections import namedtuple
+
 import matplotlib.pyplot as plt
 import seaborn as sns
-from collections import namedtuple
 from sklearn.datasets import make_classification
 from sklearn.decomposition import (
     PCA, IncrementalPCA, FactorAnalysis, FastICA, KernelPCA, SparsePCA,
