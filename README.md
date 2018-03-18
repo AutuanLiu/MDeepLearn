@@ -146,6 +146,8 @@ GPU | [![Build Status][1]][2]
 26. [Essential Cheat Sheets for deep learning and machine learning researchers](https://github.com/kailashahirwar/cheatsheets-ai)
 27. [Practical Business Python](http://pbpython.com/)
 28. [Distill — Latest articles about machine learning](https://distill.pub/)
+29. 原理可视化: [Setosa data visualization and visual explanations](http://setosa.io/#/)
+30. 神经网络总结: [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/)
 
 
 ### 参考书籍
