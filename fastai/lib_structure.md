@@ -581,6 +581,27 @@ Date: 2018/3/18
                 For more details see http://forums.fast.ai/t/a-code-snippet-to-save-the-best-model-during-training/12066
     
         """
+
+    class Callback:
+        def on_train_begin(self): pass
+        def on_batch_begin(self): pass
+        def on_epoch_end(self, metrics): pass
+        def on_batch_end(self, metrics): pass
+        def on_train_end(self): pass
+
+    class LossRecorder(Callback):
+        def plot_loss(self)
+        def plot_lr(self)
+    class LR_Updater(LossRecorder):
+        def update_lr(self)
+    class LR_Finder(LR_Updater):
+        def calc_lr(self, init_lrs)
+        def plot(self, n_skip=10, n_skip_end=5)
+    class CosAnneal(LR_Updater):
+        def calc_lr(self, init_lrs)
+    class CircularLR(LR_Updater):
+        def calc_lr(self, init_lrs)
+    class WeightDecaySchedule(Callback)
     ```
 24. structured
     ```python
