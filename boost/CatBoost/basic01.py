@@ -29,5 +29,5 @@ print(fit_model.get_params())
 y_pred = clf.predict(X_test)
 
 # 评估模型
-print('mean squared error: {}'.format(mean_squared_error(y_test, y_pred)))
-print('r2 score: {}'.format(r2_score(y_test, y_pred)))
+print(f'mean squared error: {mean_squared_error(y_test, y_pred)}')
+print(f'r2 score: {r2_score(y_test, y_pred)}')
