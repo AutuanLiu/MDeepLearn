@@ -66,7 +66,7 @@ lines = get_lines(page_links_filename)
 source, destination, data = [], [], []
 
 for l, split in enumerate(lines):
-    if l >= limit: 
+    if l >= limit:
         break
     add_item(source, redirects, index_map, split[0])
     add_item(destination, redirects, index_map, split[2])
@@ -89,13 +89,13 @@ for page_name, index in index_map.items():
         print(page_name)
 
 # create a sparse matrix using Scipy's COO format, and that convert it to CSR
-X = sparse.coo_matrix((data, (destination,source)), shape=(n,n), dtype=np.float32)
+X = sparse.coo_matrix((data, (destination, source)), shape=(n, n), dtype=np.float32)
 X = X.tocsr()
-del(data, destination, source)
+del (data, destination, source)
 names = {i: name for name, i in index_map.items()}
 
 # Save matrix so we don't have to recompute
-pickle.dump(X, open(PATH+'X.pkl', 'wb'))
-pickle.dump(index_map, open(PATH+'index_map.pkl', 'wb'))
-X = pickle.load(open(PATH+'X.pkl', 'rb'))
-index_map = pickle.load(open(PATH+'index_map.pkl', 'rb'))
+pickle.dump(X, open(PATH + 'X.pkl', 'wb'))
+pickle.dump(index_map, open(PATH + 'index_map.pkl', 'wb'))
+X = pickle.load(open(PATH + 'X.pkl', 'rb'))
+index_map = pickle.load(open(PATH + 'index_map.pkl', 'rb'))

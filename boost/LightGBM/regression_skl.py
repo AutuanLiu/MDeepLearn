@@ -31,7 +31,7 @@ y_pred = gbm.predict(X_test, num_iteration=gbm.best_iteration_)
 print(f'Best iterations: {gbm.best_iteration_}')
 
 # eval
-print('The rmse of prediction is:', mean_squared_error(y_test, y_pred) ** 0.5)
+print('The rmse of prediction is:', mean_squared_error(y_test, y_pred)**0.5)
 
 # feature importances
 print('Feature importances:', list(gbm.feature_importances_))
@@ -39,10 +39,7 @@ print('Feature importances:', list(gbm.feature_importances_))
 # or
 estimator = LGBMRegressor(num_leaves=31)
 
-param_grid = {
-    'learning_rate': [0.01, 0.1, 1],
-    'n_estimators': [300, 500, 700]
-}
+param_grid = {'learning_rate': [0.01, 0.1, 1], 'n_estimators': [300, 500, 700]}
 
 # 网格搜索
 gbm1 = GridSearchCV(estimator, param_grid)
@@ -50,5 +47,5 @@ gbm1 = GridSearchCV(estimator, param_grid)
 # 拟合模型
 gbm1.fit(X_train, y_train)
 
-# 网格搜索的结果 
+# 网格搜索的结果
 print('Best parameters found by grid search are:', gbm1.best_params_)

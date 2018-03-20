@@ -10,9 +10,7 @@
 
 import numpy as np
 from sklearn.feature_extraction import DictVectorizer
-from sklearn.preprocessing import (scale, StandardScaler, MaxAbsScaler,
-                                   MinMaxScaler, normalize, Normalizer,
-                                   Binarizer)
+from sklearn.preprocessing import (scale, StandardScaler, MaxAbsScaler, MinMaxScaler, normalize, Normalizer, Binarizer)
 
 measurements = [{
     'city': 'Dubai',

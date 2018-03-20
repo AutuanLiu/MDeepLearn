@@ -52,37 +52,19 @@ lw = 2
 
 plt.figure(1)
 for color, species, name in zip(colors, [0, 1, 2], target_name):
-    plt.scatter(
-        X[y == species, 0],
-        X[y == species, 1],
-        color=color,
-        alpha=0.8,
-        linewidths=lw,
-        label=name)
+    plt.scatter(X[y == species, 0], X[y == species, 1], color=color, alpha=0.8, linewidths=lw, label=name)
 plt.title('origin data')
 plt.legend(loc='best')
 
 plt.figure(2)
 for color, species, name in zip(colors, [0, 1, 2], target_name):
-    plt.scatter(
-        X_trans1[y == species, 0],
-        X_trans1[y == species, 1],
-        color=color,
-        alpha=0.8,
-        lw=lw,
-        label=name)
+    plt.scatter(X_trans1[y == species, 0], X_trans1[y == species, 1], color=color, alpha=0.8, lw=lw, label=name)
 plt.title('PCA transformed data')
 plt.legend(loc='best')
 
 plt.figure(3)
 for color, species, name in zip(colors, [0, 1, 2], target_name):
-    plt.scatter(
-        X_trans2[y == species, 0],
-        X_trans2[y == species, 1],
-        color=color,
-        alpha=0.8,
-        lw=lw,
-        label=name)
+    plt.scatter(X_trans2[y == species, 0], X_trans2[y == species, 1], color=color, alpha=0.8, lw=lw, label=name)
 plt.title('LDA transformed data')
 plt.legend(loc='best')
 plt.show()

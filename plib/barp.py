@@ -13,26 +13,13 @@ def barp(x_data, y_data, error_data, x_label="", y_label="", title=""):
     # Draw error bars to show standard deviation, set ls to 'none'
     # to remove line between points
     # 误差条形是额外添加在每个条形中心上的线，可用于表示标准差。
-    ax.errorbar(
-        x_data,
-        y_data,
-        yerr=error_data,
-        color='#297083',
-        ls='none',
-        lw=2,
-        capthick=2)
+    ax.errorbar(x_data, y_data, yerr=error_data, color='#297083', ls='none', lw=2, capthick=2)
     ax.set_ylabel(y_label)
     ax.set_xlabel(x_label)
     ax.set_title(title)
 
 
-def stackedbarp(x_data,
-                y_data_list,
-                colors,
-                y_data_names="",
-                x_label="",
-                y_label="",
-                title=""):
+def stackedbarp(x_data, y_data_list, colors, y_data_names="", x_label="", y_label="", title=""):
     """
     堆叠条形图非常适合于可视化不同变量的分类构成。
     Parameters
@@ -44,12 +31,7 @@ def stackedbarp(x_data,
     # Draw bars, one category at a time
     for i in range(0, len(y_data_list)):
         if i == 0:
-            ax.bar(
-                x_data,
-                y_data_list[i],
-                color=colors[i],
-                align='center',
-                label=y_data_names[i])
+            ax.bar(x_data, y_data_list[i], color=colors[i], align='center', label=y_data_names[i])
         else:
             # For each category after the first, the bottom of the
             # bar will be the top of the last category
@@ -66,13 +48,7 @@ def stackedbarp(x_data,
     ax.legend(loc='upper right')
 
 
-def groupedbarp(x_data,
-                y_data_list,
-                colors,
-                y_data_names="",
-                x_label="",
-                y_label="",
-                title=""):
+def groupedbarp(x_data, y_data_list, colors, y_data_names="", x_label="", y_label="", title=""):
     """
     分组条形图允许我们比较多个类别变量。
     Parameters
@@ -92,12 +68,7 @@ def groupedbarp(x_data,
     for i in range(0, len(y_data_list)):
         # Move the bar to the right on the x-axis so it doesn't
         # overlap with previously drawn ones
-        ax.bar(
-            x_data + alteration[i],
-            y_data_list[i],
-            color=colors[i],
-            label=y_data_names[i],
-            width=ind_width)
+        ax.bar(x_data + alteration[i], y_data_list[i], color=colors[i], label=y_data_names[i], width=ind_width)
     ax.set_ylabel(y_label)
     ax.set_xlabel(x_label)
     ax.set_title(title)

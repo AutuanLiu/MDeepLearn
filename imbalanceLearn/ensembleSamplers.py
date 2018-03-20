@@ -33,24 +33,18 @@ X, y = make_classification(
 
 # 重新采样器与模型构造
 sampler = EasyEnsemble(random_state=0, n_subsets=10)
-sampler1 = BalanceCascade(
-    random_state=0,
-    n_max_subset=10,
-    estimator=LogisticRegression(random_state=0))
+sampler1 = BalanceCascade(random_state=0, n_max_subset=10, estimator=LogisticRegression(random_state=0))
 model = xgb.XGBClassifier()
-sampler2 = BalancedBaggingClassifier(
-    base_estimator=model, random_state=0, ratio='auto', replacement=False)
+sampler2 = BalancedBaggingClassifier(base_estimator=model, random_state=0, ratio='auto', replacement=False)
 
 # 重新采样前
 print('采样前: {}'.format(sorted(Counter(y).items())))
 
 # 模型训练
-for sampler_instance, sampler_name in zip([sampler, sampler1],
-                                          ['EasyEnsemble', 'BalanceCascade']):
+for sampler_instance, sampler_name in zip([sampler, sampler1], ['EasyEnsemble', 'BalanceCascade']):
     X_new, y_new = sampler_instance.fit_sample(X, y)
     # 多个平衡数据集
-    print('\n{} 采样后单个子集: \n{}'.format(sampler_name,
-                                      sorted(Counter(y_new[0]).items())))
+    print('\n{} 采样后单个子集: \n{}'.format(sampler_name, sorted(Counter(y_new[0]).items())))
     acc = []
     for i in range(y_new.shape[0]):
         model.fit(X_new[i], y_new[i])

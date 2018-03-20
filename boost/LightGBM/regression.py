@@ -31,7 +31,7 @@ params = {
     'objective': 'regression',
     'metric': {'l2', 'auc'},
     'num_leaves': 31,
-    'learning_rate': 0.01, 
+    'learning_rate': 0.01,
     'num_iterations': 100,
     'feature_fraction': 0.9,
     'bagging_fraction': 0.8,
@@ -52,11 +52,10 @@ print(f'Best iterations: {gbm.best_iteration}')
 y_pred = gbm.predict(X_test, num_iteration=gbm.best_iteration)
 
 # eval
-print('The rmse of prediction is:', mean_squared_error(y_test, y_pred) ** 0.5)
+print('The rmse of prediction is:', mean_squared_error(y_test, y_pred)**0.5)
 
 # plot
 ax = lgb.plot_metric(res, metric='auc')
 plt.show()
 ax = lgb.plot_importance(gbm, max_num_features=10)
 plt.show()
-

@@ -13,8 +13,7 @@ from collections import namedtuple
 from sklearn.cluster import KMeans, MiniBatchKMeans
 from sklearn.datasets import load_digits
 from sklearn.decomposition import PCA
-from sklearn.metrics import (homogeneity_score, completeness_score,
-                             v_measure_score, adjusted_rand_score,
+from sklearn.metrics import (homogeneity_score, completeness_score, v_measure_score, adjusted_rand_score,
                              adjusted_mutual_info_score)
 from sklearn.preprocessing import scale
 
@@ -25,11 +24,9 @@ data, target = load_digits(return_X_y=True, n_class=10)
 data = scale(data)
 
 # score
-scores = [('homogeneity_score', homogeneity_score), ('completeness_score',
-                                                     completeness_score),
-          ('v_measure_score', v_measure_score), ('adjusted_mutual_info_score',
-                                                 adjusted_mutual_info_score),
-          ('adjusted_rand_score', adjusted_rand_score)]
+scores = [('homogeneity_score', homogeneity_score), ('completeness_score', completeness_score), ('v_measure_score',
+                                                                                                 v_measure_score),
+          ('adjusted_mutual_info_score', adjusted_mutual_info_score), ('adjusted_rand_score', adjusted_rand_score)]
 
 met = namedtuple('metric', ['name', 'func'])
 

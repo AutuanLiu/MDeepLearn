@@ -68,8 +68,7 @@ mod = tf.matmul(data, A) + b
 
 # 声明损失函数
 # 使用sigmoid 交叉熵损失函数，先对mod结果做一个sigmoid处理，然后使用交叉熵损失函数
-loss = tf.reduce_mean(
-    tf.nn.sigmoid_cross_entropy_with_logits(logits=mod, labels=target))
+loss = tf.reduce_mean(tf.nn.sigmoid_cross_entropy_with_logits(logits=mod, labels=target))
 
 # 定义学习率等
 learning_rate = 1e-2
@@ -102,8 +101,7 @@ for epoch in range(iter_num):
     # 生成随机batch索引，不可以重复
     # 每次生成的batch索引是不一样的
     # 原则上应当是每个epoch都对所有样本训练一次
-    batch_index = np.random.choice(
-        len(train_X), size=batch_size, replace=False)
+    batch_index = np.random.choice(len(train_X), size=batch_size, replace=False)
 
     # 用于训练的批量数据
     batch_train_X = train_X[batch_index]
@@ -114,23 +112,15 @@ for epoch in range(iter_num):
     sess.run(goal, feed)
     temp_loss = sess.run(loss, feed)
     # 这里要转化为矩阵形式，要和占位符的shape对应
-    temp_train_acc = sess.run(
-        accuracy, feed_dict={
-            data: train_X,
-            target: np.matrix(train_y).T
-        })
-    temp_test_acc = sess.run(
-        accuracy, feed_dict={
-            data: test_X,
-            target: np.matrix(test_y).T
-        })
+    temp_train_acc = sess.run(accuracy, feed_dict={data: train_X, target: np.matrix(train_y).T})
+    temp_test_acc = sess.run(accuracy, feed_dict={data: test_X, target: np.matrix(test_y).T})
     # 记录数据
     loss_trace.append(temp_loss)
     train_acc.append(temp_train_acc)
     test_acc.append(temp_test_acc)
     # 输出结果
-    print('epoch: {} loss: {:5f} train_acc: {:5f} test_acc: {:5f}'.format(
-        epoch + 1, temp_loss, temp_train_acc, temp_test_acc))
+    print('epoch: {} loss: {:5f} train_acc: {:5f} test_acc: {:5f}'.format(epoch + 1, temp_loss, temp_train_acc,
+                                                                          temp_test_acc))
 
 # 结果的可视化
 # 损失函数

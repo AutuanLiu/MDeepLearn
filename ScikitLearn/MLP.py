@@ -34,13 +34,7 @@ X1, y1 = make_classification(
     weights=[0.05, 0.2, 0.75])
 
 X2, y2 = make_regression(
-    n_samples=3000,
-    n_features=10,
-    n_informative=5,
-    n_targets=1,
-    noise=0.01,
-    bias=3.2,
-    random_state=0)
+    n_samples=3000, n_features=10, n_informative=5, n_targets=1, noise=0.01, bias=3.2, random_state=0)
 
 # 重采样
 print(sorted(Counter(y1).items()))

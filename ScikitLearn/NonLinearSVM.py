@@ -33,7 +33,6 @@ print('n support: {}\n{}'.format(model.n_support_, model.support_vectors_))
 
 # 原始数据
 for color, species, name in zip(colors, [1, 2], names):
-    plt.scatter(
-        X[y == species, 0], X[y == species, 1], color=color, label=name)
+    plt.scatter(X[y == species, 0], X[y == species, 1], color=color, label=name)
 plt.legend(loc='best')
 plt.show()

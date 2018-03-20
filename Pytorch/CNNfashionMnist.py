@@ -49,8 +49,7 @@ if __name__ == '__main__':
     # criterion, optimizer define
     model = Network()
     criterion = nn.NLLLoss()
-    optimizer = optim.SGD(
-        model.parameters(), lr=config['lr'], momentum=0.9, weight_decay=0.001)
+    optimizer = optim.SGD(model.parameters(), lr=config['lr'], momentum=0.9, weight_decay=0.001)
 
     # 训练与测试
     loss_trace = []

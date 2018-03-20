@@ -35,8 +35,7 @@ network = tl.layers.DropoutLayer(network, keep=0.5, name='drop3')
 # the softmax is implemented internally in tl.cost.cross_entropy(y, y_) to
 # speed up computation, so we use identity here.
 # see tf.nn.sparse_softmax_cross_entropy_with_logits()
-network = tl.layers.DenseLayer(
-    network, n_units=10, act=tf.identity, name='output')
+network = tl.layers.DenseLayer(network, n_units=10, act=tf.identity, name='output')
 
 # define cost function and metric.
 y = network.outputs
@@ -47,8 +46,7 @@ y_op = tf.argmax(tf.nn.softmax(y), 1)
 
 # define the optimizer
 train_params = network.all_params
-train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(
-    cost, var_list=train_params)
+train_op = tf.train.AdamOptimizer(learning_rate=0.0001).minimize(cost, var_list=train_params)
 
 # initialize all variables in the session
 tl.layers.initialize_global_variables(sess)
@@ -76,6 +74,5 @@ tl.utils.fit(
     eval_train=False)
 
 # evaluation
-tl.utils.test(
-    sess, network, acc, X_test, y_test, x, y_, batch_size=None, cost=cost)
+tl.utils.test(sess, network, acc, X_test, y_test, x, y_, batch_size=None, cost=cost)
 sess.close()

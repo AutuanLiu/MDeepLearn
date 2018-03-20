@@ -29,8 +29,7 @@ rfc = RandomForestClassifier(n_estimators=10, criterion='gini')
 etc = ExtraTreesClassifier(n_estimators=10)
 abc = AdaBoostClassifier(n_estimators=50)
 gbc = GradientBoostingClassifier(n_estimators=100)
-vcf = VotingClassifier(
-    estimators=[('rfc', rfc), ('etc', etc), ('gbc', gbc)], voting='hard')
+vcf = VotingClassifier(estimators=[('rfc', rfc), ('etc', etc), ('gbc', gbc)], voting='hard')
 gpc = GaussianProcessClassifier()
 
 dtc.fit(X, y)
@@ -66,6 +65,5 @@ y_cvf = vcf.predict(test)
 y_gpc = gpc.predict(test)
 
 print(y_pred0, y_pred, y_pred1, y_pred2, y_pred3)
-print(scores.mean(), scores1.mean(), scores2.mean(), scores3, scores4,
-      abc.feature_importances_)
+print(scores.mean(), scores1.mean(), scores2.mean(), scores3, scores4, abc.feature_importances_)
 print(y_cvf, scores5, y_gpc, scores6)

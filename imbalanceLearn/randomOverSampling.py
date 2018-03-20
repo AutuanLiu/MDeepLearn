@@ -55,11 +55,7 @@ print(sorted(Counter(y_resampled).items()))
 # 采样后
 plt.figure(2)
 for label, col in zip([0, 1, 2], colors):
-    plt.scatter(
-        X_resampled[y_resampled == label, 0],
-        X_resampled[y_resampled == label, 1],
-        color=col,
-        label=label)
+    plt.scatter(X_resampled[y_resampled == label, 0], X_resampled[y_resampled == label, 1], color=col, label=label)
 plt.legend(loc='best')
 
 # 拟合预测

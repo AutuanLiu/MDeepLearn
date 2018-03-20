@@ -15,7 +15,4 @@ import tensorlayer as tl
 # Session 允许计算图或者图的一部分，为这次计算分配资源并且保存中间结果的值和变量
 sess = tf.InteractiveSession()
 # 获取数据 28*28=784
-X_train, y_train, X_val, y_val, X_test, y_test = tl.files.load_mnist_dataset(shape=(-1, 784), 
-path="../datasets/tldata")
-
-
+X_train, y_train, X_val, y_val, X_test, y_test = tl.files.load_mnist_dataset(shape=(-1, 784), path="../datasets/tldata")

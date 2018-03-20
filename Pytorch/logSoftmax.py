@@ -25,13 +25,8 @@ from utils.logger import Logger
 
 
 def get_data(flag=True):
-    mnist = FashionMNIST(
-        '../datasets/fashionMnist/',
-        train=flag,
-        transform=transforms.ToTensor(),
-        download=flag)
-    loader = DataLoader(
-        mnist, batch_size=config['batch_size'], shuffle=flag, drop_last=False)
+    mnist = FashionMNIST('../datasets/fashionMnist/', train=flag, transform=transforms.ToTensor(), download=flag)
+    loader = DataLoader(mnist, batch_size=config['batch_size'], shuffle=flag, drop_last=False)
     return loader
 
 
@@ -43,8 +38,7 @@ class Network(Module):
         self.l2 = nn.Linear(500, 350)
         self.l3 = nn.Linear(350, 200)
         self.l4 = nn.Linear(200, 130)
-        self.log1 = Sequential(
-            nn.Linear(130, config['out_feature']), nn.LogSoftmax(dim=1))
+        self.log1 = Sequential(nn.Linear(130, config['out_feature']), nn.LogSoftmax(dim=1))
 
     def forward(self, data):
         # 数据展开
@@ -70,9 +64,10 @@ def train_m(mod, train_data):
         optimizer.step()
         # result
         if batch_idx % 10 == 0:
-            print('epoch: {} [{:5.0f}/{} {:2.0f}%] loss: {:.6f}'.format(
-                epoch + 1, batch_idx * len(data), len(train_data.dataset),
-                100 * batch_idx / len(train_data), loss.data[0]))
+            print('epoch: {} [{:5.0f}/{} {:2.0f}%] loss: {:.6f}'.format(epoch + 1, batch_idx * len(data),
+                                                                        len(train_data.dataset),
+                                                                        100 * batch_idx / len(train_data),
+                                                                        loss.data[0]))
             loss_epoch.append(loss.data[0])
 
             # loss log
@@ -85,9 +80,7 @@ def train_m(mod, train_data):
                 logger.histo_summary(tag + '/grad', value.grad.data.cpu().numpy(), epoch + 1)
 
             # Log the images
-            info = {
-                'images': (data.view(-1, 28, 28)[:10]).data.cpu().numpy()
-            }
+            info = {'images': (data.view(-1, 28, 28)[:10]).data.cpu().numpy()}
 
             for tag, images in info.items():
                 logger.image_summary(tag, images, epoch + 1)
@@ -107,19 +100,12 @@ def test_m(mod, test_data):
 
     test_loss /= len(test_data.dataset)
     len1 = len(test_data.dataset)
-    print(
-        'Test set: \nAverage loss: {:.4f}, Accuracy: {}/{} ({}%)'.format(
-            test_loss, correct, len1, 100. * correct / len1))
+    print('Test set: \nAverage loss: {:.4f}, Accuracy: {}/{} ({}%)'.format(test_loss, correct, len1,
+                                                                           100. * correct / len1))
 
 
 # some config
-config = {
-    'batch_size': 64,
-    'epoch_num': 200,
-    'lr': 0.01,
-    'in_feature': 28 * 28,
-    'out_feature': 10
-}
+config = {'batch_size': 64, 'epoch_num': 200, 'lr': 0.01, 'in_feature': 28 * 28, 'out_feature': 10}
 
 # log record
 logger = Logger('./logs/fashionMnist/')

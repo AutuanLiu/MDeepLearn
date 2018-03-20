@@ -20,12 +20,10 @@ from torch.utils.data import DataLoader
 torch.manual_seed(4)
 # 获取数据
 iris = DataDef('../datasets/iris.csv', [0, 150], [0, 4], [4, 5])
-train_loader = DataLoader(
-    dataset=iris, batch_size=8, shuffle=True, num_workers=2)
+train_loader = DataLoader(dataset=iris, batch_size=8, shuffle=True, num_workers=2)
 
 # 模型
-model = Sequential(
-    OrderedDict([('linear1', nn.Linear(4, 1)), ('activation', nn.Sigmoid())]))
+model = Sequential(OrderedDict([('linear1', nn.Linear(4, 1)), ('activation', nn.Sigmoid())]))
 
 # 损失函数，优化器
 criterion = nn.BCELoss()

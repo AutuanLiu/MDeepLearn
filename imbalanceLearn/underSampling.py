@@ -46,10 +46,7 @@ sampler5 = OneSidedSelection(random_state=0, n_seeds_S=5)
 sampler6 = NeighbourhoodCleaningRule(random_state=0)
 sampler7 = InstanceHardnessThreshold(random_state=0, cv=10)
 
-for x in [
-        sampler, sampler1, sampler2, sampler3, sampler4, sampler5, sampler6,
-        sampler7
-]:
+for x in [sampler, sampler1, sampler2, sampler3, sampler4, sampler5, sampler6, sampler7]:
     X_new, y_new = x.fit_sample(X, y)
     print('采样后: {}'.format(Counter(y_new).items()))
     # 拟合

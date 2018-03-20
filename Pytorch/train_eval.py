@@ -57,4 +57,3 @@ def test_m(mod, test_data, loss_f):
     test_loss /= len(test_data.dataset)
     len1 = len(test_data.dataset)
     return test_loss, 100. * correct / len1
-    

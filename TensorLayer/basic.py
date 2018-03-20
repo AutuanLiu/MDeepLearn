@@ -44,7 +44,6 @@ y = x1 @ (tf.transpose(w))
 # y = tf.matmul(x1, w, transpose_b=True)
 # 初始化参数
 w.initializer.run()
-print('\ny res:\n {}'.format(
-    y.eval(feed_dict={x1: [[1., 3., 5.], [2., 4., 7.]]}, session=sess1)))
+print('\ny res:\n {}'.format(y.eval(feed_dict={x1: [[1., 3., 5.], [2., 4., 7.]]}, session=sess1)))
 # 最后一定要关闭 session
 sess1.close()

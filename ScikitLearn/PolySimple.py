@@ -20,8 +20,7 @@ x = np.arange(500).reshape(500, 1)
 y = 5 + x + 2 * x**2 + 3 * x**3
 
 # pipeline形式
-model = Pipeline([('ploy', PolynomialFeatures(degree=3)),
-                  ('linear', LinearRegression(fit_intercept=False))])
+model = Pipeline([('ploy', PolynomialFeatures(degree=3)), ('linear', LinearRegression(fit_intercept=False))])
 
 # fit
 model.fit(x, y)

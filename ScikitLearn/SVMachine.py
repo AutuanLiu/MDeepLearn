@@ -37,8 +37,7 @@ plt.ylim(np.min(X[:, 1]), np.max(X[:, 1]))
 
 # 原始数据
 for color, species, name in zip(colors, [0, 1], names):
-    plt.scatter(
-        X[y == species, 0], X[y == species, 1], color=color, label=name)
+    plt.scatter(X[y == species, 0], X[y == species, 1], color=color, label=name)
 plt.legend(loc='best')
 plt.plot(x1, y1, 'b')
 plt.show()

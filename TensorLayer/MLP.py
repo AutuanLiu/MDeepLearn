@@ -13,11 +13,13 @@ import tensorflow as tf
 import tensorlayer as tl
 
 # 获取数据
-X_train, y_train, X_val, y_val, X_test, y_test = tl.files.load_mnist_dataset(
-    shape=(-1, 784), path='../datasets/tldata')
+X_train, y_train, X_val, y_val, X_test, y_test = tl.files.load_mnist_dataset(shape=(-1, 784), path='../datasets/tldata')
 # placeholder
 x = tf.placeholder(tf.float32, shape=[None, 784], name='sample')
-y = tf.placeholder(tf.int64, shape=[None,], name='label')
+y = tf.placeholder(
+    tf.int64, shape=[
+        None,
+    ], name='label')
 sess = tf.InteractiveSession()
 
 

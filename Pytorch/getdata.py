@@ -18,14 +18,9 @@ def get_fashionMnist(flag=True, batch=64):
         获取 fashionMNIST 数据集
         num_workers 根据电脑情况设置
     """
-    fashionMnist = FashionMNIST(
-        '../datasets/fashionMnist/',
-        train=flag,
-        transform=transforms.ToTensor(),
-        download=flag)
-    
-    loader = DataLoader(
-        fashionMnist, batch_size=batch, shuffle=flag, drop_last=False, num_workers=8)
+    fashionMnist = FashionMNIST('../datasets/fashionMnist/', train=flag, transform=transforms.ToTensor(), download=flag)
+
+    loader = DataLoader(fashionMnist, batch_size=batch, shuffle=flag, drop_last=False, num_workers=8)
     return loader
 
 
@@ -33,12 +28,7 @@ def get_Mnist(flag=True, batch=64):
     """
         获取 MNIST 数据集
     """
-    mnist = MNIST(
-        '../datasets/Mnist/',
-        train=flag,
-        transform=transforms.ToTensor(),
-        download=flag)
-    
-    loader = DataLoader(
-        mnist, batch_size=batch, shuffle=flag, drop_last=False, num_workers=8)
+    mnist = MNIST('../datasets/Mnist/', train=flag, transform=transforms.ToTensor(), download=flag)
+
+    loader = DataLoader(mnist, batch_size=batch, shuffle=flag, drop_last=False, num_workers=8)
     return loader

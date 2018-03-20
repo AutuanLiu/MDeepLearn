@@ -34,12 +34,12 @@ test = lgb.Dataset(X_test, label=y_test, reference=train)
 # 参数设置
 params = {
     'task': 'train',
-    'boosting_type': 'gbdt', 
-    'objective': 'multiclass', 
+    'boosting_type': 'gbdt',
+    'objective': 'multiclass',
     'metric': 'multi_logloss',
-    'metric_freq': 5, 
-    'num_class': 10, 
-    'num_iterations': 200, 
+    'metric_freq': 5,
+    'num_class': 10,
+    'num_iterations': 200,
     'num_leaves': 31,
     'learning_rate': 0.1,
 }

@@ -11,6 +11,4 @@
 from .gpu_computing import gpu, gpu_t
 from .normalized_func import min_max_normalized
 
-__all_ = [
-    'normalized_func', 'min_max_normalized', 'gpu_computing', 'gpu', 'gpu_t'
-]
+__all_ = ['normalized_func', 'min_max_normalized', 'gpu_computing', 'gpu', 'gpu_t']

@@ -40,11 +40,7 @@ colors = sns.color_palette("Set2", 3)
 
 plt.figure(1)
 for label, col in zip([0, 1, 2], colors):
-    plt.scatter(
-        X[y == label, 0],
-        X[y == label, 1],
-        color=col,
-        label='class' + str(label))
+    plt.scatter(X[y == label, 0], X[y == label, 1], color=col, label='class' + str(label))
 plt.title('origin data')
 plt.legend(loc='best')
 
@@ -61,25 +57,14 @@ print(sorted(Counter(y_resample).items()))
 plt.figure(2)
 for label, col in zip([0, 1, 2], colors):
     plt.scatter(
-        X_resample[y_resample == label, 0],
-        X_resample[y_resample == label, 1],
-        color=col,
-        label='class' + str(label))
+        X_resample[y_resample == label, 0], X_resample[y_resample == label, 1], color=col, label='class' + str(label))
 plt.title('resample data')
 plt.legend(loc='best')
 
 # 创建model实例, 4 个模型
-model_name = [
-    'GradientBoostingClassifier', 'AdaBoostClassifier', 'XGBClassifier',
-    'RandomForestClassifier'
-]
+model_name = ['GradientBoostingClassifier', 'AdaBoostClassifier', 'XGBClassifier', 'RandomForestClassifier']
 
-model_instance = [
-    GradientBoostingClassifier(),
-    AdaBoostClassifier(),
-    xgb.XGBClassifier(),
-    RandomForestClassifier()
-]
+model_instance = [GradientBoostingClassifier(), AdaBoostClassifier(), xgb.XGBClassifier(), RandomForestClassifier()]
 models = namedtuple('models', ['name', 'model'])
 
 # 其他方式：使用字典传入参数 **dict
@@ -94,7 +79,6 @@ for index in range(4):
 
     # 评估
     print(mod.name + ': ')
-    print('错误个数: {} 准确度: {}\n'.format((y_pred != y).sum(),
-                                      accuracy_score(y, y_pred)))
+    print('错误个数: {} 准确度: {}\n'.format((y_pred != y).sum(), accuracy_score(y, y_pred)))
 
 plt.show()

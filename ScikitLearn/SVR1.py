@@ -60,10 +60,7 @@ y_rfr = rfr.predict(X)
 # 结果
 sns.set(style='whitegrid')
 colors = sns.color_palette('Set2', 8)
-names = [
-    'RBF model', 'Linear model', 'Polynomial model', 'KNR', 'RNR', 'DTR',
-    'ABR', 'RFR'
-]
+names = ['RBF model', 'Linear model', 'Polynomial model', 'KNR', 'RNR', 'DTR', 'ABR', 'RFR']
 data_pred = [y_rbf, y_lin, y_poly, y_knng, y_rng, y_dtr, y_abr, y_rfr]
 plt.figure(1)
 plt.scatter(X, y, color='red', label='data')

@@ -24,12 +24,14 @@ def exe_add(func):
         localtime = time.asctime(time.localtime(time.time()))
         print(f'The execution time is: {localtime}')
         return func(*args, **kwargs)
+
     return now
 
 
 # 带有参数的装饰器
 def exe(author='autuanliu'):
     assert type(author) is str, 'The args shoud be str!'
+
     def decorator(func):
         @wraps(func)
         def now(*args, **kwargs):
@@ -37,7 +39,9 @@ def exe(author='autuanliu'):
             print(f'The execution time is: {localtime}')
             print(f'The author is: {author}')
             return func(*args, **kwargs)
+
         return now
+
     return decorator
 
 
@@ -56,10 +60,12 @@ def addxy(*args, **kwargs):
     res = np.sum(*args, **kwargs)
     print(f'The result is: {res}')
 
+
 @exe(author='liu')
 def max_xy(*args, **kwargs):
     res = np.max(*args, **kwargs)
     print(f'The result is: {res}')
+
 
 @exe()
 def std_xy(*args, **kwargs):

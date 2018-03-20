@@ -42,8 +42,7 @@ mod = tf.matmul(data, A) + b
 # 限制斜率的系数不超过 0.9
 param = tf.constant(1.)
 ridge_loss = tf.reduce_mean(tf.square(A))
-temp1 = tf.reduce_mean(tf.square(target - mod)) + tf.multiply(
-    param, ridge_loss)
+temp1 = tf.reduce_mean(tf.square(target - mod)) + tf.multiply(param, ridge_loss)
 # 插入一个维度
 loss = tf.expand_dims(temp1, axis=0)
 
@@ -72,8 +71,7 @@ for step in range(iter_num):
     sess.run(goal, feed_dict={data: train_x, target: train_y})
 
     # 输出结果
-    print('epoch: {0}, A = {1}, b = {2}'.format(step + 1, sess.run(A),
-                                                sess.run(b)))
+    print('epoch: {0}, A = {1}, b = {2}'.format(step + 1, sess.run(A), sess.run(b)))
 
 # 提取结果, A 定义的维度是(1, 1)
 [[slope]], [[intercept]] = sess.run(A), sess.run(b)

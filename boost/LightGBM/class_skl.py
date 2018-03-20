@@ -23,8 +23,8 @@ X_train, X_test, y_train, y_test = train_test_split(data / 255, target, test_siz
 # 构建模型
 # 参数设置
 params = {
-    'objective': 'multiclass', 
-    'num_iterations': 193, 
+    'objective': 'multiclass',
+    'num_iterations': 193,
     'num_leaves': 31,
     'learning_rate': 0.1,
 }

@@ -46,11 +46,7 @@ colors = sns.color_palette('Set2', 3)
 
 plt.figure(1)
 for label, col in zip([0, 1, 2], colors):
-    plt.scatter(
-        X[y == label, 0],
-        X[y == label, 1],
-        color=col,
-        label='class' + str(label))
+    plt.scatter(X[y == label, 0], X[y == label, 1], color=col, label='class' + str(label))
 plt.title('origin data')
 plt.legend(loc='best')
 
@@ -68,20 +64,14 @@ print('采样前: {}'.format(Counter(y_new).items()))
 
 plt.figure(2)
 for label, col in zip([0, 1, 2], colors):
-    plt.scatter(
-        X_new[y_new == label, 0],
-        X_new[y_new == label, 1],
-        color=col,
-        label='class' + str(label))
+    plt.scatter(X_new[y_new == label, 0], X_new[y_new == label, 1], color=col, label='class' + str(label))
 plt.title('new data')
 plt.legend(loc='best')
 
 # 创建模型实例
-models = [('SVM', SVC(kernel='rbf')), ('logr',
-                                       LogisticRegression(max_iter=1000)),
-          ('AdaBoost', AdaBoostClassifier(random_state=0)),
-          ('GDBT', GradientBoostingClassifier(random_state=0)),
-          ('RF', RandomForestClassifier(random_state=0)),
+models = [('SVM', SVC(kernel='rbf')), ('logr', LogisticRegression(max_iter=1000)), ('AdaBoost',
+                                                                                    AdaBoostClassifier(random_state=0)),
+          ('GDBT', GradientBoostingClassifier(random_state=0)), ('RF', RandomForestClassifier(random_state=0)),
           ('xgboost', xgb.XGBClassifier(random_state=0))]
 
 # 创建命名元组
@@ -92,7 +82,6 @@ for i in range(len(models)):
     model = model_type(*models[i])
     model.model_instance.fit(X_new, y_new)
     y_pred = model.model_instance.predict(X)
-    print(
-        model.model_name + ':\n' + 'acc: {}'.format(accuracy_score(y, y_pred)))
+    print(model.model_name + ':\n' + 'acc: {}'.format(accuracy_score(y, y_pred)))
 
 plt.show()
