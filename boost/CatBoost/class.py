@@ -17,10 +17,9 @@ from sklearn.metrics import accuracy_score
 
 # 获取数据
 data, target = load_digits(n_class=10, return_X_y=True)
-data = data / 255
 
 # 训练集与测试集分割
-X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.3, random_state=1)
+X_train, X_test, y_train, y_test = train_test_split(data / 255, target, test_size=0.3, random_state=1)
 
 # 构建模型
 config = {
