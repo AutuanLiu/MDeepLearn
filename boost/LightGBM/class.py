@@ -58,4 +58,3 @@ y_pred = gbm.predict(X_test, num_iteration=gbm.best_iteration)
 n_class = np.argmax(y_pred, axis=1)
 print(y_test, n_class)
 print(accuracy_score(y_test, n_class))
-
