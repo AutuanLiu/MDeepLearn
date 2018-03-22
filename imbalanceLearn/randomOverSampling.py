@@ -9,9 +9,10 @@
    Date：2017/12/27
 """
 
+from collections import Counter
+
 import matplotlib.pyplot as plt
 import seaborn as sns
-from collections import Counter
 from imblearn.over_sampling import RandomOverSampler
 from sklearn.datasets import make_classification
 from sklearn.ensemble import AdaBoostClassifier

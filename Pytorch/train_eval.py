@@ -11,6 +11,7 @@
 
 import numpy as np
 import torch
+
 torch.manual_seed(5)
 
 # from utils import gpu_t
@@ -26,7 +27,7 @@ def train_m(mod, train_data, opt, loss_f):
     loss_epoch = []
     for batch_idx, (data, target) in enumerate(train_data):
         mod1, data1, target1 = gpu_t(mod, data, target)
-        # 优化器清 0 操作
+        # 优化器清 0 操作(清除原先的grad)
         opt.zero_grad()
         y_pred = mod1.forward(data1)
         # loss 的前向与后向传播

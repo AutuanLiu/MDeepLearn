@@ -13,8 +13,9 @@
 """
 
 import time
-import numpy as np
 from functools import wraps
+
+import numpy as np
 
 
 # 不带参数的装饰器

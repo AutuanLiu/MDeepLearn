@@ -9,10 +9,10 @@
    Email : autuanliu@163.com
    Date：2018/3/19
 """
-from sklearn.datasets import make_regression
 from catboost import Pool, CatBoostRegressor, cv
-from sklearn.model_selection import train_test_split
+from sklearn.datasets import make_regression
 from sklearn.metrics import r2_score
+from sklearn.model_selection import train_test_split
 
 data, target, coef = make_regression(
     n_samples=1000, n_features=10, n_targets=1, n_informative=8, noise=0.1, random_state=12, bias=1.2, coef=True)

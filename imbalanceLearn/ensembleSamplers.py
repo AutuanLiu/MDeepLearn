@@ -9,9 +9,10 @@
    Date：2017/12/28
 """
 
+from collections import Counter
+
 import numpy as np
 import xgboost as xgb
-from collections import Counter
 from imblearn.ensemble import EasyEnsemble, BalanceCascade, BalancedBaggingClassifier
 from sklearn.datasets import make_classification
 from sklearn.linear_model import LogisticRegression

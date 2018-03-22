@@ -7,7 +7,6 @@
    Email : autuanliu@163.com
    Date：2018/3/20
 """
-import lightgbm as lgb
 from lightgbm import LGBMRegressor
 from sklearn.datasets import make_regression
 from sklearn.metrics import mean_squared_error
@@ -31,7 +30,7 @@ y_pred = gbm.predict(X_test, num_iteration=gbm.best_iteration_)
 print(f'Best iterations: {gbm.best_iteration_}')
 
 # eval
-print('The rmse of prediction is:', mean_squared_error(y_test, y_pred)**0.5)
+print('The rmse of prediction is:', mean_squared_error(y_test, y_pred) ** 0.5)
 
 # feature importances
 print('Feature importances:', list(gbm.feature_importances_))

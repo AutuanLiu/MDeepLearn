@@ -8,10 +8,10 @@
    Date：2018/3/20
 """
 import lightgbm as lgb
-from sklearn.datasets import make_regression
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error
 import matplotlib.pyplot as plt
+from sklearn.datasets import make_regression
+from sklearn.metrics import mean_squared_error
+from sklearn.model_selection import train_test_split
 
 # 获取数据
 data, target = make_regression(
@@ -52,7 +52,7 @@ print(f'Best iterations: {gbm.best_iteration}')
 y_pred = gbm.predict(X_test, num_iteration=gbm.best_iteration)
 
 # eval
-print('The rmse of prediction is:', mean_squared_error(y_test, y_pred)**0.5)
+print('The rmse of prediction is:', mean_squared_error(y_test, y_pred) ** 0.5)
 
 # plot
 ax = lgb.plot_metric(res, metric='auc')

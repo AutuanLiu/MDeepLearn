@@ -11,8 +11,9 @@
    Date：2017/12/28
 """
 
-import xgboost as xgb
 from collections import Counter
+
+import xgboost as xgb
 from imblearn.combine import SMOTEENN, SMOTETomek
 from sklearn.datasets import make_classification
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report

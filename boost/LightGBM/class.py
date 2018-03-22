@@ -15,10 +15,11 @@
    Email : autuanliu@163.com
    Date：2018/3/20
 """
-import lightgbm as lgb, numpy as np
+import lightgbm as lgb
+import numpy as np
 from sklearn.datasets import load_digits
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
 
 # 获取数据
 data, target = load_digits(n_class=10, return_X_y=True)

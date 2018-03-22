@@ -63,7 +63,7 @@ print(np.allclose(W @ H, vectors))
 
 # TF-IDF
 vectorizer_tfidf = TfidfVectorizer(stop_words='english')
-vectors_tfidf = vectorizer_tfidf.fit_transform(news_train.data) # (documents, vocab)
+vectors_tfidf = vectorizer_tfidf.fit_transform(news_train.data)  # (documents, vocab)
 W1 = clf.fit_transform(vectors_tfidf)
 H1 = clf.components_
 # 误差

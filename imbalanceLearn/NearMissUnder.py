@@ -8,10 +8,11 @@
    Date：2017/12/27
 """
 
+from collections import Counter, namedtuple
+
 import matplotlib.pyplot as plt
 import seaborn as sns
 import xgboost as xgb
-from collections import Counter, namedtuple
 from imblearn.under_sampling import RandomUnderSampler, NearMiss
 from sklearn.datasets import make_classification
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis

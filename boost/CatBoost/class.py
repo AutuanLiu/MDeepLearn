@@ -12,8 +12,8 @@
 """
 from catboost import CatBoostClassifier
 from sklearn.datasets import load_digits
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
 
 # 获取数据
 data, target = load_digits(n_class=10, return_X_y=True)

@@ -8,8 +8,9 @@
    Date：2017/12/27
 """
 
-import xgboost as xgb
 from collections import Counter
+
+import xgboost as xgb
 from imblearn.over_sampling import ADASYN
 from sklearn.datasets import make_classification
 from sklearn.decomposition import PCA
