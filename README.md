@@ -47,9 +47,9 @@ GPU | [![Build Status][1]][2]
     
 4. [download zip file][5]
 
-## 主要目录
+## 主要涉及内容
 
-[持续更新中...]
+[以下持续更新中......]
 * [机器学习常见函数及其图像](function_images.md)
 * [线性模型](./TensorFlow)
     * 最小二乘回归
@@ -67,6 +67,8 @@ GPU | [![Build Status][1]][2]
     * Gradient Boost tree
     * XGBoost
     * AdaBoost
+    * CatBoost
+    * LightGBM
 * [imbalance learn](./imbalanceLearn)
     * over-sampling
     * under-sampling
@@ -89,7 +91,17 @@ GPU | [![Build Status][1]][2]
     * LSTM
     * DNN
     * autoEncoder
-    * .
+    * ResNet
+    * AlexNet
+    * GoogLeNet
+    * DenseNet
+    * VGGNet
+    * LeNet
+    * BiNet
+    * Word2Vec
+    * Q-Learn
+    * GAN
+    * Graph-CNN
 * [env config](env_configure.sh)
     * ubuntu 一键环境配置
     * 云服务器同样可用
@@ -98,7 +110,8 @@ GPU | [![Build Status][1]][2]
 ------
 #### 说明信息
 
-以上内容(不完整)都会采用 TensorFlow, Pytorch, sklearn 进行实现(进度可能有点慢, 因为我也是在学习的阶段)
+以上内容(不完整)都会采用 TensorFlow, Pytorch, sklearn 进行实现(进度可能有点慢, 因为我也是在学习的阶段), PyTorch 模型实现之后会
+独立成库(目前主攻 PyTorch)
 
 * `TensorFlow` 和 `Pytorch` 主要是构建深度学习框架，神经网络的，这里使用它们建立线性回归等只是说明它们可以实现这样的模型
 * 对于机器学习模型应该尽可能采用 `sklearn` 进行构造，毕竟**术业有专攻**
@@ -140,7 +153,6 @@ GPU | [![Build Status][1]][2]
 20. [How to handle Imbalanced Classification Problems in machine learning?](https://www.analyticsvidhya.com/blog/2017/03/imbalanced-classification-problem/)
 21. [Understanding Neural Networks Through Deep Visualization](http://yosinski.com/deepvis)
 22. [deep-visualization-toolbox: DeepVis Toolbox](https://github.com/yosinski/deep-visualization-toolbox)
-23. [fast.ai · Making neural nets uncool again](http://www.fast.ai/)
 24. [Simplified implementations of deep learning related works](https://github.com/exacity/simplified-deeplearning)
 25. [Deep Learning Book Chinese Translation](https://github.com/exacity/deeplearningbook-chinese)
 26. [Essential Cheat Sheets for deep learning and machine learning researchers](https://github.com/kailashahirwar/cheatsheets-ai)
@@ -149,6 +161,12 @@ GPU | [![Build Status][1]][2]
 29. 原理可视化: [Setosa data visualization and visual explanations](http://setosa.io/#/)
 30. 神经网络总结: [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/)
 
+### 学习链接
+1. [PyTorch 官方实例](https://github.com/pytorch/examples)
+2. 斯坦福大学 CS231 课程[Stanford University CS231n: Convolutional Neural Networks for Visual Recognition](http://vision.stanford.edu/teaching/cs231n/)
+3. 博客 [Sasank's Blog](http://chsasank.github.io/)
+4. 在线书籍[《Python进阶》](http://docs.pythontab.com/interpy/)
+5. Fast.ai 在线学习网站(推荐)[fast.ai · Making neural nets uncool again](http://www.fast.ai/)
 
 ### 参考书籍
 
@@ -180,117 +198,10 @@ P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 
 ## 目录结构
 
-* 参见 [dir_tree.txt](dir_tree.txt)
+* 参见(待更新) [dir_tree.txt](dir_tree.txt)
 
-`$ tree -h -I 'Mnist|fashionMnist|__pycache__' > dir_tree.txt`
-
-```
-.
-├── [4.0K]  datasets
-│   ├── [2.6K]  iris.csv
-│   └── [4.4M]  money.csv
-├── [   0]  dir_tree.txt
-├── [ 100]  Dockerfile
-├── [  99]  Dockerfile.gpu
-├── [1.7K]  env_configure.sh
-├── [ 559]  env_gpu_support.md
-├── [9.8K]  example_numpy.py
-├── [4.0K]  imbalanceLearn
-│   ├── [1.9K]  combination.py
-│   ├── [2.0K]  ensembleSamplers.py
-│   ├── [2.9K]  NearMissUnder.py
-│   ├── [1.3K]  pipelineUsage.py
-│   ├── [2.6K]  prototypeGenerationUnder.py
-│   ├── [1.9K]  randomOverSampling.py
-│   ├── [1.4K]  syntheticOver
-│   └── [2.1K]  underSampling.py
-├── [4.0K]  Kaggle
-│   ├── [245K]  Titanic.ipynb
-│   ├── [ 549]  Titanic.py
-│   └── [ 357]  TODO.md
-├── [4.0K]  keras
-│   ├── [1.3K]  kerasExa.py
-│   └── [1.4K]  tfKerasExa.py
-├── [ 11K]  LICENSE
-├── [ 496]  Pipfile
-├── [ 32K]  Pipfile.lock
-├── [ 205]  pip_pkgs.txt
-├── [4.0K]  Pytorch
-│   ├── [1.9K]  CNNfashionMnist.py
-│   ├── [1.3K]  easy_dataset_example.py
-│   ├── [1.1K]  getdata.py
-│   ├── [2.5K]  LinearRegression.py
-│   ├── [1.5K]  LinearSimple1.py
-│   ├── [2.4K]  LinearSimple.py
-│   ├── [1.4K]  Logistic.py
-│   ├── [2.8K]  LogisticRegression.py
-│   ├── [2.2K]  LogisticSimple.py
-│   ├── [4.2K]  logSoftmax.py
-│   ├── [1.4K]  make_dataset.py
-│   ├── [3.1K]  softmaxMnist.py
-│   └── [1.6K]  train_eval.py
-├── [ 11K]  README.md
-├── [4.0K]  sklearn
-│   ├── [ 464]  DecisionTreeClassifier.py
-│   ├── [ 819]  featureSelection.py
-│   ├── [1.5K]  KernelRidgeRegression.py
-│   ├── [1.3K]  LeastSquaresRegression.py
-│   ├── [2.5K]  LinearDiscriminant.py
-│   ├── [2.5K]  MLP.py
-│   ├── [4.0K]  models
-│   │   ├── [ 963]  curves.py
-│   │   ├── [1.7K]  features_Scale.py
-│   │   └── [1.9K]  scoresL.py
-│   ├── [ 523]  NaiveBayes.py
-│   ├── [ 926]  NN.py
-│   ├── [1.0K]  NonLinearSVM.py
-│   ├── [ 885]  PolynomialRegression.py
-│   ├── [ 843]  PolySimple.py
-│   ├── [1018]  QuadraticDA.py
-│   ├── [2.0K]  RandomForest.py
-│   ├── [1.7K]  RidgeRegression.py
-│   ├── [ 740]  SGD.py
-│   ├── [1.2K]  SupportVectorRegression.py
-│   ├── [1.1K]  SVMachine.py
-│   ├── [2.0K]  SVR1.py
-│   ├── [ 582]  SVR.py
-│   └── [4.0K]  unsupervised
-│       ├── [ 661]  biClusteringL.py
-│       ├── [2.1K]  clustering.py
-│       ├── [4.4K]  decomposition.py
-│       ├── [1.0K]  GaussianMixture.py
-│       └── [1.7K]  kmeansL.py
-├── [4.0K]  TensorFlow
-│   ├── [2.1K]  basic.py
-│   ├── [4.0K]  Classification
-│   │   └── [ 332]  SVM.py
-│   ├── [4.0K]  LinearRegression
-│   │   ├── [3.2K]  DemingRegression.py
-│   │   ├── [2.5K]  ElasticNetRegression.py
-│   │   ├── [2.7K]  LassoRegression.py
-│   │   ├── [2.9K]  LeastSquaresRegression.py
-│   │   ├── [4.5K]  LogisticRegression.py
-│   │   └── [2.7K]  RidgeRegression.py
-│   ├── [3.6K]  mnist_softmax.py
-│   ├── [2.6K]  test.py
-│   └── [1.4K]  tfKeras.py
-├── [4.0K]  TensorLayer
-│   └── [2.2K]  mnist_simple.py
-├── [4.0K]  utils
-│   ├── [3.1K]  gpu_computing.py
-│   ├── [ 388]  __init__.py
-│   ├── [2.4K]  logger.py
-│   └── [ 811]  normalized_func.py
-└── [4.0K]  XGBoost
-    ├── [106K]  best_boston.pkl
-    ├── [ 765]  xgBoostBase2.py
-    ├── [ 890]  xgboostBase3.py
-    ├── [1011]  xgBoostBase.py
-    └── [2.4K]  xgboostree.py
-
-14 directories, 87 files
-
-
+```bash
+$ tree -h -I 'Mnist|fashionMnist|__pycache__' > dir_tree.txt
 ```
 
 
