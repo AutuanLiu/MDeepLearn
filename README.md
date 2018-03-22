@@ -13,37 +13,27 @@ GPU | [![Build Status][1]][2]
 
 ## Usage
 
-1. 可以通过构建 Docker 容器的方式来进行学习(免去了环境配置的麻烦， 同时支持跨平台)
-    
-    * 通过提供的 Dockerfile 进行构建，命令为
-        
-        ```bash
-        docker build -t ml-example:latest -f Dockerfile .
-        ```
-        
+1. 可以通过构建 Docker 容器的方式来进行学习(免去了环境配置的麻烦， 同时支持跨平台)  
+* 通过提供的 Dockerfile 进行构建，命令为
+```bash
+$ docker build -t ml-example:latest -f Dockerfile .
+```      
 2. 直接 pull image
-
-    * CPU
-    
-        ```bash
-           docker pull machine-learning-on-docker:cpu
-         ```
-         
-    * GPU
-    
-        ```bash
-           docker pull machine-learning-on-docker:gpu
-        ```
-        
-    * 运行方式
-        * 参见 [docker run][4]
+* CPU 
+```bash
+$ docker pull machine-learning-on-docker:cpu
+```
+* GPU 
+```bash
+$ docker pull machine-learning-on-docker:gpu
+```    
+* 运行方式参见 [docker run][4]
         
 3. git clone(需要自己配置环境)
-
-    ```bash
-    git clone https://github.com/AutuanLiu/MDeepLearn.git
-    cd MDeepLearn
-    ```
+```bash
+$ git clone https://github.com/AutuanLiu/MDeepLearn.git
+$ cd MDeepLearn
+```
     
 4. [download zip file][5]
 
@@ -195,9 +185,7 @@ P.S. 这也是逼迫自己写代码，实战的一种手段吧！
 
 * 如果你觉得这个 repository 有用，并且希望丰富这个repository的内容，欢迎 PR
 
-
 ## 目录结构
-
 * 参见(待更新) [dir_tree.txt](dir_tree.txt)
 
 ```bash
