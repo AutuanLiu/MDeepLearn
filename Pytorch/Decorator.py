@@ -56,6 +56,20 @@ class Foo():
         self._func(*args, **kwargs)
 
 
+# 带参数类装饰器
+class Foo1():
+    def __init__(self, author):
+        self.writer = author
+
+    def __call__(self, func):
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            print(f'class decorator with args, writer is {self.writer}')
+            return func(*args, **kwargs)
+
+        return wrapper
+
+
 @exe_add
 def addxy(*args, **kwargs):
     res = np.sum(*args, **kwargs)
@@ -80,6 +94,13 @@ def std_xy1(*args, **kwargs):
     print(f'The result is: {res}')
 
 
+@Foo1(author='liu')
+def std_xy2(*args, **kwargs):
+    res = np.std(*args, **kwargs)
+    print(f'The result is: {res}')
+
+
+# Test example
 addxy([1, 2, 3])
 addxy(np.arange(9).reshape(-1, 3), axis=1, dtype=np.int32)
 
@@ -88,3 +109,4 @@ max_xy(np.arange(9).reshape(-1, 3), axis=1)
 
 std_xy(np.arange(9).reshape(-1, 3), axis=1)
 std_xy1(np.arange(9).reshape(-1, 3), axis=1)
+std_xy2(np.arange(9).reshape(-1, 3), axis=1)
