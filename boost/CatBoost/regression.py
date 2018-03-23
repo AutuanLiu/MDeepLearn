@@ -36,7 +36,7 @@ config = {
     'calc_feature_importance': True,
     'leaf_estimation_method': 'Gradient',
     'metric_period': 5,
-    'train_dir': './boost/CatBoost/logs'
+    'train_dir': 'logs'
 }
 
 # unpacking 的形式传入参数
@@ -53,7 +53,7 @@ print(f'R2: {r2_score(y_test, y_pred)}')
 print(f'feature_importance = {model.get_feature_importance(train_pool)}')
 
 # 保存模型
-model.save_model('./boost/CatBoost/regression.cbm', format="cbm")
+model.save_model('regression.cbm', format="cbm")
 
 # Calculate the RMSE metric for the objects in the given dataset.
 print(f'score: {model.score(X_train, y_train)}')

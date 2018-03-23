@@ -45,7 +45,7 @@ res = {}
 gbm = lgb.train(params, train, valid_sets=test, early_stopping_rounds=5, evals_result=res)
 
 # save model to file
-gbm.save_model('./boost/LightGBM/regression.txt')
+gbm.save_model('regression.txt')
 
 # predict
 print(f'Best iterations: {gbm.best_iteration}')

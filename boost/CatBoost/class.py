@@ -36,7 +36,7 @@ config = {
     'fold_len_multiplier': 1.2,
     'od_type': 'IncToDec',
     'metric_period': 5,
-    'train_dir': './boost/CatBoost/logs'
+    'train_dir': 'logs'
 }
 
 # unpacking 的形式传入参数
@@ -57,7 +57,7 @@ print(f'proba = {preds_proba}')
 print(f'feature_importance = {model.get_feature_importance(X_train, y_train)}')
 
 # 保存模型
-model.save_model('./boost/CatBoost/class.cbm', format="cbm")
+model.save_model('class.cbm', format="cbm")
 
 # 获取模型参数
 print(f'args config: {model.get_params()}')

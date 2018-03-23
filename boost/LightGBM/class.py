@@ -49,7 +49,7 @@ params = {
 gbm = lgb.train(params, train, valid_sets=test, early_stopping_rounds=15)
 
 # save model to file
-gbm.save_model('./boost/LightGBM/model.txt')
+gbm.save_model('model.txt')
 
 # predict
 print(f'Best iterations: {gbm.best_iteration}')
