@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 -------------------------------------------------
-   File Name：Antsbees
-   Description :  使用预训练模型 resnet 分类蚂蚁和蜜蜂  
+    File Name：Antsbees
+    Description :  使用预训练模型 resnet 分类蚂蚁和蜜蜂  
     1. 数据集 https://download.pytorch.org/tutorial/hymenoptera_data.zip
     2. https://github.com/pytorch/vision/blob/master/torchvision/transforms/transforms.py
     3. http://pytorch.org/docs/master/torchvision/transforms.html
@@ -12,8 +12,8 @@
     6. http://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html
     7. https://github.com/svishnu88/pytorch
     8. https://chsasank.github.io/
-   Email : autuanliu@163.com
-   Date：2018/3/22
+    Email : autuanliu@163.com
+    Date：2018/3/22
 """
 import copy
 import time
