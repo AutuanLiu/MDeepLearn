@@ -13,11 +13,13 @@ use_gpu = torch.cuda.is_available()    # GPU
 
 
 class SimpleCNN(nn.modules):
-    def __init__(self):
+    def __init__(self, config):
         super().__init__()
+        self.l1 = nn.Linear(in_features, out_features, bias=True)
 
     def forward(self, x):
-        pass
+        out = self.l1(x)
+        return out
 
 
 def simpleCNN():
