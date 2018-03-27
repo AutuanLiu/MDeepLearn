@@ -70,10 +70,8 @@ plt.title('new data')
 plt.legend(loc='best')
 
 # 创建模型实例
-models = [('SVM', SVC(kernel='rbf')), ('logr', LogisticRegression(max_iter=1000)), ('AdaBoost',
-                                                                                    AdaBoostClassifier(random_state=0)),
-          ('GDBT', GradientBoostingClassifier(random_state=0)), ('RF', RandomForestClassifier(random_state=0)),
-          ('xgboost', xgb.XGBClassifier(random_state=0))]
+models = [('SVM', SVC(kernel='rbf')), ('logr', LogisticRegression(max_iter=1000)), ('AdaBoost', AdaBoostClassifier(random_state=0)),
+          ('GDBT', GradientBoostingClassifier(random_state=0)), ('RF', RandomForestClassifier(random_state=0)), ('xgboost', xgb.XGBClassifier(random_state=0))]
 
 # 创建命名元组
 model_type = namedtuple('model', ['model_name', 'model_instance'])

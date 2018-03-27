@@ -12,16 +12,7 @@ import numpy as np
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.preprocessing import (scale, StandardScaler, MaxAbsScaler, MinMaxScaler, normalize, Normalizer, Binarizer)
 
-measurements = [{
-    'city': 'Dubai',
-    'temperature': 33.
-}, {
-    'city': 'London',
-    'temperature': 12.
-}, {
-    'city': 'San Francisco',
-    'temperature': 18.
-}]
+measurements = [{'city': 'Dubai', 'temperature': 33.}, {'city': 'London', 'temperature': 12.}, {'city': 'San Francisco', 'temperature': 18.}]
 
 vec = DictVectorizer()
 

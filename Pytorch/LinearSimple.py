@@ -75,7 +75,6 @@ param = []
 # https://discuss.pytorch.org/t/getting-only-weights-not-biases-from-a-module/1838
 for _, para in model.named_parameters():
     param.append(para.data.numpy().squeeze())
-
 # 可视化
 plt.plot(data, param[0] * data + param[1], label='prediction')
 # or

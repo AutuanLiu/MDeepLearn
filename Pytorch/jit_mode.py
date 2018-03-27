@@ -19,22 +19,12 @@ gjit_cpu = generated_jit(nopython=True, parallel=True)
 gjit_gpu = generated_jit(nopython=True, parallel=True, target='cuda')
 
 # ufunc example
-vec_cpu = vectorize([
-    void(int64, int64),
-    int16(int16, int16),
-    int32(int32, int32),
-    int64(int64, int64),
-    float32(float32, float32),
-    float64(float64, float64)
-])
+vec_cpu = vectorize([void(int64, int64), int16(int16, int16), int32(int32, int32), int64(int64, int64), float32(float32, float32), float64(float64, float64)])
 
 vec_gpu = vectorize(
-    [
-        void(int64, int64),
-        int16(int16, int16),
-        int32(int32, int32),
-        int64(int64, int64),
-        float32(float32, float32),
-        float64(float64, float64)
-    ],
-    target='cuda')
+    [void(int64, int64),
+     int16(int16, int16),
+     int32(int32, int32),
+     int64(int64, int64),
+     float32(float32, float32),
+     float64(float64, float64)], target='cuda')

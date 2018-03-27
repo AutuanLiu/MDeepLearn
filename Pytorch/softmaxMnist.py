@@ -53,10 +53,8 @@ def train_m(mod, data_loader):
         loss.backward()
         optimizer.step()
         if batch_idx % 10 == 0:
-            print('Train Epoch: {} [{:5d}/{} ({:2.0f}%)]\tLoss: {:.6f}'.format(epoch + 1, batch_idx * len(data),
-                                                                               len(data_loader.dataset),
-                                                                               100. * batch_idx / len(data_loader),
-                                                                               loss.data[0]))
+            print('Train Epoch: {} [{:5d}/{} ({:2.0f}%)]\tLoss: {:.6f}'.format(epoch + 1, batch_idx * len(data), len(data_loader.dataset),
+                                                                               100. * batch_idx / len(data_loader), loss.data[0]))
 
 
 def test_m(mod, data_loader):
@@ -73,8 +71,7 @@ def test_m(mod, data_loader):
 
     test_loss /= len(data_loader.dataset)
     len1 = len(data_loader.dataset)
-    print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(test_loss, correct, len1,
-                                                                                 100. * correct / len1))
+    print('\nTest set: Average loss: {:.4f}, Accuracy: {}/{} ({:.0f}%)\n'.format(test_loss, correct, len1, 100. * correct / len1))
 
 
 if __name__ == '__main__':

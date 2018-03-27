@@ -13,8 +13,7 @@ from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import GridSearchCV, train_test_split
 
 # 获取数据
-data, target = make_regression(
-    n_samples=1000, n_features=10, n_targets=1, n_informative=8, noise=0.1, random_state=12, bias=1.2)
+data, target = make_regression(n_samples=1000, n_features=10, n_targets=1, n_informative=8, noise=0.1, random_state=12, bias=1.2)
 
 # 分割数据集
 X_train, X_test, y_train, y_test = train_test_split(data, target, test_size=0.2)
@@ -30,7 +29,7 @@ y_pred = gbm.predict(X_test, num_iteration=gbm.best_iteration_)
 print(f'Best iterations: {gbm.best_iteration_}')
 
 # eval
-print('The rmse of prediction is:', mean_squared_error(y_test, y_pred) ** 0.5)
+print('The rmse of prediction is:', mean_squared_error(y_test, y_pred)**0.5)
 
 # feature importances
 print('Feature importances:', list(gbm.feature_importances_))

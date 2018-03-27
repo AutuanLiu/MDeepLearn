@@ -14,22 +14,13 @@ from collections import namedtuple
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.datasets import make_classification
-from sklearn.decomposition import (PCA, IncrementalPCA, FactorAnalysis, FastICA, KernelPCA, SparsePCA,
-                                   MiniBatchSparsePCA, MiniBatchDictionaryLearning, DictionaryLearning)
+from sklearn.decomposition import (PCA, IncrementalPCA, FactorAnalysis, FastICA, KernelPCA, SparsePCA, MiniBatchSparsePCA, MiniBatchDictionaryLearning,
+                                   DictionaryLearning)
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 # data
 X, y = make_classification(
-    n_samples=1000,
-    n_features=5,
-    n_informative=2,
-    n_redundant=0,
-    n_repeated=0,
-    n_classes=3,
-    n_clusters_per_class=1,
-    class_sep=1.5,
-    flip_y=0.01,
-    random_state=0)
+    n_samples=1000, n_features=5, n_informative=2, n_redundant=0, n_repeated=0, n_classes=3, n_clusters_per_class=1, class_sep=1.5, flip_y=0.01, random_state=0)
 
 # 初始设置
 sns.set(style='whitegrid')
@@ -70,33 +61,27 @@ plot_func('origin data')
 
 # KernelPCA 是非线性降维, LDA 只能用于分类降维
 # ICA 通常不用于降低维度，而是用于分离叠加信号
-models_list = [('LDA', LinearDiscriminantAnalysis(n_components=2)), ('PCA', PCA(n_components=2, random_state=0)),
-               ('PCARand', PCA(n_components=2, random_state=0, svd_solver='randomized')), ('IncrementalPCA',
-                                                                                           IncrementalPCA(
-                                                                                               n_components=2,
-                                                                                               batch_size=10,
-                                                                                               whiten=True)),
-               ('FactorAnalysis', FactorAnalysis(n_components=2, max_iter=500)), ('FastICA',
-                                                                                  FastICA(
-                                                                                      n_components=2, random_state=0)),
-               ('KernelPCA', KernelPCA(n_components=2,
-                                       random_state=0, kernel='rbf')), ('SparsePCA',
-                                                                        SparsePCA(
-                                                                            n_components=2,
-                                                                            random_state=0,
-                                                                            verbose=True)), ('MiniBatchSparsePCA',
-                                                                                             MiniBatchSparsePCA(
-                                                                                                 n_components=2,
-                                                                                                 verbose=True,
-                                                                                                 batch_size=10,
-                                                                                                 random_state=0)),
-               ('DictionaryLearning', DictionaryLearning(n_components=2, verbose=True,
-                                                         random_state=0)), ('MiniBatchDictionaryLearning',
-                                                                            MiniBatchDictionaryLearning(
-                                                                                n_components=2,
-                                                                                batch_size=5,
-                                                                                random_state=0,
-                                                                                alpha=0.1))]
+models_list = [('LDA', LinearDiscriminantAnalysis(n_components=2)), ('PCA', PCA(n_components=2, random_state=0)), ('PCARand',
+                                                                                                                   PCA(n_components=2,
+                                                                                                                       random_state=0,
+                                                                                                                       svd_solver='randomized')),
+               ('IncrementalPCA', IncrementalPCA(n_components=2, batch_size=10, whiten=True)), ('FactorAnalysis', FactorAnalysis(n_components=2, max_iter=500)),
+               ('FastICA', FastICA(n_components=2, random_state=0)), ('KernelPCA', KernelPCA(n_components=2, random_state=0,
+                                                                                             kernel='rbf')), ('SparsePCA',
+                                                                                                              SparsePCA(
+                                                                                                                  n_components=2, random_state=0,
+                                                                                                                  verbose=True)), ('MiniBatchSparsePCA',
+                                                                                                                                   MiniBatchSparsePCA(
+                                                                                                                                       n_components=2,
+                                                                                                                                       verbose=True,
+                                                                                                                                       batch_size=10,
+                                                                                                                                       random_state=0)),
+               ('DictionaryLearning', DictionaryLearning(n_components=2, verbose=True, random_state=0)), ('MiniBatchDictionaryLearning',
+                                                                                                          MiniBatchDictionaryLearning(
+                                                                                                              n_components=2,
+                                                                                                              batch_size=5,
+                                                                                                              random_state=0,
+                                                                                                              alpha=0.1))]
 
 model = namedtuple('models', ['mod_name', 'mod_ins'])
 

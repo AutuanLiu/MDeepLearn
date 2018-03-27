@@ -35,13 +35,7 @@ def stackedbarp(x_data, y_data_list, colors, y_data_names="", x_label="", y_labe
         else:
             # For each category after the first, the bottom of the
             # bar will be the top of the last category
-            ax.bar(
-                x_data,
-                y_data_list[i],
-                color=colors[i],
-                bottom=y_data_list[i - 1],
-                align='center',
-                label=y_data_names[i])
+            ax.bar(x_data, y_data_list[i], color=colors[i], bottom=y_data_list[i - 1], align='center', label=y_data_names[i])
     ax.set_ylabel(y_label)
     ax.set_xlabel(x_label)
     ax.set_title(title)

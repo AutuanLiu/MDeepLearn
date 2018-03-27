@@ -7,9 +7,9 @@ import scipy.misc
 import tensorflow as tf
 
 try:
-    from StringIO import StringIO  # Python 2.7
+    from StringIO import StringIO    # Python 2.7
 except ImportError:
-    from io import BytesIO  # Python 3.x
+    from io import BytesIO    # Python 3.x
 
 
 class Logger(object):
@@ -55,7 +55,7 @@ class Logger(object):
         hist.max = float(np.max(values))
         hist.num = int(np.prod(values.shape))
         hist.sum = float(np.sum(values))
-        hist.sum_squares = float(np.sum(values ** 2))
+        hist.sum_squares = float(np.sum(values**2))
 
         # Drop the start of the first bin
         bin_edges = bin_edges[1:]

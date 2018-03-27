@@ -36,20 +36,12 @@ bandw = estimate_bandwidth(X, quantile=0.2, n_samples=500, random_state=0)
 # 谱聚类算法 用在这里是不合适的, 这里只是举例子
 # assign_labels='kmeans' 可以匹配更精细的数据细节, 但是可能不稳定
 # assign_labels='discretize' 策略是 100% 可以复现的, 但是它往往会产生相当规则的几何形状
-models = [('DDBSCAN', DBSCAN(eps=0.3, min_samples=5, metric='euclidean')), ('SpectralClustering',
-                                                                            SpectralClustering(
-                                                                                n_clusters=3,
-                                                                                assign_labels='discretize')),
-          ('Birch', Birch(n_clusters=3,
-                          threshold=0.5, compute_labels=True)), ('AffinityPropagation',
-                                                                 AffinityPropagation(
-                                                                     damping=0.6,
-                                                                     preference=50,
-                                                                     verbose=True,
-                                                                     convergence_iter=50)), ('MeanShift',
-                                                                                             MeanShift(
-                                                                                                 bandwidth=bandw,
-                                                                                                 bin_seeding=True))]
+models = [('DDBSCAN', DBSCAN(eps=0.3, min_samples=5, metric='euclidean')), ('SpectralClustering', SpectralClustering(n_clusters=3, assign_labels='discretize')),
+          ('Birch', Birch(n_clusters=3, threshold=0.5, compute_labels=True)), ('AffinityPropagation',
+                                                                               AffinityPropagation(
+                                                                                   damping=0.6, preference=50, verbose=True,
+                                                                                   convergence_iter=50)), ('MeanShift',
+                                                                                                           MeanShift(bandwidth=bandw, bin_seeding=True))]
 
 mod_tuple = namedtuple('model', ['name', 'model'])
 

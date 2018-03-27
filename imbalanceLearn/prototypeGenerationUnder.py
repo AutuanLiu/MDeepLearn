@@ -57,8 +57,7 @@ print(sorted(Counter(y_resample).items()))
 
 plt.figure(2)
 for label, col in zip([0, 1, 2], colors):
-    plt.scatter(
-        X_resample[y_resample == label, 0], X_resample[y_resample == label, 1], color=col, label='class' + str(label))
+    plt.scatter(X_resample[y_resample == label, 0], X_resample[y_resample == label, 1], color=col, label='class' + str(label))
 plt.title('resample data')
 plt.legend(loc='best')
 

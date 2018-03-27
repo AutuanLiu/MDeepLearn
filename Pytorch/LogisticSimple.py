@@ -70,3 +70,4 @@ for epoch in range(500):
 test_prediction = model(test_X1)
 loss2 = torch.nn.functional.mse_loss(test_prediction, test_y1)
 print('test loss {}'.format(loss2.data[0]))
+print('state', model.state_dict())

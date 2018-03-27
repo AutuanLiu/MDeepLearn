@@ -17,16 +17,8 @@ from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 # 获取数据: 4 个类别, 2034 个样本
 cate = ['alt.atheism', 'talk.religion.misc', 'comp.graphics', 'sci.space']
 remove = ('headers', 'footers', 'quotes')
-news_train = fetch_20newsgroups(
-    data_home='../../datasets/news/',
-    subset='train',
-    categories=cate,
-    remove=remove)
-news_test = fetch_20newsgroups(
-    data_home='../datasets/news/',
-    subset='test',
-    categories=cate,
-    remove=remove)
+news_train = fetch_20newsgroups(data_home='../../datasets/news/', subset='train', categories=cate, remove=remove)
+news_test = fetch_20newsgroups(data_home='../datasets/news/', subset='test', categories=cate, remove=remove)
 
 # 获取每个样本中的词频
 vectorizer = CountVectorizer(stop_words='english')
@@ -63,7 +55,7 @@ print(np.allclose(W @ H, vectors))
 
 # TF-IDF
 vectorizer_tfidf = TfidfVectorizer(stop_words='english')
-vectors_tfidf = vectorizer_tfidf.fit_transform(news_train.data)  # (documents, vocab)
+vectors_tfidf = vectorizer_tfidf.fit_transform(news_train.data)    # (documents, vocab)
 W1 = clf.fit_transform(vectors_tfidf)
 H1 = clf.components_
 # 误差

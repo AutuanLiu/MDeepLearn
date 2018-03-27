@@ -27,7 +27,7 @@ for filename in filenames:
         print("Downloading '%s', please wait..." % filename)
         open(PATH + filename, 'wb').write(urlopen(URL_BASE + filename).read())
 
-limit = 119077682  # 5000000
+limit = 119077682    # 5000000
 redirects_filename = PATH + filenames[0]
 page_links_filename = PATH + filenames[1]
 DBPEDIA_RESOURCE_PREFIX_LEN = len("http://dbpedia.org/resource/")
@@ -61,7 +61,7 @@ def add_item(lst, redirects, index_map, item):
 
 redirects = get_redirects(redirects_filename)
 # Computing the integer index map
-index_map = dict()  # links->IDs
+index_map = dict()    # links->IDs
 lines = get_lines(page_links_filename)
 source, destination, data = [], [], []
 

@@ -64,10 +64,8 @@ def train_m(mod, train_data):
         optimizer.step()
         # result
         if batch_idx % 10 == 0:
-            print('epoch: {} [{:5.0f}/{} {:2.0f}%] loss: {:.6f}'.format(epoch + 1, batch_idx * len(data),
-                                                                        len(train_data.dataset),
-                                                                        100 * batch_idx / len(train_data),
-                                                                        loss.data[0]))
+            print('epoch: {} [{:5.0f}/{} {:2.0f}%] loss: {:.6f}'.format(epoch + 1, batch_idx * len(data), len(train_data.dataset),
+                                                                        100 * batch_idx / len(train_data), loss.data[0]))
             loss_epoch.append(loss.data[0])
 
             # loss log
@@ -100,8 +98,7 @@ def test_m(mod, test_data):
 
     test_loss /= len(test_data.dataset)
     len1 = len(test_data.dataset)
-    print('Test set: \nAverage loss: {:.4f}, Accuracy: {}/{} ({}%)'.format(test_loss, correct, len1,
-                                                                           100. * correct / len1))
+    print('Test set: \nAverage loss: {:.4f}, Accuracy: {}/{} ({}%)'.format(test_loss, correct, len1, 100. * correct / len1))
 
 
 # some config

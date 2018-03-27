@@ -17,7 +17,7 @@ from sklearn.preprocessing import PolynomialFeatures
 
 # 使用1个特征, 500 个样本
 x = np.arange(500).reshape(500, 1)
-y = 5 + x + 2 * x ** 2 + 3 * x ** 3
+y = 5 + x + 2 * x**2 + 3 * x**3
 
 # pipeline形式
 model = Pipeline([('ploy', PolynomialFeatures(degree=3)), ('linear', LinearRegression(fit_intercept=False))])

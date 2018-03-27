@@ -33,8 +33,7 @@ X1, y1 = make_classification(
     random_state=0,
     weights=[0.05, 0.2, 0.75])
 
-X2, y2 = make_regression(
-    n_samples=3000, n_features=10, n_informative=5, n_targets=1, noise=0.01, bias=3.2, random_state=0)
+X2, y2 = make_regression(n_samples=3000, n_features=10, n_informative=5, n_targets=1, noise=0.01, bias=3.2, random_state=0)
 
 # 重采样
 print(sorted(Counter(y1).items()))
@@ -62,13 +61,7 @@ model1 = MLPClassifier(
 
 # MLPRegressor 类实现了一个多层感知器(MLP), 它在使用反向传播进行训练时的输出层没有使用激活函数
 # 也可以看作是使用身份函数作为激活函数. 因此, 它使用平方误差作为损失函数, 输出是一组连续值
-model2 = MLPRegressor(
-    hidden_layer_sizes=(100, 5),
-    max_iter=2000,
-    learning_rate_init=0.0001,
-    learning_rate='adaptive',
-    verbose=True,
-    random_state=0)
+model2 = MLPRegressor(hidden_layer_sizes=(100, 5), max_iter=2000, learning_rate_init=0.0001, learning_rate='adaptive', verbose=True, random_state=0)
 
 # 归一化与 pipeline
 scaler = StandardScaler()

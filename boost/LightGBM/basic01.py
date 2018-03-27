@@ -26,7 +26,7 @@ print('Start predicting...')
 # predict
 y_pred = gbm.predict(X_test, num_iteration=gbm.best_iteration_)
 # eval
-print('The rmse of prediction is:', mean_squared_error(y_test, y_pred) ** 0.5)
+print('The rmse of prediction is:', mean_squared_error(y_test, y_pred)**0.5)
 
 # feature importances
 print('Feature importances:', list(gbm.feature_importances_))

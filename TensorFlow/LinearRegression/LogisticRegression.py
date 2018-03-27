@@ -119,8 +119,7 @@ for epoch in range(iter_num):
     train_acc.append(temp_train_acc)
     test_acc.append(temp_test_acc)
     # 输出结果
-    print('epoch: {} loss: {:5f} train_acc: {:5f} test_acc: {:5f}'.format(epoch + 1, temp_loss, temp_train_acc,
-                                                                          temp_test_acc))
+    print('epoch: {} loss: {:5f} train_acc: {:5f} test_acc: {:5f}'.format(epoch + 1, temp_loss, temp_train_acc, temp_test_acc))
 
 # 结果的可视化
 # 损失函数
