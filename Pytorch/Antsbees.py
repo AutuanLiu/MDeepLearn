@@ -15,14 +15,11 @@
     Email : autuanliu@163.com
     Date：2018/3/22
 """
-import copy
-import time
+import copy, time
 from pathlib import PurePath
 
 import matplotlib.pyplot as plt
-import numpy as np
-import torch
-import torchvision
+import numpy as np, torch, torchvision
 from torch import nn, optim
 from torch.autograd import Variable
 from torch.optim import lr_scheduler
@@ -56,7 +53,7 @@ data_transforms = {
 # Load Data
 data_dir = PurePath('../datasets/antsbees')
 # 字典推导式
-image_datasets = {x: datasets.ImageFolder(data_dir / x, data_transforms[x]) for x in ['train', 'val']}
+image_datasets = {x: datasets.ImageFolder(data_dir/x, data_transforms[x]) for x in ['train', 'val']}
 dataloaders = {x: DataLoader(image_datasets[x], batch_size=4, shuffle=True) for x in ['train', 'val']}
 dataset_sizes = {x: len(image_datasets[x]) for x in ['train', 'val']}
 class_names = image_datasets['train'].classes
