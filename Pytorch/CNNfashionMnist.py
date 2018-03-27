@@ -9,11 +9,11 @@
 """
 
 import matplotlib.pyplot as plt
-from getdata import get_fashionMnist
+from utils.getdata import get_fashionMnist
 from torch import nn, optim
 from torch.nn import Module, functional as F
 from tqdm import tqdm
-from train_eval import test_m, train_m
+from utils.train_eval import test_m, train_m
 
 
 # 网络结构定义

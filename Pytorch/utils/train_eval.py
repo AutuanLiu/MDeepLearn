@@ -15,7 +15,7 @@ import torch
 torch.manual_seed(5)
 
 # from utils import gpu_t
-from gpu import gpu_t
+from .gpu import gpu_t
 
 
 # train function and test function
