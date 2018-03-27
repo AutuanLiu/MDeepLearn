@@ -53,8 +53,10 @@ def train_m(mod, data_loader):
         loss.backward()
         optimizer.step()
         if batch_idx % 10 == 0:
-            print('Train Epoch: {} [{:5d}/{} ({:2.0f}%)]\tLoss: {:.6f}'.format(epoch + 1, batch_idx * len(data), len(data_loader.dataset),
-                                                                               100. * batch_idx / len(data_loader), loss.data[0]))
+            len1 = batch_idx * len(data)
+            len2 = len(data_loader.dataset)
+            pec = 100. * batch_idx / len(data_loader)
+            print(f"Train Epoch: {epoch + 1} [{len1:5d}/{len2:5d} ({pec:3.2f}%)] \t Loss: {loss.data[0]:.5f}")
 
 
 def test_m(mod, data_loader):
