@@ -98,7 +98,7 @@ def train_model(model, criterion, optimizer, scheduler, num_epochs=50):
     Parameters:
     ----------
     model : nn.Module object
-    criterion : {nn.Module object
+    criterion : nn.Module object
         损失函数
     optimizer : optim object
         优化器
