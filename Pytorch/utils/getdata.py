@@ -9,7 +9,7 @@
 
 from torch.utils.data import DataLoader
 from torchvision import transforms
-from torchvision.datasets import FashionMNIST, MNIST
+from torchvision.datasets import MNIST, FashionMNIST
 
 
 # 获取数据
