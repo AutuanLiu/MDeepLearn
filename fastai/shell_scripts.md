@@ -8,8 +8,15 @@
     - [if-then](#if-then)
     - [case](#case)
     - [for](#for)
+        - [从变量读取列表](#%E4%BB%8E%E5%8F%98%E9%87%8F%E8%AF%BB%E5%8F%96%E5%88%97%E8%A1%A8)
+        - [从命令读取值](#%E4%BB%8E%E5%91%BD%E4%BB%A4%E8%AF%BB%E5%8F%96%E5%80%BC)
+        - [用通配符读取目录](#%E7%94%A8%E9%80%9A%E9%85%8D%E7%AC%A6%E8%AF%BB%E5%8F%96%E7%9B%AE%E5%BD%95)
+        - [C 语言的 for 命令](#c-%E8%AF%AD%E8%A8%80%E7%9A%84-for-%E5%91%BD%E4%BB%A4)
     - [while](#while)
-    - [function](#function)
+    - [until](#until)
+    - [嵌套](#%E5%B5%8C%E5%A5%97)
+    - [循环处理文件数据](#%E5%BE%AA%E7%8E%AF%E5%A4%84%E7%90%86%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE)
+    - [控制循环](#%E6%8E%A7%E5%88%B6%E5%BE%AA%E7%8E%AF)
 # Shell scripts
 ## Notes
 ```bash
@@ -373,9 +380,300 @@ Welcome, rich
 Please enjoy your visit
 $
 ```
+```bash
+  case $mode in
+    # Optimize common cases.
+    *644) cp_umask=133;;
+    *755) cp_umask=22;;
+
+    *[0-7])
+      if test -z "$stripcmd"; then
+        u_plus_rw=
+      else
+        u_plus_rw='% 200'
+      fi
+      cp_umask=`expr '(' 777 - $mode % 1000 ')' $u_plus_rw`;;
+    *)
+      if test -z "$stripcmd"; then
+        u_plus_rw=
+      else
+        u_plus_rw=,u+rw
+      fi
+      cp_umask=modeu_plus_rw;;
+  esac
+fi
+
+for src
+do
+  # Protect names problematic for 'test' and other utilities.
+  case $src in
+    -* | [=\(\)!]) src=./$src;;
+  esac
+```
 
 ## for
+```bash
+for var in list
+do
+commands
+done
+```
+
+* 在do和done语句之间输入的命令可以是一条或多条标准的bash shell命令。在这些命令中，$var变量包含着这次迭代对应的当前列表项中的值
+
+```bash
+for test in Alabama Alaska Arizona Arkansas California Colorado
+do
+echo The next state is $test
+done
+```
+
+* 在最后一次迭代后， $test变量的值会在shell脚本的剩余部分一直保持有效。它会一直保持最后一次迭代的值（除非你修改了它）
+* $test变量保持了其值，也允许我们修改它的值，并在for命令循环之外跟其他变量一样使用
+* shell看到了列表值中的单引号并尝试使用它们来定义一个单独的数据值
+* 使用转义字符（反斜线）来将单引号转义；
+* 使用双引号来定义用到单引号的值
+* for循环假定每个值都是用空格分割的。如果有包含空格的数据值，你就陷入麻烦了
+* 如果在单独的数据值中有空格，就必须用双引号将这些值圈起来。
+
+```bash
+for test in I don\'t know if "this'll" work
+do
+echo "word:$test"
+done
+$ ./test2
+word:I
+word:don't
+word:know
+word:if
+word:this'll
+word:work
+```
+```bash
+for test in Nevada "New Hampshire" "New Mexico" "New York"
+do
+echo "Now going to $test"
+done
+```
+* 在某个值两边使用双引号时， shell 并不会将双引号当成值的一部分
+
+### 从变量读取列表
+```bash
+list="Alabama Alaska Arizona Arkansas Colorado"
+list=$list" Connecticut"
+for state in $list
+do
+echo "Have you ever visited $state?"
+done
+$ ./test4
+Have you ever visited Alabama?
+Have you ever visited Alaska?
+Have you ever visited Arizona?
+Have you ever visited Arkansas?
+Have you ever visited Colorado?
+Have you ever visited Connecticut?
+$
+```
+* 代码还是用了另一个赋值语句向$list变量包含的已有列表中添加（或者说是拼接）了一个值。这是向变量中存储的已有文本字符串尾部添加文本的一个常用方法。
+
+### 从命令读取值
+```bash
+file="states"
+for state in $(cat $file)
+do
+echo "Visit beautiful $state"
+done
+```
+* 默认情况下， bash shell会将下列字符当作字段分隔符：
+    * 空格
+    * 制表符
+    * 换行符
+* 如果bash shell在数据中看到了这些字符中的任意一个，它就会假定这表明了列表中一个新数据字段的开始。
+
+`IFS=$'\n'` 将这个语句加入到脚本中，告诉bash shell在数据值中忽略空格和制表符。
+```bash
+file="states"
+IFS=$'\n'
+for state in $(cat $file)
+do
+echo "Visit beautiful $state"
+done
+```
+
+```
+一个可参考的安全实践是在改变IFS之前保存原来的IFS值，之后再恢复它。
+
+IFS.OLD=$IFS
+IFS=$'\n'
+<在代码中使用新的IFS值>
+IFS=$IFS.OLD
+这就保证了在脚本的后续操作中使用的是IFS的默认值。
+```
+```
+IFS=:
+如果要指定多个IFS字符，只要将它们在赋值行串起来就行。
+IFS=$'\n':;"
+这个赋值会将换行符、冒号、分号和双引号作为字段分隔符。如何使用IFS字符解析数据没有任何限制
+```
+
+### 用通配符读取目录
+可以用for命令来自动遍历目录中的文件。进行此操作时，必须在文件名或路径名中使用通配符。它会强制shell使用文件扩展匹配。文件扩展匹配是生成匹配指定通配符的文件名
+或路径名的过程
+
+```bash
+for file in /home/rich/test/*
+do
+if [ -d "$file" ]
+then
+echo "$file is a directory"
+elif [ -f "$file" ]
+then
+echo "$file is a file"
+fi
+done
+```
+
+在Linux中，目录名和文件名中包含空格当然是合法的。要适应这种情况，应该将$file变量用双引号圈起来。如果不这么做，遇到含有空格的目录名或
+文件名时就会有错误产生。
+* 在test命令中， bash shell会将额外的单词当作参数，进而造成错误
+
+### C 语言的 for 命令
+```bash
+for (( a = 1; a < 10; a++ ))
+```
+* 注意，有些部分并没有遵循bash shell标准的for命令：
+    * 变量赋值可以有空格；
+    * 条件中的变量不以美元符开头；
+    * 迭代过程的算式未用expr命令格式
+
+```bash
+for (( i=1; i <= 10; i++ ))
+do
+echo "The next number is $i"
+done
+```
+
+* 尽管可以使用多个变量，但你只能在for循环中定义一种条件
+
+```bash
+for (( a=1, b=10; a <= 10; a++, b-- ))
+do
+echo "$a - $b"
+done
+```
+
+
 
 ## while
 
-## function
+while命令允许定义一个要测试的命令，然后循环执行一组命令，只要定义的测试命令返回的是退出状态码0。它会在每次迭代的
+一开始测试test命令。在test命令返回非零退出状态码时， while命令会停止执行那组命令。
+
+```bash
+while test command
+do
+other commands
+done
+```
+
+while命令的关键在于所指定的test command的退出状态码必须随着循环中运行的命令而改变。如果退出状态码不发生变化， while循环就将一直不停地进行下去
+
+```bash
+while [ $var1 -gt 0 ]
+do
+echo $var1
+var1=$[ $var1 - 1 ]
+done
+```
+* while命令允许你在while语句行定义多个测试命令。只有最后一个测试命令的退出状态码会被用来决定什么时候结束循环
+
+```bash
+var1=10
+while echo $var1
+[ $var1 -ge 0 ]
+do
+echo "This is inside the loop"
+var1=$[ $var1 - 1 ]
+done
+```
+
+## until
+until命令和while命令工作的方式完全相反。 until命令要求你指定一个通常返回非零退出状态码的测试命令
+
+```bash
+until test commands
+do
+other commands
+done
+```
+* 和while命令类似，你可以在until命令语句中放入多个测试命令
+
+```bash
+var1=100
+until [ $var1 -eq 0 ]
+do
+echo $var1
+var1=$[ $var1 - 25 ]
+done
+```
+
+## 嵌套
+```bash
+for (( a = 1; a <= 3; a++ ))
+do
+echo "Starting loop $a:"
+for (( b = 1; b <= 3; b++ ))
+do
+echo " Inside loop: $b"
+done
+done
+```
+## 循环处理文件数据
+```bash
+#!/bin/bash
+# changing the IFS value
+IFS.OLD=$IFS
+IFS=$'\n'
+for entry in $(cat /etc/passwd)
+do
+echo "Values in $entry –"
+IFS=:
+for value in $entry
+do
+echo " $value"
+done
+done
+```
+## 控制循环
+* break命令是退出循环的一个简单方法。可以用break命令来退出任意类型的循环，包括while和until循环
+
+```bash
+for var1 in 1 2 3 4 5 6 7 8 9 10
+do
+if [ $var1 -eq 5 ]
+then
+break
+fi
+echo "Iteration number: $var1"
+done
+echo "The for loop is completed"
+```
+* 在处理多个循环时， break命令会自动终止你所在的最内层的循环
+* `break n` 其中n指定了要跳出的循环层级。默认情况下， n为1，表明跳出的是当前的循环。如果你将 n设为2， break命令就会停止下一级的外部循环
+
+```bash
+for (( a = 1; a < 4; a++ ))
+do
+echo "Outer loop: $a"
+for (( b = 1; b < 100; b++ ))
+do
+if [ $b -gt 4 ]
+then
+break 2
+fi
+echo " Inner loop: $b"
+done
+done
+```
+* continue命令可以提前中止某次循环中的命令，但并不会完全终止整个循环
+

@@ -156,6 +156,8 @@ $ cd MDeepLearn
 3. 博客 [Sasank's Blog](http://chsasank.github.io/)
 4. 在线书籍[《Python进阶》](http://docs.pythontab.com/interpy/)
 5. Fast.ai 在线学习网站(推荐)[fast.ai · Making neural nets uncool again](http://www.fast.ai/)
+6. [Python魔法方法指南](http://pyzh.readthedocs.io/en/latest/python-magic-methods-guide.html)
+7. [Object serialization in Python](https://medium.com/the-python-corner/object-serialization-in-python-1d49c6ad071)
 
 ### 参考书籍
 
