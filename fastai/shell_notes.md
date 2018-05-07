@@ -279,58 +279,58 @@ $
 
 
 ## Command
-name|grammer|function|example
-:---:|:---:|:---:|:---:
-pwd |pwd|查看当前目录|\
-ls|ls -options|显示当前目录下的文件和目录|ls -a, ls -F -R, ls -l, ll
-touch|touch name|创建文件|touch test_one
-cp|cp source destination|将文件和目录从一个位置复制到另一个位置|\
-ln|ln -s data_file sl_data_file|创建符号链接|ln -s data_file sl_data_file|
-ln|ln code_file hl_code_file|创建硬链接|ln code_file hl_code_file
-mv|mv fall fzll|将文件和目录移动到另一个位置或重新命名|mv fall fzll, mv fzll Pictures/
-rm|rm -i fall|删除文件|rm -i fall
-mkdir|mkdir -option name|同时创建多个目录和子目录或者单个目录|mkdir -p New_Dir/Sub_Dir/Under_Dir
-rmdir|rmdir name|删除目录|rmdir New_Dir
-tree|tree name|它能够以一种美观的方式展示目录、子目录及其中的文件|tree Small_Dir
-file|file name|探测文件的内部，并决定文件是什么类型的|file my_file
-cat|cat test1|显示文本文件中所有数据|cat test1
-more|||
-less|||
-tail|tail log_file|显示文件最后几行的内容|tail log_file
-head|head log_file|显示文件开头10行|head log_file
-ps -ef||查看系统上运行的所有进程|
-top|||
-kill|kill 3940|结束进程|kill 3940
-killall|killall http*|命令结束了所有以http开头的进程|killall http*
-mount|mount -t type device directory|mount命令会输出当前系统上挂载的设备列表|mount -t type device directory
-umount|umount [directory | device ]|卸载|umount /home/rich/mnt
-df|df -h|某个设备上还有多少磁盘空间|df -h
-du||显示某个特定目录（默认情况下是当前目录）的磁盘使用情况|
-sort||sort命令是对数据进行排序的|sort file1
-grep|grep [options] pattern [file]|搜索数据|grep three file1
-gzip|gzip myprog|压缩你在命令行指定的文件|gzip myprog
-tar|tar function [options] object1 object2|归档数据|tar function [options] object1 object2
-sleep 10|sleep 10|命令sleep 10会将会话暂停10秒钟|sleep 10
-jobs||显示后台作业信息|jobs
-which ps|||
-type -a ps|||
-history||可以唤回这些命令并重新使用|
-alias|alias -p |查看当前可用的别名|alias li='ls -li'
-printenv or env||查看全局变量|env
-set||显示为某个特定进程设置的所有环境变量，包括局部变量、全局变量以及用户定义变量|set
-useradd|||
-userdel|||
-usermod|||
-passwd|||
-chpasswd|||
-chsh|||
-chfn|||
-chage|||
-chmod|chmod options mode file|改变文件和目录的安全性设置|chmod 760 newfile
-chown|chown options owner[.group] file|改变文件的默认属组|chown dan newfile
-chgrp||更改文件或目录的默认属组|chgrp shared newfile
-fdisk||管理安装在系统上的任何存储设备上的分区|
-date|data|显示了当前日期和时间|date
-who||显示当前是谁登录到了系统上|
-set||显示一份完整的当前环境变量列表|
+| name            | grammer                                                                      | function                                           | example                                |
+| :-------------: | :--------------------------------------------------------------------------: | :------------------------------------------------: | :------------------------------------: |
+| pwd             | pwd                                                                          | 查看当前目录                                       | \                                      |
+| ls              | ls -options                                                                  | 显示当前目录下的文件和目录                         | ls -a, ls -F -R, ls -l, ll             |
+| touch           | touch name                                                                   | 创建文件                                           | touch test_one                         |
+| cp              | cp source destination                                                        | 将文件和目录从一个位置复制到另一个位置             | \                                      |
+| ln              | ln -s data_file sl_data_file                                                 | 创建符号链接                                       | ln -s data_file sl_data_file           |
+| ln              | ln code_file hl_code_file                                                    | 创建硬链接                                         | ln code_file hl_code_file              |
+| mv              | mv fall fzll                                                                 | 将文件和目录移动到另一个位置或重新命名             | mv fall fzll, mv fzll Pictures/        |
+| rm              | rm -i fall                                                                   | 删除文件                                           | rm -i fall                             |
+| mkdir           | mkdir -option name                                                           | 同时创建多个目录和子目录或者单个目录               | mkdir -p New_Dir/Sub_Dir/Under_Dir     |
+| rmdir           | rmdir name                                                                   | 删除目录                                           | rmdir New_Dir                          |
+| tree            | tree name                                                                    | 它能够以一种美观的方式展示目录、子目录及其中的文件 | tree Small_Dir                         |
+| file            | file name                                                                    | 探测文件的内部，并决定文件是什么类型的             | file my_file                           |
+| cat             | cat test1                                                                    | 显示文本文件中所有数据                             | cat test1                              |
+| more            |
+| less            |
+| tail            | tail log_file                                                                | 显示文件最后几行的内容                             | tail log_file                          |
+| head            | head log_file                                                                | 显示文件开头10行                                   | head log_file                          |
+| ps -ef          | 查看系统上运行的所有进程                                                     |
+| top             |
+| kill            | kill 3940                                                                    | 结束进程                                           | kill 3940                              |
+| killall         | killall http*                                                                | 命令结束了所有以http开头的进程                     | killall http*                          |
+| mount           | mount -t type device directory                                               | mount命令会输出当前系统上挂载的设备列表            | mount -t type device directory         |
+| umount          | umount [directory                                                            | device ]                                           | 卸载                                   | umount /home/rich/mnt |
+| df              | df -h                                                                        | 某个设备上还有多少磁盘空间                         | df -h                                  |
+| du              | 显示某个特定目录（默认情况下是当前目录）的磁盘使用情况                       |
+| sort            | sort命令是对数据进行排序的                                                   | sort file1                                         |
+| grep            | grep [options] pattern [file]                                                | 搜索数据                                           | grep three file1                       |
+| gzip            | gzip myprog                                                                  | 压缩你在命令行指定的文件                           | gzip myprog                            |
+| tar             | tar function [options] object1 object2                                       | 归档数据                                           | tar function [options] object1 object2 |
+| sleep 10        | sleep 10                                                                     | 命令sleep 10会将会话暂停10秒钟                     | sleep 10                               |
+| jobs            | 显示后台作业信息                                                             | jobs                                               |
+| which ps        |
+| type -a ps      |
+| history         | 可以唤回这些命令并重新使用                                                   |
+| alias           | alias -p                                                                     | 查看当前可用的别名                                 | alias li='ls -li'                      |
+| printenv or env | 查看全局变量                                                                 | env                                                |
+| set             | 显示为某个特定进程设置的所有环境变量，包括局部变量、全局变量以及用户定义变量 | set                                                |
+| useradd         |
+| userdel         |
+| usermod         |
+| passwd          |
+| chpasswd        |
+| chsh            |
+| chfn            |
+| chage           |
+| chmod           | chmod options mode file                                                      | 改变文件和目录的安全性设置                         | chmod 760 newfile                      |
+| chown           | chown options owner[.group] file                                             | 改变文件的默认属组                                 | chown dan newfile                      |
+| chgrp           | 更改文件或目录的默认属组                                                     | chgrp shared newfile                               |
+| fdisk           | 管理安装在系统上的任何存储设备上的分区                                       |
+| date            | data                                                                         | 显示了当前日期和时间                               | date                                   |
+| who             | 显示当前是谁登录到了系统上                                                   |
+| set             | 显示一份完整的当前环境变量列表                                               |
 
