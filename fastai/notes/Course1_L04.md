@@ -26,11 +26,22 @@ Date: 2018/05/08
 2. As far as intuition goes, conventional wisdom says we have to keep decreasing the LR as training progresses so that we converge with time.However, counterintuitively it might be useful to periodically vary the LR between a lower and higher threshold. The reasoning is that the periodic higher learning rates within the training help the model come out of any local minimas or saddle points if it ever enters into one.
 3. The takeaway is that you should not be using smaller networks because you are afraid of overfitting. Instead, you should use as big of a neural network as your computational budget allows, and use other regularization techniques to control overfitting。 不能因为害怕过拟合而使用较小的网络而应当使用较大的网路然后使用正则化技术来避免过拟合。
 4. A starking trend has been to make the layers deeper, with VGG taking it to 19, and GoogLeNet taking it to 22 layers in 2014. (Note that making layers wider by adding more nodes is not preferred since it has been seen to overfit.)
-5. 网络层数变化
+5. 网络层数变化  
     
     ![网络层数变化][1]
-
 6. It is well known that increasing the depth leads to exploding or vanishing gradients problem if weights are not properly initialized. However, that can be countered by techniques like batch normalization.
+7. A Shallow network (left) and a deeper network (right) constructed by taking the layers of the shallow network and adding identity layers between them
+    
+    ![shallow and deeper network][3]
+8. A residual is the error in a result. In essence, residual is what you should have added to your prediction to match the actual.
+    
+    ![residual][2]
+
+In the diagram, x is our prediction and we want it to be equal to the Actual. However, if is it off by a margin, our residual function residual() will kick in and produce the residual of the operation so as to correct our prediction to match the actual. If x == Actual, residual(x) will be 0. The Identity function just copies x
+
+9. ResNet arch with 34 layers.
+
+    ![ResNet arch with 34 layers][4]
 
 
 [1]: http://ozesj315m.bkt.clouddn.com/img/12-revolution-of-depth.png
