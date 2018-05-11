@@ -81,6 +81,46 @@ wc -l *
 16. [A friendly introduction to Convolutional Neural Networks and Image Recognition - YouTube](https://www.youtube.com/watch?v=2-Ol7ZB0MmU)
 17. [computer vision - Convolutional Neural Networks - Multiple Channels - Stack Overflow](https://stackoverflow.com/questions/27728531/convolutional-neural-networks-multiple-channels)
 18. [Wiki: Lesson 3 - Part 1 - Deep Learning Course Forums](http://forums.fast.ai/t/wiki-lesson-3/9401)
+19. As well as looking at the overall metrics, it's also a good idea to look at examples of each of:
+    1.A few correct labels at random 随机查看正确预测
+    2.A few incorrect labels at random 随机查看不正确的预测
+    3.The most correct labels of each class (ie those with highest probability that are correct) 正确率较高的预测
+    4.The most incorrect labels of each class (ie those with highest probability that are incorrect) 错误率较高的预测
+    5.The most uncertain labels (ie those with probability closest to 0.5). 不确定的预测
+
+20. 代码一定要越简单越好
+21. **使用 CLR 寻找最优的学习率 使用SGDR来更新学习率**
+22. 学习率设置组
+
+**Note that the other layers have *already* been trained to recognize imagenet photos (whereas our final layers where randomly initialized), so we want to be careful of not destroying the carefully tuned weights that are already there.**
+
+Generally speaking, the earlier layers (as we've seen) have **more general-purpose features**. Therefore we would expect them to need *less fine-tuning* for new datasets. For this reason we will *use different learning rates for different layers*: the first few layers will be at 1e-4, the middle layers at 1e-3, and our FC layers we'll leave at 1e-2 as before. We refer to this as *differential learning rates*, although there's no standard name for this techique in the literature that we're aware of. 前面的学习率是更通用的所以我们希望更少的调整所以给他们的学习率设置较小 通常认为学习率小的话对应着对他们原来权重的信任度较大
+
+23. The learning rates of the earlier layers are fixed at the same multiples of the final layer rates as we initially requested。 我们一直调整的是最后的一层的学习率 而之前层次的学习率一直和最后层保持着一定的倍数关系。
+24. 预测的时候也要做扩充 然后使用平均值作为最后的预测结果
+
+19. 代码
+```python
+os.listdir(f'{PATH}valid') # 查看当前文件夹下的内容
+np.where()
+np.choice()
+>>> a = np.array([1, 2, 3])
+>>> b = np.array([2, 3, 4])
+>>> np.stack((a, b), axis=-1)
+array([[1, 2],
+       [2, 3],
+       [3, 4]])
+
+
+# 画图工具
+def plots(ims, figsize=(12,6), rows=1, titles=None):
+    f = plt.figure(figsize=figsize)
+    for i in range(len(ims)):
+        sp = f.add_subplot(rows, len(ims)//rows, i+1)
+        sp.axis('Off')
+        if titles is not None: sp.set_title(titles[i], fontsize=16)
+        plt.imshow(ims[i])
+```
 
 ## Structured Data
 * Unstructured data: images, audio, natural language text
