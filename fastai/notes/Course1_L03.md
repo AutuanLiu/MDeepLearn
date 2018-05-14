@@ -20,6 +20,7 @@ Date: 2018/05/07
 10. [Deep Learning 2: Part 1 Lesson 2 – Hiromi Suenaga – Medium](https://medium.com/@hiromi_suenaga/deep-learning-2-part-1-lesson-2-eeae2edd2be4)
 11. [Annotated notebook](http://forums.fast.ai/uploads/default/original/2X/b/b01dffa62debfb8450fb9a3969d650645c54a3aa.pdf)
 12. [DeepLearning-LecNotes2 - Part 1 - Deep Learning Course Forums](http://forums.fast.ai/t/deeplearning-lecnotes2/7515/10)
+13. [precompute=True - Part 1 - Deep Learning Course Forums](http://forums.fast.ai/t/precompute-true/7316/50)
 
 ## 符号链接 Symbolic Links
 ```bash
@@ -98,7 +99,25 @@ Generally speaking, the earlier layers (as we've seen) have **more general-purpo
 
 23. The learning rates of the earlier layers are fixed at the same multiples of the final layer rates as we initially requested。 我们一直调整的是最后的一层的学习率 而之前层次的学习率一直和最后层保持着一定的倍数关系。
 24. 预测的时候也要做扩充 然后使用平均值作为最后的预测结果
+25. 精度 `dogs vs cats`
 
+| arch      | acc   |
+| --------- | ----- |
+| resnet34  | 99.4% |
+| resnext50 | 99.55% |
+| vgg       | 99.5% |
+
+26. 网络可视化
+    1. [vgg-16](http://ethereon.github.io/netscope/#/preset/vgg-16)
+    2. [Network in network](http://ethereon.github.io/netscope/#/preset/nin)
+    3. [GoogleNet](http://ethereon.github.io/netscope/#/preset/googlenet)
+    4. [AlexNet](http://ethereon.github.io/netscope/#/preset/alexnet)
+    5. [CaffeNet](http://ethereon.github.io/netscope/#/preset/caffenet)
+    6. [Fully Convolutional Network — Three Stream](http://ethereon.github.io/netscope/#/preset/fcn-8s-pascal)
+
+27. 常见结构
+
+![resnet structure](http://ozesj315m.bkt.clouddn.com/img/resnet1.png)
 19. 代码
 ```python
 os.listdir(f'{PATH}valid') # 查看当前文件夹下的内容
