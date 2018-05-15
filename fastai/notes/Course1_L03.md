@@ -118,6 +118,18 @@ Generally speaking, the earlier layers (as we've seen) have **more general-purpo
 27. 常见结构
 
 ![resnet structure](http://ozesj315m.bkt.clouddn.com/img/resnet1.png)
+
+28. F 分数
+
+$$
+F = (1+\beta^2)\times\frac{\text{Precision}\times\text{Recall}}{\beta^2\times\text{Presision}+\text{Recall}}
+$$
+当 $\beta=1$ 时，称为 `F1-score`，这时，精确率和召回率都很重要，权重相同。当有些情况下，我们认为精确率更重要些，那就调整 $\beta$ 的值小于1，如果我们认为召回率更重要些，那就调整 $\beta$ 的值大于1。
+
+当 $\beta=2$ 时，称为 `F2-score`
+
+29.  `inputs * weights = activations`
+
 19. 代码
 ```python
 os.listdir(f'{PATH}valid') # 查看当前文件夹下的内容

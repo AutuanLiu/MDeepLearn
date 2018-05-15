@@ -4,6 +4,14 @@ Date: 2018/05/08
 ```
 # Notes
 
+## Task
+
+- [ ] video
+- [ ] ipynote
+- [ ] running code
+- [ ] [lesson_4_x.md][5]
+- [ ] [wiki lesson4][6]
+
 ## 学习资料
 1. [fastai_deeplearn_part1/lesson_4_x.md at master · reshamas/fastai_deeplearn_part1](https://github.com/reshamas/fastai_deeplearn_part1/blob/master/courses/dl1/lesson_4_x.md)
 2. [An Introduction to Deep Learning for Tabular Data · fast.ai](http://www.fast.ai/2018/04/29/categorical-embeddings/)
@@ -48,3 +56,5 @@ In the diagram, x is our prediction and we want it to be equal to the Actual. Ho
 [2]: http://ozesj315m.bkt.clouddn.com/img/12-residual3.png
 [3]: http://ozesj315m.bkt.clouddn.com/img/12-shallow-deep.png
 [4]: http://ozesj315m.bkt.clouddn.com/img/12-resnet-vgg.png
+[5]: https://github.com/reshamas/fastai_deeplearn_part1/blob/master/courses/dl1/lesson_4_x.md
+[6]: http://forums.fast.ai/t/wiki-lesson-4/8112
