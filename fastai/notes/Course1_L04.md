@@ -27,6 +27,7 @@ Date: 2018/05/08
 12. [Network In Network architecture: The beginning of Inception // teleported.in](http://teleported.in/posts/network-in-network/)
 13. [Decoding the ResNet architecture // teleported.in](http://teleported.in/posts/decoding-resnet-architecture/)
 14. [CS231n Convolutional Neural Networks for Visual Recognition](http://cs231n.github.io/neural-networks-1/#arch)
+15. [文件下载路径](http://files.fast.ai/data/)
 
 
 ## 笔记
