@@ -30,3 +30,19 @@ print(model)
 # 要在不同的输入上共享同一个层，只需实例化该层一次，然后根据需要传入你想要的输入即可
 # 每当你在某个输入上调用一个层时，都将创建一个新的张量（层的输出），并且为该层添加一个节点，将输入张量连接到输出张量
 
+# 实例 1
+# 作为 Sequential 模型的第一层
+# model = Sequential()
+# model.add(Dense(32, input_shape=(16,)))
+# 现在模型就会以尺寸为 (*, 16) 的数组作为输入，
+# 其输出数组的尺寸为 (*, 32)
+
+# 在第一层之后，你就不再需要指定输入的尺寸了：
+# model.add(Dense(32))
+
+# data_format 其值为 channels_last(default) 或者 channels_first
+# channels_last: (batch ... channels)
+# channels_first: (batch channels ... )
+# 默认为 image_data_format 的值，你可以在 Keras 的配置文件 ~/.keras/keras.json 中找到它。如果你从未设置过它，那么它将是 channels_last
+# keras.layers.Permute(dims) # 根据给定的模式置换输入的维度
+# RMSprop 是训练神经网络中的 RNN 的不错选择

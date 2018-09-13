@@ -43,7 +43,7 @@ model.add(Activation('softmax'))
 # 编译模型
 # 包括 优化器 + 损失函数 + 评估标准
 # 这些参数都可以是现有方法的字符串标识符也可以是具体类的实现或者函数
-model.compile('rmsprop', loss='categorical_crossentropy', metrics=['accuracy'])
+model.compile('rmsprop', loss='categorical_crossentropy', metrics=['categorical_accuracy'])
 
 # 训练模型
 # 在验证集的误差不再下降时, 使用 earlystopping 中断训练
@@ -53,6 +53,7 @@ early_stopping = EarlyStopping(monitor='val_loss', patience=2)
 hist = model.fit(x_train, y_train, epochs=50, batch_size=64, validation_split=0.2, callbacks=[early_stopping])
 print(hist.history)
 model.summary()
+keras.utils.plot_model(model, to_file='./keras/model.png')
 
 # 评估模型
 score = model.evaluate(x_test, y_test)
