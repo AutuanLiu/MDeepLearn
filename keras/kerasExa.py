@@ -3,7 +3,7 @@
 """
 -------------------------------------------------
    File Name：kerasexa
-   Description :  Keras 案例
+   Description: Keras 案例
    https://keras.io/getting-started/sequential-model-guide/
    Email : autuanliu@163.com
    Date：2018/1/1
