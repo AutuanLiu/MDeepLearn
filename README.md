@@ -80,17 +80,6 @@ $ cd MDeepLearn
     * LSTM
     * DNN
     * autoEncoder
-    * ResNet
-    * AlexNet
-    * GoogLeNet
-    * DenseNet
-    * VGGNet
-    * LeNet
-    * BiNet
-    * Word2Vec
-    * Q-Learn
-    * GAN
-    * Graph-CNN
 * [env config](env_configure.sh)
     * ubuntu 一键环境配置
     * 云服务器同样可用
@@ -142,13 +131,13 @@ $ cd MDeepLearn
 20. [How to handle Imbalanced Classification Problems in machine learning?](https://www.analyticsvidhya.com/blog/2017/03/imbalanced-classification-problem/)
 21. [Understanding Neural Networks Through Deep Visualization](http://yosinski.com/deepvis)
 22. [deep-visualization-toolbox: DeepVis Toolbox](https://github.com/yosinski/deep-visualization-toolbox)
-24. [Simplified implementations of deep learning related works](https://github.com/exacity/simplified-deeplearning)
-25. [Deep Learning Book Chinese Translation](https://github.com/exacity/deeplearningbook-chinese)
-26. [Essential Cheat Sheets for deep learning and machine learning researchers](https://github.com/kailashahirwar/cheatsheets-ai)
-27. [Practical Business Python](http://pbpython.com/)
-28. [Distill — Latest articles about machine learning](https://distill.pub/)
-29. 原理可视化: [Setosa data visualization and visual explanations](http://setosa.io/#/)
-30. 神经网络总结: [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/)
+23. [Simplified implementations of deep learning related works](https://github.com/exacity/simplified-deeplearning)
+24. [Deep Learning Book Chinese Translation](https://github.com/exacity/deeplearningbook-chinese)
+25. [Essential Cheat Sheets for deep learning and machine learning researchers](https://github.com/kailashahirwar/cheatsheets-ai)
+26. [Practical Business Python](http://pbpython.com/)
+27. [Distill — Latest articles about machine learning](https://distill.pub/)
+28. 原理可视化: [Setosa data visualization and visual explanations](http://setosa.io/#/)
+29. 神经网络总结: [Neural networks and deep learning](http://neuralnetworksanddeeplearning.com/)
 
 ### 学习链接
 1. [PyTorch 官方实例](https://github.com/pytorch/examples)
