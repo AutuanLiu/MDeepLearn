@@ -33,7 +33,7 @@ y_test = keras.utils.to_categorical(y_test, num_classes=10)
 
 # 或者
 model = Sequential()
-model.add(Dense(32, input_shape=(28*28,))) # 在第一层指定输入的维度，因为后面的层可以自动推断输入维度
+model.add(Dense(32, input_shape=(28 * 28, )))    # 在第一层指定输入的维度，因为后面的层可以自动推断输入维度
 # input_shape 和 input_dim 参数是等价的
 model.add(Activation('relu'))
 model.add(Dropout(0.5))
@@ -77,6 +77,6 @@ print(yaml_str)
 # frozen_layer.trainable = True
 # 可以在实例化之后将网络层的 trainable 属性设置为 True 或 False。为了使之生效，在修改 trainable 属性之后，需要在模型上调用 compile()
 
-# 使 RNN 具有状态意味着每批样品的状态将被重新用作下一批样品的初始状态
-# 可以通过调用 .pop() 来删除 Sequential 模型中最后添加的层
-# 可以使用 keras.applications 模块进行导入预训练的模型
+    # 使 RNN 具有状态意味着每批样品的状态将被重新用作下一批样品的初始状态
+    # 可以通过调用 .pop() 来删除 Sequential 模型中最后添加的层
+    # 可以使用 keras.applications 模块进行导入预训练的模型

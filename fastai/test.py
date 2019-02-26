@@ -1,6 +1,6 @@
 import fastai
-from fastai import *          # Quick access to most common functionality
-from fastai.vision import *   # Quick access to computer vision functionality
+from fastai import *    # Quick access to most common functionality
+from fastai.vision import *    # Quick access to computer vision functionality
 
 torch.backends.cudnn.benchmark = True
 path = untar_data(URLs.MNIST_SAMPLE)

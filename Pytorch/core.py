@@ -25,7 +25,7 @@ print(z1.requires_grad)
 # 2. 当在维度大小上迭代时，从后面的维度开始，维度大小必须是相等的，或者其中一个是 1，或者其中一个不存在。
 # 3. 相同大小的张量一定是可以广播的
 x1 = torch.randn(5, 3, 4, 1)
-y1 = torch.randn(   3, 1, 1)
+y1 = torch.randn(3, 1, 1)
 print(x1, y1, x1 + y1)
 # x and y are broadcastable.
 # 1st trailing dimension: both have size 1
@@ -34,15 +34,15 @@ print(x1, y1, x1 + y1)
 # 4th trailing dimension: y dimension doesn't exist
 
 # but:
-x = torch.empty(5,2,4,1)
-y = torch.empty(  3,1,1)
+x = torch.empty(5, 2, 4, 1)
+y = torch.empty(3, 1, 1)
 # x and y are not broadcastable, because in the 3rd trailing dimension 2 != 3
 # 广播计算后使用最大的维度作为最终的结果
 print(x1.add_(y1))
 
-y2 = torch.add(torch.ones(4,1), torch.randn(4))
+y2 = torch.add(torch.ones(4, 1), torch.randn(4))
 print(y2)
-y3 = torch.add(torch.ones(4,1), torch.randn(4, 1))
+y3 = torch.add(torch.ones(4, 1), torch.randn(4, 1))
 print(y3)
 
 # 一旦一个张量被分配，你就可以对它进行操作，不管选择的设备是什么，结果总是会被放置在与 tensor 相同的设备上
@@ -62,6 +62,7 @@ print(y_cpu)
 y_cpu = torch.ones_like(x)
 print(y_cpu)
 
+
 # Extending torch.autograd
 # Inherit from Function
 class LinearFunction(Function):
@@ -69,7 +70,7 @@ class LinearFunction(Function):
     @staticmethod
     # bias is an optional argument
     def forward(ctx, input, weight, bias=None):
-        ctx.save_for_backward(input, weight, bias) # 先执行这一句
+        ctx.save_for_backward(input, weight, bias)    # 先执行这一句
         output = input.mm(weight.t())
         if bias is not None:
             output += bias.unsqueeze(0).expand_as(output)
@@ -98,5 +99,6 @@ class LinearFunction(Function):
             grad_bias = grad_output.sum(0).squeeze(0)
 
         return grad_input, grad_weight, grad_bias
+
 
 # Module 的扩充需要实现 __init__() 和 forward()
